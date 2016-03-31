@@ -17,6 +17,7 @@
 		<module>jul</module>
 		<module>log4j</module>
 		<module>slf4j</module>
+		<module>logservice</module>
 	</modules>
 
 	<properties></properties>
@@ -46,6 +47,11 @@
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
 				<version>1.7.20</version>
+			</dependency>
+			<dependency>
+				<groupId>org.osgi</groupId>
+				<artifactId>org.osgi.compendium</artifactId>
+				<version>5.0.0</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
