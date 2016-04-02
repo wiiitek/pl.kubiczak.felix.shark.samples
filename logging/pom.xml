@@ -9,20 +9,18 @@
 	</parent>
 
 	<groupId>pl.kubiczak.felix.shark.samples.logging</groupId>
-	<artifactId>pl.kubiczak.felix.shark.samples.logging</artifactId>
+	<artifactId>logging</artifactId>
 	<packaging>pom</packaging>
 
 	<name>Shark: Samples: Logging</name>
 
 	<modules>
-		<module>jcl</module>
-		<module>jul</module>
-		<module>log4j</module>
 		<module>slf4j</module>
+		<module>jul</module>
+		<module>jcl</module>
 		<module>logservice</module>
+		<module>log4j</module>
 	</modules>
-
-	<properties></properties>
 
 	<dependencyManagement>
 		<dependencies>

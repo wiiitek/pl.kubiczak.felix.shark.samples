@@ -7,6 +7,7 @@
 		<artifactId>pl.kubiczak.felix.shark.parent</artifactId>
 		<groupId>pl.kubiczak.felix.shark</groupId>
 		<version>1.2.0</version>
+		<relativePath>../pl.kubiczak.felix.shark.parent/pom.xml</relativePath>
 	</parent>
 
 	<artifactId>pl.kubiczak.felix.shark.samples</artifactId>
@@ -16,7 +17,7 @@
 	<name>Shark: Samples</name>
 
 	<modules>
-		<module>pl.kubiczak.felix.shark.samples.logging</module>
+		<module>logging</module>
 	</modules>
 
 	<scm>
@@ -38,7 +39,7 @@
 	</distributionManagement>
 
 	<properties>
-		<bundles.deploy.dir>load/level-90-samples</bundles.deploy.dir>
+		<bundles.deploy.dir>load/level-20-samples</bundles.deploy.dir>
 	</properties>
 
 	<dependencyManagement>
