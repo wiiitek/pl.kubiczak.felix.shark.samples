@@ -13,6 +13,8 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+	<name>Shark: Samples</name>
+
 	<modules>
 		<module>pl.kubiczak.felix.shark.samples.logging</module>
 	</modules>
@@ -36,7 +38,7 @@
 	</distributionManagement>
 
 	<properties>
-		<bundles.deploy.dir>load</bundles.deploy.dir>
+		<bundles.deploy.dir>load/level-90-samples</bundles.deploy.dir>
 	</properties>
 
 	<dependencyManagement>
