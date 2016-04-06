@@ -1,4 +1,4 @@
-package pl.kubiczak.shark.samples.logging.slf4j;
+package pl.kubiczak.felix.shark.samples.logging.slf4j;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
