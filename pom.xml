@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>pl.kubiczak.felix.shark.samples</artifactId>
-	<version>1.1</version>
+	<version>1.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Shark: Samples</name>
@@ -23,7 +23,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/wiiitek/${project.artifactId}.git</connection>
 		<developerConnection>scm:git:git@github.com:wiiitek/${project.artifactId}.git</developerConnection>
-		<tag>1.1</tag>
+		<tag>HEAD</tag>
 		<url>https://github.com/wiiitek/${project.artifactId}</url>
 	</scm>
 
