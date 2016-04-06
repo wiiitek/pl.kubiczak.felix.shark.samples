@@ -3,6 +3,7 @@ pl.kubiczak.felix.shark.samples.logging
 =======================================
 
 Tests for logging in OSGI framework.
+
 See also [Ekkehard Gentz blog post about logging in OSGI][osgi-logging]
 
 Project site available at [http://site.kubiczak.pl/][project-site]
