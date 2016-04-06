@@ -1,4 +1,4 @@
-package pl.kubiczak.shark.samples.logging.commonslogging;
+package pl.kubiczak.felix.shark.samples.logging.jcl;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
