@@ -1,4 +1,4 @@
-package pl.kubiczak.shark.samples.http.servlet;
+package pl.kubiczak.felix.shark.samples.http.servlet;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

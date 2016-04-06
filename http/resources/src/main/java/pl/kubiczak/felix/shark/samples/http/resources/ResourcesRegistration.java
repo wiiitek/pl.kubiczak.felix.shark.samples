@@ -1,4 +1,4 @@
-package pl.kubiczak.shark.samples.http.resources;
+package pl.kubiczak.felix.shark.samples.http.resources;
 
 import org.apache.felix.scr.annotations.*;
 import org.osgi.service.http.HttpService;

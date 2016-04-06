@@ -1,4 +1,4 @@
-package pl.kubiczak.shark.samples.http.servlet.whiteboard;
+package pl.kubiczak.felix.shark.samples.http.servlet.whiteboard;
 
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Properties;
@@ -7,7 +7,7 @@ import org.apache.felix.scr.annotations.Service;
 import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.kubiczak.shark.samples.http.servlet.WhiteboardServletContext;
+import pl.kubiczak.felix.shark.samples.http.servlet.WhiteboardServletContext;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
