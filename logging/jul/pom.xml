@@ -28,7 +28,8 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Bundle-Activator>pl.kubiczak.shark.samples.logging.jul.Activator</Bundle-Activator>
+						<Export-Package/>
+						<Bundle-Activator>pl.kubiczak.felix.shark.samples.logging.jul.Activator</Bundle-Activator>
 					</instructions>
 				</configuration>
 			</plugin>
