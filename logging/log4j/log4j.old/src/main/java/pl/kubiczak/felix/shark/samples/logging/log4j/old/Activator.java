@@ -1,4 +1,4 @@
-package pl.kubiczak.shark.samples.logging.log4j.old;
+package pl.kubiczak.felix.shark.samples.logging.log4j.old;
 
 
 import org.apache.log4j.Logger;

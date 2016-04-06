@@ -32,7 +32,8 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Bundle-Activator>pl.kubiczak.shark.samples.logging.log4j.Activator</Bundle-Activator>
+						<Export-Package/>
+						<Bundle-Activator>pl.kubiczak.felix.shark.samples.logging.log4j.Activator</Bundle-Activator>
 					</instructions>
 				</configuration>
 			</plugin>
