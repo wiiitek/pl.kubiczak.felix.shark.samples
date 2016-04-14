@@ -87,6 +87,7 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
 			}
 		}
 		if (!authenticated) {
+			log.debug("adding authentication header to response..");
 			httpServletResponse.setHeader(RESPONSE_AUTHENTICATION_HEADER, RESPONSE_AUTHENTICATION_VALUE);
 			httpServletResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			httpServletResponse.setContentLength(0);
@@ -102,12 +103,14 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
 	public Object authenticate(String username, String password) {
 		Object auth = null;
 		if (matches(username, password)) {
+			log.debug("correct credentials recognized");
 			auth = new Auth(USERNAME);
 		}
 		return auth;
 	}
 
 	public boolean authorize(Object o, String s) {
+		log.debug("all roles are authorized");
 		return true;
 	}
 
