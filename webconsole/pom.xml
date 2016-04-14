@@ -10,9 +10,34 @@
 
 	<groupId>pl.kubiczak.felix.shark.samples.webconsole</groupId>
 	<artifactId>webconsole</artifactId>
-	<packaging>pom</packaging>
+	<packaging>bundle</packaging>
 
 	<name>Shark: Samples: Webconsole</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.webconsole</artifactId>
+			<classifier>all</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.http.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr.annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -54,6 +79,8 @@
 				<configuration>
 					<instructions>
 						<Export-Package />
+						<!-- maybe should rather be provided by OSGI.. -->
+						<Embed-Dependency>commons-codec</Embed-Dependency>
 					</instructions>
 				</configuration>
 			</plugin>
