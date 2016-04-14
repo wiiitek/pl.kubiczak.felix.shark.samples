@@ -62,7 +62,6 @@
 
 	<build>
 		<plugins>
-
 			<!-- do NOT generate sites for sub-modules -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

@@ -8,19 +8,13 @@
 		<version>1.2-SNAPSHOT</version>
 	</parent>
 
-	<groupId>pl.kubiczak.felix.shark.samples.http</groupId>
-	<artifactId>http</artifactId>
+	<groupId>pl.kubiczak.felix.shark.samples.webconsole</groupId>
+	<artifactId>webconsole</artifactId>
 	<packaging>pom</packaging>
 
-	<name>Shark: Samples: Http</name>
-
-	<modules>
-		<module>resources</module>
-		<module>servlet</module>
-	</modules>
+	<name>Shark: Samples: Webconsole</name>
 
 	<build>
-
 		<plugins>
 			<!-- do NOT generate sites for sub-modules -->
 			<plugin>
@@ -40,6 +34,28 @@
 						<phase />
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-scr-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-scr-scrdescriptor</id>
+						<goals>
+							<goal>scr</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Export-Package />
+					</instructions>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
