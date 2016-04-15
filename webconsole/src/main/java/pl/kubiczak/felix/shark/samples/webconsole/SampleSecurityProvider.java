@@ -1,6 +1,6 @@
 package pl.kubiczak.felix.shark.samples.webconsole;
 
-import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Service;
 import org.apache.felix.webconsole.WebConsoleSecurityProvider2;
@@ -24,9 +24,8 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
 
 	private static final String RESPONSE_AUTHENTICATION_HEADER = "WWW-Authenticate";
 
-	private static final String RESPONSE_AUTHENTICATION_VALUE = "Basic realm=\"Sample Security Provider for OSGi Management Console\"";
-
-	private static final String BASIC_AUTH_PREFIX_UPPER = "BASIC";
+	// for 'charset' authentication parameter see https://tools.ietf.org/html/rfc7617#section-2.1
+	private static final String RESPONSE_AUTHENTICATION_VALUE = "Basic realm=\"Sample Security Provider for OSGi Management Console\", charset=\"UTF-8\"";
 
 	private final Logger log = LoggerFactory.getLogger(getClass());
 
@@ -58,34 +57,24 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
 		if (alreadyAuthenticated) {
 			authenticated = true;
 		} else {
-			final String authorizationHeader = httpServletRequest.getHeader(REQUEST_AUTHORIZATION_HEADER);
-			log.debug("authorization header value: {}", authorizationHeader);
-			if (authorizationHeader != null && authorizationHeader.toUpperCase().startsWith(BASIC_AUTH_PREFIX_UPPER)) {
-				String encoded = authorizationHeader.substring(BASIC_AUTH_PREFIX_UPPER.length());
-				log.debug("encoded basic auth value: {}", encoded);
-				String decoded = new String(Base64.decodeBase64(encoded));
-				int index = decoded.indexOf(":");
-				if (index == -1) {
-					log.debug("username and password missing");
-				} else if (index == 0) {
-					log.info("username missing");
-				} else {
-					String username = decoded.substring(0, index);
-					log.debug("username: {}", username);
-					String password = decoded.substring(index + 1);
-					if (matches(username, password)) {
-						log.debug("password correct for: {}", username);
-						Auth newAuth = new Auth(USERNAME);
-						httpServletRequest.setAttribute(WebConsoleSecurityProvider2.USER_ATTRIBUTE, newAuth);
-						log.debug("request attribute set for key: {}", WebConsoleSecurityProvider2.USER_ATTRIBUTE);
-						authenticated = true;
-						log.debug("user authenticated");
-					} else {
-						log.info("wrong password or invalid username: {}", username);
-					}
-				}
+			final String authorizationHeaderValue = httpServletRequest.getHeader(REQUEST_AUTHORIZATION_HEADER);
+			log.debug("authorization header value: {}", authorizationHeaderValue);
+
+			Pair<String, String> credentials = new BasicHttpAuth().retrieveDecodedCredentials(authorizationHeaderValue);
+			String username = credentials.getLeft();
+
+			if (matches(credentials)) {
+				log.debug("password correct for: {}", username);
+				Auth newAuth = new Auth(USERNAME);
+				httpServletRequest.setAttribute(WebConsoleSecurityProvider2.USER_ATTRIBUTE, newAuth);
+				log.debug("request attribute set for key: {}", WebConsoleSecurityProvider2.USER_ATTRIBUTE);
+				authenticated = true;
+				log.debug("user authenticated");
+			} else {
+				log.info("wrong password or invalid username: {}", username);
 			}
 		}
+
 		if (!authenticated) {
 			log.debug("adding authentication header to response..");
 			httpServletResponse.setHeader(RESPONSE_AUTHENTICATION_HEADER, RESPONSE_AUTHENTICATION_VALUE);
@@ -109,9 +98,15 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
 		return auth;
 	}
 
-	public boolean authorize(Object o, String s) {
-		log.debug("all roles are authorized");
+	public boolean authorize(Object o, String role) {
+		log.debug("authorizing role {} for auth object {}", role, o);
 		return true;
+	}
+
+	private boolean matches(Pair<String, String> credentials) {
+		String username = credentials.getLeft();
+		String password = credentials.getRight();
+		return matches(username, password);
 	}
 
 	private boolean matches(String username, String password) {
