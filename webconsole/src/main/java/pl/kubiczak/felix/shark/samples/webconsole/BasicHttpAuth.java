@@ -36,7 +36,6 @@ class BasicHttpAuth {
 		String credentials = null;
 		if (headerValue != null && hasCorrectPrefix(headerValue)) {
 			String encoded = removePrefix(headerValue);
-			log.debug("encoded basic auth value: '{}'", encoded);
 			credentials = decode(encoded);
 		}
 		if (credentials != null) {
