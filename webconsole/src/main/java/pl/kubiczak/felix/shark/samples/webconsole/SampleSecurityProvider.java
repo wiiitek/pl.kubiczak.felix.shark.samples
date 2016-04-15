@@ -110,12 +110,4 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
 	private boolean matches(String username, String password) {
 		return USERNAME.equals(username) && PASSWORD.equals(password);
 	}
-
-	private class Auth {
-		private String username;
-
-		private Auth(String username) {
-			this.username = username;
-		}
-	}
 }
