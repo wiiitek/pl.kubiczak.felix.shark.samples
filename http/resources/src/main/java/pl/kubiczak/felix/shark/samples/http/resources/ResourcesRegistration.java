@@ -11,7 +11,7 @@ import org.osgi.service.http.NamespaceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Component(immediate = true)
+@Component
 @Service(value = ResourcesRegistration.class)
 public class ResourcesRegistration {
 
