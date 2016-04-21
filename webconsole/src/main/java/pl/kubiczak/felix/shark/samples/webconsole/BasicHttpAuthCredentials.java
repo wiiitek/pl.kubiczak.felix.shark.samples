@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.UnsupportedEncodingException;
 
-class BasicHttpAuth {
+class BasicHttpAuthCredentials {
 
 	private static final String ENCODING = "UTF-8";
 

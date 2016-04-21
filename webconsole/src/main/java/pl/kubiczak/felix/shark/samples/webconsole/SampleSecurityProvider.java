@@ -58,7 +58,7 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
 			authenticated = true;
 		} else {
 			String authorizationHeaderValue = httpServletRequest.getHeader(REQUEST_AUTHORIZATION_HEADER);
-			Pair<String, String> credentials = new BasicHttpAuth().retrieveDecodedCredentials(authorizationHeaderValue);
+			Pair<String, String> credentials = new BasicHttpAuthCredentials().retrieveDecodedCredentials(authorizationHeaderValue);
 			String username = credentials.getLeft();
 
 			if (matches(credentials)) {
