@@ -30,20 +30,30 @@ public class WhiteboardServlet extends HttpServlet {
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
+	private String pattern;
+
+	@Activate
+	public void activate() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Service = '").append(getClass().getCanonicalName()).append("'\n\n");
+		sb.append("Test = 'zażółć gęślą jaźń'\n");
+		sb.append("RequestURI = '%s'\nPathInfo = '%s'\nQueryString = '%s'");
+		this.pattern = sb.toString();
+	}
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-		log.debug("remote host: {}", req.getRemoteHost());
+		log.debug("remote host: '{}'", req.getRemoteHost());
 
 		res.setContentType("text/plain");
 		res.setCharacterEncoding("UTF-8");
 		res.setStatus(HttpServletResponse.SC_OK);
 
+		String msg = String.format(pattern, req.getRequestURI(), req.getPathInfo(), req.getQueryString());
+
 		PrintWriter out = res.getWriter();
-		out.println("Test = zażółć gęślą jaźń");
-		out.println("RequestURI = " + req.getRequestURI());
-		out.println("PathInfo = " + req.getPathInfo());
-		out.println("QueryString = " + req.getQueryString());
+		out.println(msg);
 		out.flush();
 	}
 
