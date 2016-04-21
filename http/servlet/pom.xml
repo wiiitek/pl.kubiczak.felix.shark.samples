@@ -57,7 +57,6 @@
 				<configuration>
 					<instructions>
 						<Export-Package />
-						<Bundle-Activator>pl.kubiczak.felix.shark.samples.http.servlet.Activator</Bundle-Activator>
 					</instructions>
 				</configuration>
 			</plugin>
