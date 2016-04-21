@@ -17,12 +17,11 @@ import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 @Component
 @Service
 @Properties({
-		@Property(name = HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN, value = WhiteboardServlet.SERVLET_PATTERN),
-		@Property(name = HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT, value = WhiteboardServletContext.CONTEXT_FILTER)
+		@Property(name = HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT, value = WhiteboardContext.CONTEXT_FILTER),
+		@Property(name = HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN, value = WhiteboardServlet.SERVLET_PATTERN)
 })
 public class WhiteboardServlet extends HttpServlet {
 
