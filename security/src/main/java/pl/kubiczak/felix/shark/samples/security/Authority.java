@@ -1,4 +1,4 @@
-package pl.kubiczak.felix.shark.samples.webconsole;
+package pl.kubiczak.felix.shark.samples.security;
 
 class Authority {
 

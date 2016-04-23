@@ -1,4 +1,4 @@
-package pl.kubiczak.felix.shark.samples.webconsole;
+package pl.kubiczak.felix.shark.samples.security;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

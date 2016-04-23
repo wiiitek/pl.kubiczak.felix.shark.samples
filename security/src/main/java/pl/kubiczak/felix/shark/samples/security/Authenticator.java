@@ -1,4 +1,4 @@
-package pl.kubiczak.felix.shark.samples.webconsole;
+package pl.kubiczak.felix.shark.samples.security;
 
 import org.apache.commons.lang3.tuple.Pair;
 
