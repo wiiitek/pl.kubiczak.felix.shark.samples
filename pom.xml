@@ -19,6 +19,7 @@
 		<module>logging</module>
 		<module>http</module>
 		<module>security</module>
+		<module>ioc</module>
 	</modules>
 
 	<scm>
