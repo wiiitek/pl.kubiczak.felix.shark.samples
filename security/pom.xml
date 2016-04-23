@@ -10,7 +10,7 @@
 	</parent>
 
 	<groupId>pl.kubiczak.felix.shark.samples.webconsole</groupId>
-	<artifactId>webconsole</artifactId>
+	<artifactId>security</artifactId>
 	<packaging>bundle</packaging>
 
 	<name>Shark: Samples: Webconsole</name>

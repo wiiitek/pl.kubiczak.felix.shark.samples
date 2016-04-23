@@ -18,7 +18,7 @@
 	<modules>
 		<module>logging</module>
 		<module>http</module>
-		<module>webconsole</module>
+		<module>security</module>
 	</modules>
 
 	<scm>
