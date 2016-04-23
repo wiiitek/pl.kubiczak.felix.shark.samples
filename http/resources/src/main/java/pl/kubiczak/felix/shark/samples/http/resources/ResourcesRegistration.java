@@ -23,8 +23,8 @@ public class ResourcesRegistration {
 	@Activate
 	public void start() {
 		try {
-			httpService.registerResources("/shark/samples/http/resources", "/", null);
-			httpService.registerResources("/shark/samples/http/resources/img", "/img", null);
+			httpService.registerResources("/shark/samples/http/resources", "/static", null);
+			httpService.registerResources("/shark/samples/http/resources/img", "/static/img", null);
 			log.debug("Resources registered");
 		} catch (NamespaceException ne) {
 			log.warn("Failed to register resources", ne);
