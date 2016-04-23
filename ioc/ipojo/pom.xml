@@ -3,20 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>pl.kubiczak.felix.shark.samples</artifactId>
-		<groupId>pl.kubiczak.felix.shark</groupId>
+		<artifactId>ioc</artifactId>
+		<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
 		<version>1.2-SNAPSHOT</version>
 	</parent>
 
-	<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
-	<artifactId>ioc</artifactId>
+	<artifactId>ipojo</artifactId>
 	<packaging>pom</packaging>
 
-	<name>Shark: Samples: IOC</name>
-
-	<modules>
-		<module>ipojo</module>
-		<module>blueprint</module>
-	</modules>
+	<name>Shark: Samples: IOC: iPojo</name>
 
 </project>

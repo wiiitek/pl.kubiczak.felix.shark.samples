@@ -1,0 +1,10 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+		   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		   xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd"
+		   default-availability="mandatory">
+
+	<bean id="simple" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.impl.SimpleImpl"/>
+
+	<bean id="iso8601" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.impl.ISO8601"/>
+
+</blueprint>
