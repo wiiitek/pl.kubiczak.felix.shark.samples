@@ -5,7 +5,7 @@
 	<parent>
 		<artifactId>logging</artifactId>
 		<groupId>pl.kubiczak.felix.shark.samples.logging</groupId>
-		<version>1.2-SNAPSHOT</version>
+		<version>1.2</version>
 	</parent>
 
 	<artifactId>jcl</artifactId>
