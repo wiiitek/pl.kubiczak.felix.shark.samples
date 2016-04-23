@@ -4,23 +4,28 @@ import org.apache.commons.lang3.tuple.ImmutablePair
 import spock.lang.Specification
 import spock.lang.Unroll
 
+import javax.servlet.http.HttpServletRequest
+
+import static org.mockito.Matchers.eq
+import static org.mockito.Mockito.mock
+import static org.mockito.Mockito.when
+
 /**
  * Created by witek on 2016-04-15.
  */
-class BasicHttpAuthTest extends Specification {
-
-	void setup() {
-
-	}
+class BasicHttpAuthDecoderTest extends Specification {
 
 	@Unroll
 	def "should decode '#username' and '#password' from #headerValue"() {
 
 		given:
-		BasicHttpAuth tested = new BasicHttpAuth()
+		HttpServletRequest mockHttpServletRequest = mock(HttpServletRequest.class)
+		when(mockHttpServletRequest.getHeader(eq("Authorization"))).thenReturn(headerValue);
+
+		BasicHttpAuthDecoder tested = new BasicHttpAuthDecoder(mockHttpServletRequest)
 
 		expect:
-		tested.retrieveDecodedCredentials(headerValue) == new ImmutablePair<String, String>(username, password)
+		tested.retrieveDecodedCredentials() == new ImmutablePair<String, String>(username, password)
 
 		where:
 		headerValue                                                          | username            | password

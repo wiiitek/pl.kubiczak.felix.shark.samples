@@ -1,10 +1,10 @@
 package pl.kubiczak.felix.shark.samples.webconsole;
 
-class Auth {
+class Authority {
 
 	String username;
 
-	Auth(String username) {
+	Authority(String username) {
 		this.username = username;
 	}
 }

@@ -1,5 +1,9 @@
 package pl.kubiczak.felix.shark.samples.webconsole;
 
+import java.io.UnsupportedEncodingException;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -7,9 +11,9 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.UnsupportedEncodingException;
+class BasicHttpAuthDecoder {
 
-class BasicHttpAuthCredentials {
+	private static final String REQUEST_AUTHORIZATION_HEADER = "Authorization";
 
 	private static final String ENCODING = "UTF-8";
 
@@ -21,16 +25,21 @@ class BasicHttpAuthCredentials {
 
 	private final Logger log = LoggerFactory.getLogger(getClass());
 
+	private final String headerValue;
+
+	BasicHttpAuthDecoder(HttpServletRequest httpServletRequest) {
+		this.headerValue = httpServletRequest.getHeader(REQUEST_AUTHORIZATION_HEADER);;
+	}
+
 	/**
 	 * Retrieves username and password from Base64 encoded <code>[username]:[password]</code>.
 	 * Username may not contain ':' character.
 	 * For more information about encoding please see
 	 * <a href="https://tools.ietf.org/html/rfc7617#section-2.1">https://tools.ietf.org/html/rfc7617#section-2.1</a>
 	 *
-	 * @param headerValue value of Basic auth header 'Authorization'
 	 * @return username and password or pair of <code>null</code>
 	 */
-	Pair<String, String> retrieveDecodedCredentials(String headerValue) {
+	Pair<String, String> retrieveDecodedCredentials() {
 		String username = null;
 		String password = null;
 		String credentials = null;
