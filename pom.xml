@@ -17,7 +17,6 @@
 	<url>http://site.kubiczak.pl/${project.artifactId}</url>
 
 	<modules>
-		<module>logging</module>
 		<module>http</module>
 		<module>security</module>
 		<module>ioc</module>
