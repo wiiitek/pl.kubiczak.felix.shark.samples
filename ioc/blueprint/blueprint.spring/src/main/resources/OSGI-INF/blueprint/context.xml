@@ -1,0 +1,27 @@
+<blueprint:blueprint xmlns:blueprint="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+					 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					 xmlns="http://www.springframework.org/schema/beans"
+					 xsi:schemaLocation="
+					http://www.springframework.org/schema/beans
+					http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+
+	<!-- bean from another bundle class -->
+	<bean id="simpleBean" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.SimpleBean"/>
+
+	<bean id="springBeanA" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.SpringBean">
+		<constructor-arg value="Spring Bean A"/>
+		<property name="simpleBean" ref="simpleBean"/>
+	</bean>
+
+	<bean id="springBeanB" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.SpringBean">
+		<constructor-arg value="Spring Bean B"/>
+	</bean>
+
+	<bean id="springBeanC" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.SpringBean">
+		<constructor-arg>
+			<null/>
+		</constructor-arg>
+		<property name="simpleBean" ref="simpleBean"/>
+	</bean>
+
+</blueprint:blueprint>

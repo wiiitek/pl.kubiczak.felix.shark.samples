@@ -15,6 +15,7 @@
 
 	<modules>
 		<module>blueprint.simple</module>
+		<module>blueprint.spring</module>
 	</modules>
 
 	<dependencies>
