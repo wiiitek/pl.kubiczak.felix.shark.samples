@@ -7,6 +7,7 @@ import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.ops4j.pax.exam.CoreOptions.junitBundles;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
+import static org.ops4j.pax.exam.CoreOptions.systemProperty;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +22,7 @@ import org.ops4j.pax.exam.junit.PaxExam;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerMethod;
 import org.ops4j.pax.exam.util.Filter;
+import org.ops4j.pax.exam.util.PathUtils;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
 import org.osgi.service.event.EventConstants;
@@ -50,8 +52,16 @@ public class BlueprintSimpleTest {
 
 	@Configuration
 	public Option[] provideRequiredBundles() {
+
+
 		return new Option[]{
 				junitBundles(),
+				// logging for container
+				mavenBundle("org.slf4j", "slf4j-api").versionAsInProject(),
+				mavenBundle("ch.qos.logback", "logback-core").versionAsInProject(),
+				mavenBundle("ch.qos.logback", "logback-classic").versionAsInProject(),
+				systemProperty("logback.configurationFile")
+						.value("file:" + PathUtils.getBaseDir() + "/src/test/resources/logback-test.xml"),
 				// aries blueprint
 				mavenBundle("org.apache.aries.blueprint", "org.apache.aries.blueprint.api").versionAsInProject(),
 				mavenBundle("org.apache.aries.blueprint", "org.apache.aries.blueprint.core").versionAsInProject(),
