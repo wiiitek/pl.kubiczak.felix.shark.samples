@@ -13,6 +13,13 @@
 
 	<name>Shark: Samples: IOC: Blueprint: Simple</name>
 
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.eventadmin</artifactId>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>

@@ -9,4 +9,9 @@
 
 	<service ref="iso8601" interface="pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.DateFormatter"/>
 
+	<service ref="eventHandler" interface="org.osgi.service.event.EventHandler">
+		<service-properties>
+			<entry key="event.topics" value="pl/kubiczak/felix/shark/samples/ioc/blueprint/simple/EventHandlerImpl/Topic"/>
+		</service-properties>
+	</service>
 </blueprint>

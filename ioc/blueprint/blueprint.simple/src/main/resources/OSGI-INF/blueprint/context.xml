@@ -9,4 +9,7 @@
 
 	<bean id="iso8601" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.impl.ISO8601"/>
 
+	<bean id="eventHandler" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.EventHandlerImpl">
+		<argument ref="iso8601"/>
+	</bean>
 </blueprint>
