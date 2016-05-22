@@ -58,12 +58,51 @@
 			<groupId>org.apache.aries.proxy</groupId>
 			<artifactId>org.apache.aries.proxy</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.aries.blueprint</groupId>
+			<artifactId>org.apache.aries.blueprint.spring</artifactId>
+		</dependency>
+
+		<!-- spring -->
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-aop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-beans</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-expression</artifactId>
+		</dependency>
 
 		<!-- blueprint.simple tested -->
 		<dependency>
 			<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
 			<artifactId>blueprint.simple</artifactId>
 			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
+			<artifactId>blueprint.spring</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.http.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
 		</dependency>
 
 		<!--

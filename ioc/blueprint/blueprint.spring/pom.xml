@@ -69,7 +69,9 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Export-Package/>
+						<Export-Package>
+							pl.kubiczak.felix.shark.samples.ioc.blueprint.spring
+						</Export-Package>
 					</instructions>
 				</configuration>
 			</plugin>
