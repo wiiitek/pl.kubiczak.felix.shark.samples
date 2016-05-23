@@ -15,7 +15,7 @@ public class EventHandlerImpl implements EventHandler {
 
 	private final Logger log = LoggerFactory.getLogger(getClass());
 
-	private final AtomicLong processedEvents = new AtomicLong(0);
+	private final AtomicLong processedEvents = new AtomicLong();
 
 	private final DateFormatter dateFormatter;
 
