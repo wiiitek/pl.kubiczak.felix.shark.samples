@@ -16,7 +16,7 @@
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- daily rollover. Make sure the path matches the one in the file element or else
 			the rollover logs are placed in the working directory. -->
-			<fileNamePattern>target/blueprint.it_tests_%d{yyyy-MM-dd}.log</fileNamePattern>
+			<fileNamePattern>target/blueprint.spring_tests_%d{yyyy-MM-dd}.log</fileNamePattern>
 			<!-- keep 30 days' worth of history -->
 			<maxHistory>30</maxHistory>
 		</rollingPolicy>
@@ -29,6 +29,7 @@
 	<logger name="pl.kubiczak" level="DEBUG"/>
 
 	<root level="INFO">
+		<appender-ref ref="CONSOLE"/>
 		<appender-ref ref="FILE_DEFAULT"/>
 	</root>
 
