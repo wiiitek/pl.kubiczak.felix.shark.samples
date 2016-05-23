@@ -11,4 +11,8 @@
 
 	<service ref="springBeanC" interface="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.Printable" activation="eager"/>
 
+	<service ref="publisherBean" interface="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.events.PublisherBean" activation="eager"/>
+
+	<service ref="listenerBean" interface="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.events.ListenerBean" activation="eager"/>
+
 </blueprint>

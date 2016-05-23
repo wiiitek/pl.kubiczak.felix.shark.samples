@@ -24,4 +24,8 @@
 		<property name="simpleBean" ref="simpleBean"/>
 	</bean>
 
+	<bean id="publisherBean" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.events.PublisherBean"/>
+
+	<bean id="listenerBean" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.events.ListenerBean"/>
+
 </blueprint:blueprint>
