@@ -9,6 +9,9 @@ import org.osgi.service.event.EventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Sample OSGi events handler.
+ */
 public class EventHandlerImpl implements EventHandler {
 
 	public static final String TOPIC = "pl/kubiczak/felix/shark/samples/ioc/blueprint/simple/EventHandlerImpl/Topic";

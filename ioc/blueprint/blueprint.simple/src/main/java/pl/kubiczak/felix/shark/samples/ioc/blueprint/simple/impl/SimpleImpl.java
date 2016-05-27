@@ -7,14 +7,13 @@ import org.slf4j.LoggerFactory;
 
 import pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.DateFormatter;
 
+/**
+ * Formats date returning milliseconds since 1970-01-01
+ */
 public class SimpleImpl implements DateFormatter {
 
 	private final Logger log = LoggerFactory.getLogger(getClass());
 
-	/**
-	 * @param date
-	 * @return milliseconds since 1970-01-01
-	 */
 	public String getFormatted(Date date) {
 		return Long.toString(date.getTime());
 	}

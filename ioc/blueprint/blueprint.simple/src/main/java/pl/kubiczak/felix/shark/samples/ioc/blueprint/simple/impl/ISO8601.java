@@ -7,6 +7,9 @@ import java.util.TimeZone;
 
 import pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.DateFormatter;
 
+/**
+ * Formats date returning String that has correct alphabetical order (ISO-8601)
+ */
 public class ISO8601 implements DateFormatter {
 
 	private static final String TIMEZONE = "UTC";
