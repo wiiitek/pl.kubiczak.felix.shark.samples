@@ -29,7 +29,6 @@
 	<logger name="pl.kubiczak" level="DEBUG"/>
 
 	<root level="INFO">
-		<appender-ref ref="CONSOLE"/>
 		<appender-ref ref="FILE_DEFAULT"/>
 	</root>
 

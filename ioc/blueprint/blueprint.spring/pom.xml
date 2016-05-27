@@ -36,7 +36,7 @@
 			<artifactId>org.apache.felix.scr.annotations</artifactId>
 		</dependency>
 
-		<!-- spring -->
+		<!-- Spring -->
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-aop</artifactId>
@@ -62,13 +62,13 @@
 			<artifactId>org.apache.servicemix.bundles.spring-test</artifactId>
 		</dependency>
 
-		<!-- common -->
+		<!-- Common -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
 
-		<!-- logging -->
+		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -86,7 +86,7 @@
 			<artifactId>logback-classic</artifactId>
 		</dependency>
 
-		<!-- testing -->
+		<!-- Testing -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

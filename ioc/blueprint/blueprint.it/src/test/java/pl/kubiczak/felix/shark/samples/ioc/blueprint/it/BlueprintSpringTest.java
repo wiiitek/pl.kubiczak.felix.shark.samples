@@ -47,17 +47,17 @@ public class BlueprintSpringTest {
 				junitBundles(),
 				// logging for container
 				mavenBundle("org.slf4j", "slf4j-api").versionAsInProject(),
+				mavenBundle("org.slf4j", "jcl-over-slf4j").versionAsInProject(),
 				mavenBundle("ch.qos.logback", "logback-core").versionAsInProject(),
 				mavenBundle("ch.qos.logback", "logback-classic").versionAsInProject(),
 				systemProperty("logback.configurationFile")
 						.value("file:" + PathUtils.getBaseDir() + "/src/test/resources/logback-test.xml"),
-				// aries blueprint
-				mavenBundle("org.apache.aries.blueprint", "org.apache.aries.blueprint.api").versionAsInProject(),
-				mavenBundle("org.apache.aries.blueprint", "org.apache.aries.blueprint.core").versionAsInProject(),
-				mavenBundle("org.apache.aries", "org.apache.aries.util").versionAsInProject(),
-				mavenBundle("org.apache.aries.proxy", "org.apache.aries.proxy").versionAsInProject(),
-				mavenBundle("org.apache.aries.blueprint", "org.apache.aries.blueprint.spring").versionAsInProject(),
+				// gemini blueprint
+				mavenBundle("org.eclipse.gemini.blueprint", "gemini-blueprint-core").versionAsInProject(),
+				mavenBundle("org.eclipse.gemini.blueprint", "gemini-blueprint-io").versionAsInProject(),
+				mavenBundle("org.eclipse.gemini.blueprint", "gemini-blueprint-extender").versionAsInProject(),
 				// spring
+				mavenBundle("org.apache.servicemix.bundles","org.apache.servicemix.bundles.aopalliance").versionAsInProject(),
 				mavenBundle("org.apache.servicemix.bundles","org.apache.servicemix.bundles.spring-aop").versionAsInProject(),
 				mavenBundle("org.apache.servicemix.bundles","org.apache.servicemix.bundles.spring-context").versionAsInProject(),
 				mavenBundle("org.apache.servicemix.bundles","org.apache.servicemix.bundles.spring-core").versionAsInProject(),

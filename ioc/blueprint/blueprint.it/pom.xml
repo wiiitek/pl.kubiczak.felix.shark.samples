@@ -22,15 +22,19 @@
 	</properties>
 
 	<dependencies>
-		<!-- event admin -->
+		<!-- Event admin -->
 		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.eventadmin</artifactId>
 		</dependency>
-		<!-- logging -->
+		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -41,29 +45,25 @@
 			<artifactId>logback-core</artifactId>
 		</dependency>
 
-		<!-- blueprint -->
+		<!-- Blueprint -->
 		<dependency>
-			<groupId>org.apache.aries.blueprint</groupId>
-			<artifactId>org.apache.aries.blueprint.api</artifactId>
+			<groupId>org.eclipse.gemini.blueprint</groupId>
+			<artifactId>gemini-blueprint-core</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.aries.blueprint</groupId>
-			<artifactId>org.apache.aries.blueprint.core</artifactId>
+			<groupId>org.eclipse.gemini.blueprint</groupId>
+			<artifactId>gemini-blueprint-io</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.aries</groupId>
-			<artifactId>org.apache.aries.util</artifactId>
+			<groupId>org.eclipse.gemini.blueprint</groupId>
+			<artifactId>gemini-blueprint-extender</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.aries.proxy</groupId>
-			<artifactId>org.apache.aries.proxy</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.aries.blueprint</groupId>
-			<artifactId>org.apache.aries.blueprint.spring</artifactId>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.aopalliance</artifactId>
 		</dependency>
 
-		<!-- spring -->
+		<!-- Spring -->
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-aop</artifactId>
@@ -133,22 +133,18 @@
 			<artifactId>pax-url-aether</artifactId>
 			<version>${version.pax.url}</version>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!-- pax will use felix felix -->
 		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.framework</artifactId>
 			<scope>test</scope>
-		</dependency>
-
-		<!-- logging -->
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -176,13 +172,12 @@
 				<executions>
 					<execution>
 						<id>generate-depends-file</id>
+						<phase>generate-test-resources</phase>
 						<goals>
 							<goal>generate-depends-file</goal>
 						</goals>
 						<configuration>
-							<outputFile>
-								${project.build.testSourceDirectory}/../resources/META-INF/maven/dependencies.properties
-							</outputFile>
+							<outputFile>${project.build.testSourceDirectory}/../resources/META-INF/maven/dependencies.properties</outputFile>
 						</configuration>
 					</execution>
 				</executions>
