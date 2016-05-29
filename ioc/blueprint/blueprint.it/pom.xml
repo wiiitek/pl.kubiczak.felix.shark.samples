@@ -22,11 +22,30 @@
 	</properties>
 
 	<dependencies>
-		<!-- Event admin -->
+		<!-- Bundles for tests -->
 		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.eventadmin</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
+			<artifactId>blueprint.simple</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
+			<artifactId>blueprint.spring.simple</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.http.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -58,12 +77,12 @@
 			<groupId>org.eclipse.gemini.blueprint</groupId>
 			<artifactId>gemini-blueprint-extender</artifactId>
 		</dependency>
+
+		<!-- Spring -->
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.aopalliance</artifactId>
 		</dependency>
-
-		<!-- Spring -->
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-aop</artifactId>
@@ -83,26 +102,6 @@
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-expression</artifactId>
-		</dependency>
-
-		<!-- blueprint.simple tested -->
-		<dependency>
-			<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
-			<artifactId>blueprint.simple</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
-			<artifactId>blueprint.spring</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.http.servlet-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
 		</dependency>
 
 		<!--
@@ -133,12 +132,6 @@
 			<artifactId>pax-url-aether</artifactId>
 			<version>${version.pax.url}</version>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<artifactId>commons-logging</artifactId>
-					<groupId>commons-logging</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<!-- pax will use felix felix -->
 		<dependency>

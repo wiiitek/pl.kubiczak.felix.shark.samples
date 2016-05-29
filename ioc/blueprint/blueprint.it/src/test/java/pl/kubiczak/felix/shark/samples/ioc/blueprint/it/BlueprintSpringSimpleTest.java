@@ -1,16 +1,10 @@
 package pl.kubiczak.felix.shark.samples.ioc.blueprint.it;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.core.IsInstanceOf.instanceOf;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 import static org.ops4j.pax.exam.CoreOptions.junitBundles;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.systemProperty;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -23,51 +17,22 @@ import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerMethod;
 import org.ops4j.pax.exam.util.Filter;
 import org.ops4j.pax.exam.util.PathUtils;
-import org.osgi.service.event.Event;
-import org.osgi.service.event.EventAdmin;
-import org.osgi.service.event.EventConstants;
-import org.osgi.service.event.EventHandler;
 
-import pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.EventHandlerImpl;
-
+import pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.simple.Bean;
 
 @RunWith(PaxExam.class)
 @ExamReactorStrategy(PerMethod.class)
-public class BlueprintSimpleTest {
+public class BlueprintSpringSimpleTest {
+
+	private static final String BLUEPRINT_COMPONENT_NAME_KEY = "osgi.service.blueprint.compname";
 
 	@Inject
-	private EventAdmin eventAdmin;
-
-	/**
-	 * EventHandler implementation from blueprint.simple bundle
-	 */
-	@Inject
-	@Filter("(" + EventConstants.EVENT_TOPIC + "=" + EventHandlerImpl.TOPIC + ")")
-	private EventHandler eventHandler;
+	@Filter("(" + BLUEPRINT_COMPONENT_NAME_KEY + "=beanA)")
+	private Bean beanA;
 
 	@Test
-	public void eventAdminServiceShouldBeAvailable() {
-		assertThat(eventAdmin, is(not(nullValue())));
-	}
-
-	@Test
-	public void eventHandlerServiceShouldBeAvailable() {
-		assertThat(eventHandler, is(not(nullValue())));
-	}
-
-	@Test
-	public void filterShouldWorkCorrectly() {
-		assertThat(eventHandler, instanceOf(EventHandlerImpl.class));
-	}
-
-	@Test
-	public void eventHandlerShouldProcessOsgiEvent() {
-		long before = ((EventHandlerImpl) eventHandler).processedEvents();
-		// sends event synchronously
-		Map<String, Object> eventProperties = new HashMap<String, Object>();
-		eventAdmin.sendEvent(new Event(EventHandlerImpl.TOPIC, eventProperties));
-		long after = ((EventHandlerImpl) eventHandler).processedEvents();
-		assertThat(after, is(before + 1));
+	public void springBeanAService() {
+		assertThat(beanA.toString(), is("Bean A[Sample Value]"));
 	}
 
 	@Configuration
@@ -93,8 +58,8 @@ public class BlueprintSimpleTest {
 				mavenBundle("org.apache.servicemix.bundles", "org.apache.servicemix.bundles.spring-beans").versionAsInProject(),
 				mavenBundle("org.apache.servicemix.bundles", "org.apache.servicemix.bundles.spring-expression").versionAsInProject(),
 				// bundles for tests
-				mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").versionAsInProject(),
-				mavenBundle("pl.kubiczak.felix.shark.samples.ioc", "blueprint.simple").versionAsInProject()
+				mavenBundle("org.apache.commons", "commons-lang3").versionAsInProject(),
+				mavenBundle("pl.kubiczak.felix.shark.samples.ioc", "blueprint.spring.simple").versionAsInProject(),
 		};
 	}
 }
