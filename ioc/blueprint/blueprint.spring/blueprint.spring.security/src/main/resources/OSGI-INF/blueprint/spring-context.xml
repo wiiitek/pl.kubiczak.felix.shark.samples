@@ -12,7 +12,7 @@
 	</bean>
 
 	<sec:http>
-		<sec:intercept-url pattern="/pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.security/*" access="hasRole('ADMIN')"/>
+		<sec:intercept-url pattern="/samples.ioc.blueprint.spring.security/servlet/*" access="hasRole('ADMIN')"/>
 
 		<sec:http-basic/>
 		<sec:form-login/>

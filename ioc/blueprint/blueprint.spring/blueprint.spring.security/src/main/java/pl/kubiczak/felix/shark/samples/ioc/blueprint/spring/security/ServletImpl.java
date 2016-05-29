@@ -28,7 +28,7 @@ public class ServletImpl extends HttpServlet {
 
 	private static int seq = 0;
 
-	static final String SERVLET_PATTERN = "/pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.security/*";
+	static final String SERVLET_PATTERN = "/samples.ioc.blueprint.spring.security/servlet/*";
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 

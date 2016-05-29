@@ -9,7 +9,7 @@
 		<service-properties>
 			<entry
 					key="osgi.http.whiteboard.filter.pattern"
-					value="/pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.security/*"/>
+					value="/samples.ioc.blueprint.spring.security/servlet/*"/>
 		</service-properties>
 	</service>
 
