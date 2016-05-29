@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="2 seconds">
 
-	<timestamp key="day" datePattern="yyyy-MM-dd"/>
-
 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
 			<pattern>
@@ -12,7 +10,6 @@
 	</appender>
 
 	<appender name="FILE_DEFAULT" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<append>true</append>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- daily rollover. Make sure the path matches the one in the file element or else
 			the rollover logs are placed in the working directory. -->
