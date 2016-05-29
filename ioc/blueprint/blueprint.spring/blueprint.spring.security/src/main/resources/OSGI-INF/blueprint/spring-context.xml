@@ -1,0 +1,29 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:sec="http://www.springframework.org/schema/security"
+	   xsi:schemaLocation="
+					http://www.springframework.org/schema/beans
+					http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+					http://www.springframework.org/schema/security
+					http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+	<bean id="springSecurityFilterChain" class="org.springframework.web.filter.DelegatingFilterProxy" init-method="initFilterBean">
+		<constructor-arg ref="filterChain"/>
+	</bean>
+
+	<sec:http>
+		<sec:intercept-url pattern="/pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.security/*" access="hasRole('ADMIN')"/>
+
+		<sec:http-basic/>
+		<sec:form-login/>
+	</sec:http>
+
+	<sec:authentication-manager>
+		<sec:authentication-provider>
+			<sec:user-service>
+				<sec:user name="admin" password="password" authorities="ROLE_ADMIN"/>
+			</sec:user-service>
+		</sec:authentication-provider>
+	</sec:authentication-manager>
+
+</beans>

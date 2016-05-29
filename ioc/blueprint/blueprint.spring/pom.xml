@@ -14,9 +14,10 @@
 	<name>Shark: Samples: IOC: Blueprint: Spring</name>
 
 	<modules>
-		<module>blueprint.spring.messages</module>
 		<module>blueprint.spring.simple</module>
+		<module>blueprint.spring.messages</module>
 		<module>blueprint.spring.events</module>
+		<module>blueprint.spring.security</module>
 	</modules>
 
 	<dependencies>
