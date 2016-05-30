@@ -15,8 +15,8 @@
 	<name>Shark: Samples: IOC</name>
 
 	<modules>
-		<module>ipojo</module>
 		<module>blueprint</module>
+		<module>ipojo</module>
 	</modules>
 
 	<build>

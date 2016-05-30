@@ -15,4 +15,10 @@
 
 	<name>Shark: Samples: IOC: Blueprint: Spring: Events</name>
 
+	<dependencies>
+		<dependency>
+			<groupId>com.jayway.awaitility</groupId>
+			<artifactId>awaitility</artifactId>
+		</dependency>
+	</dependencies>
 </project>
