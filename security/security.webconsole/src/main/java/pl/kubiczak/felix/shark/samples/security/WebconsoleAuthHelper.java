@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.felix.webconsole.WebConsoleSecurityProvider2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 
-class BasicHttpAuth {
+class WebconsoleAuthHelper {
 
 	private static final String RESPONSE_AUTHENTICATION_HEADER = "WWW-Authenticate";
 
@@ -22,24 +24,21 @@ class BasicHttpAuth {
 
 	private final HttpServletResponse httpServletResponse;
 
-	BasicHttpAuth(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+	WebconsoleAuthHelper(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
 		this.httpServletRequest = httpServletRequest;
 		this.httpServletResponse = httpServletResponse;
 	}
 
 	boolean isAuthenticated() {
-		return retrieve(httpServletRequest) != null;
-	}
-
-	String getUsername() {
-		Authority authority = retrieve(httpServletRequest);
-		return authority != null ? authority.username : null;
+		return getAuthentication(httpServletRequest) != null;
 	}
 
 	void doLogout() {
 		if (log.isDebugEnabled()) {
 			if (isAuthenticated()) {
-				log.debug("logging out user: '{}'..", getUsername());
+				Authentication authentication = getAuthentication(httpServletRequest);
+				log.info("logging out: '{}'..", authentication.getPrincipal());
+				new SecurityContextLogoutHandler().logout(httpServletRequest, httpServletResponse, authentication);
 			} else {
 				log.debug("there is no authenticated user to log out");
 			}
@@ -60,11 +59,11 @@ class BasicHttpAuth {
 		}
 	}
 
-	private Authority retrieve(HttpServletRequest httpServletRequest) {
-		Authority result = null;
-		Object userAttributeValue = httpServletRequest.getAttribute(WebConsoleSecurityProvider2.USER_ATTRIBUTE);
-		if (userAttributeValue instanceof Authority) {
-			result = (Authority) userAttributeValue;
+	private Authentication getAuthentication(HttpServletRequest request) {
+		Object userAttributeValue = request.getAttribute(WebConsoleSecurityProvider2.USER_ATTRIBUTE);
+		Authentication result = null;
+		if (userAttributeValue instanceof Authentication) {
+			result = (Authentication) userAttributeValue;
 		}
 		return result;
 	}

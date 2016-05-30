@@ -14,13 +14,17 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.security.core.Authentication;
 
-public class BasicHttpAuthTest {
+public class WebconsoleAuthHelperTest {
 
-	private BasicHttpAuth tested;
+	private WebconsoleAuthHelper tested;
 
 	@Mock
 	private HttpServletRequest httpServletRequest;
+
+	@Mock
+	private Authentication authentication;
 
 	@Mock
 	private HttpServletResponse httpServletResponse;
@@ -28,7 +32,7 @@ public class BasicHttpAuthTest {
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
-		tested = new BasicHttpAuth(httpServletRequest, httpServletResponse);
+		tested = new WebconsoleAuthHelper(httpServletRequest, httpServletResponse);
 	}
 
 	@Test
@@ -50,7 +54,7 @@ public class BasicHttpAuthTest {
 	@Test
 	public void isAuthenticated_shouldReturnTrueForAuthObject() {
 		when(httpServletRequest.getAttribute(eq(WebConsoleSecurityProvider2.USER_ATTRIBUTE)))
-				.thenReturn(new Authority("username"));
+				.thenReturn(authentication);
 		boolean isAuthenticated = tested.isAuthenticated();
 		assertTrue(isAuthenticated);
 	}
@@ -58,7 +62,7 @@ public class BasicHttpAuthTest {
 	@Test
 	public void isAuthenticated_shouldReturnFalseForNonAuthObject() {
 		when(httpServletRequest.getAttribute(eq(WebConsoleSecurityProvider2.USER_ATTRIBUTE)))
-				.thenReturn(new String("username"));
+				.thenReturn(new Object());
 		boolean isAuthenticated = tested.isAuthenticated();
 		assertFalse(isAuthenticated);
 	}

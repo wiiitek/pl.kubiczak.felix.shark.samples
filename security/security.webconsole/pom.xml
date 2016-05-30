@@ -16,6 +16,23 @@
 	<name>Shark: Samples: Security: Webconsole</name>
 
 	<dependencies>
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
+			<artifactId>ioc.blueprint.spring.security</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-security-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-security-web</artifactId>
+		</dependency>
+
+		<!-- Felix -->
 		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.webconsole</artifactId>
@@ -25,13 +42,18 @@
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.http.servlet-api</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
+
+		<!-- SCR -->
 		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.scr.annotations</artifactId>
+		</dependency>
+
+		<!-- Commons -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-codec</groupId>
@@ -39,12 +61,18 @@
 			<version>1.10</version>
 		</dependency>
 
-		<!-- commons -->
+		<!-- Logging -->
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.4</version>
-			<scope>provided</scope>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
 		</dependency>
 
 		<!-- scope:test -->
@@ -78,7 +106,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Export-Package />
+						<Export-Package/>
 						<!-- maybe should rather be provided by OSGI.. -->
 						<Embed-Dependency>commons-codec</Embed-Dependency>
 					</instructions>
