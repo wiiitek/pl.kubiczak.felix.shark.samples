@@ -13,4 +13,6 @@
 		</service-properties>
 	</service>
 
+	<service ref="usernamePasswordAuthenticatorId" interface="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.security.UsernamePasswordAuthenticator"/>
+
 </blueprint>

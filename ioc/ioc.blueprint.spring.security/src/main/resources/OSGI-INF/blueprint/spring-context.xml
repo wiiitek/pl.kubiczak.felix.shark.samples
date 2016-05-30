@@ -15,15 +15,18 @@
 		<sec:intercept-url pattern="/samples.ioc.blueprint.spring.security/servlet/*" access="hasRole('ADMIN')"/>
 
 		<sec:http-basic/>
-		<sec:form-login/>
 	</sec:http>
 
-	<sec:authentication-manager>
+	<sec:authentication-manager alias="authenticationManager">
 		<sec:authentication-provider>
 			<sec:user-service>
 				<sec:user name="admin" password="password" authorities="ROLE_ADMIN"/>
 			</sec:user-service>
 		</sec:authentication-provider>
 	</sec:authentication-manager>
+
+	<bean id="usernamePasswordAuthenticatorId" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.security.UsernamePasswordAuthenticator">
+		<property name="authenticationManager" ref="authenticationManager"/>
+	</bean>
 
 </beans>
