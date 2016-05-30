@@ -9,16 +9,14 @@
 	</parent>
 
 	<artifactId>blueprint.it</artifactId>
+	<packaging>pom</packaging>
 
 	<name>Shark: Samples: IOC: Blueprint: Integration Tests</name>
 
 	<properties>
-		<version.pax.exam>4.9.1</version.pax.exam>
-		<version.pax.url>1.6.0</version.pax.url>
 		<!-- may be set by env variable or command-line argument -->
 		<username>username</username>
 		<maven.repo.local>/home/${username}/.m2/repository</maven.repo.local>
-
 	</properties>
 
 	<dependencies>
@@ -104,34 +102,23 @@
 			<artifactId>org.apache.servicemix.bundles.spring-expression</artifactId>
 		</dependency>
 
-		<!--
-			pax-exam-container-native will run the OSGi platform.
-			In our case its the felix framework defined within the profile section.
-		-->
+		<!-- Pax Exam -->
 		<dependency>
 			<groupId>org.ops4j.pax.exam</groupId>
 			<artifactId>pax-exam-container-native</artifactId>
-			<version>${version.pax.exam}</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.exam</groupId>
 			<artifactId>pax-exam-junit4</artifactId>
-			<version>${version.pax.exam}</version>
-			<scope>test</scope>
 		</dependency>
-		<!-- pax for maven -->
+		<!-- Pax Exam for maven -->
 		<dependency>
 			<groupId>org.ops4j.pax.exam</groupId>
 			<artifactId>pax-exam-link-mvn</artifactId>
-			<version>${version.pax.exam}</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.url</groupId>
 			<artifactId>pax-url-aether</artifactId>
-			<version>${version.pax.url}</version>
-			<scope>test</scope>
 		</dependency>
 		<!-- pax will use felix felix -->
 		<dependency>
@@ -142,14 +129,6 @@
 	</dependencies>
 
 	<build>
-		<resources>
-			<resource>
-				<targetPath>${project.build.testOutputDirectory}</targetPath>
-				<filtering>true</filtering>
-				<directory>src/test/resources</directory>
-			</resource>
-		</resources>
-
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
