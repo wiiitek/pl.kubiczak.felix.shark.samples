@@ -5,12 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>blueprint.spring</artifactId>
+		<artifactId>ioc</artifactId>
 		<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
 		<version>1.3-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>blueprint.spring.security</artifactId>
+	<artifactId>ioc.blueprint.spring.security</artifactId>
 	<packaging>bundle</packaging>
 
 	<name>Shark: Samples: IOC: Blueprint: Spring: Security</name>
@@ -19,22 +19,42 @@
 		<!-- HTTP -->
 		<dependency>
 			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.http.servlet-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.http.jetty</artifactId>
 		</dependency>
 
-		<!-- Spring (for tests0 -->
+		<!-- SCR -->
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr.annotations</artifactId>
+		</dependency>
+
+		<!-- Spring -->
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
-			<artifactId>org.apache.servicemix.bundles.spring-web</artifactId>
+			<artifactId>org.apache.servicemix.bundles.spring-aop</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
-			<artifactId>org.apache.servicemix.bundles.spring-security-core</artifactId>
+			<artifactId>org.apache.servicemix.bundles.spring-context</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-beans</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-expression</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.spring-test</artifactId>
+		</dependency>
+
+		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-security-config</artifactId>
@@ -44,10 +64,28 @@
 			<artifactId>org.apache.servicemix.bundles.spring-security-web</artifactId>
 		</dependency>
 
-		<!-- SCR annotations -->
+		<!-- Logging -->
 		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.scr.annotations</artifactId>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+
+		<!-- Testing -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
 		</dependency>
 	</dependencies>
 

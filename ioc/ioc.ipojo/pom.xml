@@ -5,14 +5,14 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>blueprint.spring</artifactId>
+		<artifactId>ioc</artifactId>
 		<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
 		<version>1.3-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>blueprint.spring.messages</artifactId>
-	<packaging>bundle</packaging>
+	<artifactId>ioc.ipojo</artifactId>
+	<packaging>pom</packaging>
 
-	<name>Shark: Samples: IOC: Blueprint: Spring: Messages</name>
+	<name>Shark: Samples: IOC: iPojo</name>
 
 </project>

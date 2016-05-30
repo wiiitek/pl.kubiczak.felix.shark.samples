@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>blueprint</artifactId>
+		<artifactId>ioc</artifactId>
 		<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
 		<version>1.3-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>blueprint.spring</artifactId>
-	<packaging>pom</packaging>
+	<artifactId>ioc.blueprint.spring.simple</artifactId>
+	<packaging>bundle</packaging>
 
-	<name>Shark: Samples: IOC: Blueprint: Spring</name>
-
-	<modules>
-		<module>blueprint.spring.simple</module>
-		<module>blueprint.spring.messages</module>
-		<module>blueprint.spring.events</module>
-		<module>blueprint.spring.security</module>
-	</modules>
+	<name>Shark: Samples: IOC: Blueprint: Spring: Simple</name>
 
 	<dependencies>
 		<!-- Spring -->

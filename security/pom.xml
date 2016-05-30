@@ -8,54 +8,15 @@
 		<version>1.3-SNAPSHOT</version>
 	</parent>
 
-	<groupId>pl.kubiczak.felix.shark.samples.webconsole</groupId>
+	<groupId>pl.kubiczak.felix.shark.samples.security</groupId>
 	<artifactId>security</artifactId>
-	<packaging>bundle</packaging>
+	<packaging>pom</packaging>
 
-	<name>Shark: Samples: Webconsole</name>
+	<name>Shark: Samples: Security</name>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.webconsole</artifactId>
-			<classifier>all</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.http.servlet-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.scr.annotations</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-			<version>1.10</version>
-		</dependency>
-
-		<!-- commons -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.4</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<!-- scope:test -->
-		<dependency>
-			<groupId>org.spockframework</groupId>
-			<artifactId>spock-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-		</dependency>
-	</dependencies>
+	<modules>
+		<module>security.webconsole</module>
+	</modules>
 
 	<build>
 		<plugins>
@@ -74,42 +35,9 @@
 				<executions>
 					<execution>
 						<id>copy-readme-file-to-site</id>
-						<phase />
+						<phase></phase>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-scr-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>generate-scr-scrdescriptor</id>
-						<goals>
-							<goal>scr</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<extensions>true</extensions>
-				<configuration>
-					<instructions>
-						<Export-Package />
-						<!-- maybe should rather be provided by OSGI.. -->
-						<Embed-Dependency>commons-codec</Embed-Dependency>
-					</instructions>
-				</configuration>
-			</plugin>
-
-			<!-- unit tests -->
-			<!--
-				Compiles Groovy code. Configured in parent pom.xml file
-			-->
-			<plugin>
-				<groupId>org.codehaus.gmavenplus</groupId>
-				<artifactId>gmavenplus-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

@@ -8,7 +8,7 @@
 		<version>1.3-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>resources</artifactId>
+	<artifactId>http.resources</artifactId>
 	<packaging>bundle</packaging>
 
 	<name>Shark: Samples: Http: Resources</name>
