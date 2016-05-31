@@ -25,17 +25,4 @@
 		<module>ioc.blueprint.it</module>
 		<module>ioc.ipojo</module>
 	</modules>
-
-	<build>
-		<plugins>
-			<!-- do NOT generate sites for sub-modules -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-site-plugin</artifactId>
-				<configuration>
-					<skip>true</skip>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>
