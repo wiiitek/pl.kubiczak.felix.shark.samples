@@ -5,12 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>ioc</artifactId>
-		<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
+		<artifactId>samples</artifactId>
+		<groupId>pl.kubiczak.felix.shark.samples</groupId>
 		<version>1.3-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>ioc.blueprint.spring.simple</artifactId>
+	<artifactId>samples.ioc.blueprint.spring.simple</artifactId>
 	<packaging>bundle</packaging>
 
 	<name>Shark: Samples: IOC: Blueprint: Spring: Simple</name>

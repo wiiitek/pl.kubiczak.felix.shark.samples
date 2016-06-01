@@ -10,19 +10,9 @@
 		<version>1.3-SNAPSHOT</version>
 	</parent>
 
-	<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
-	<artifactId>ioc</artifactId>
+	<artifactId>samples.ioc.ipojo</artifactId>
 	<packaging>pom</packaging>
 
-	<name>Shark: Samples: IOC</name>
+	<name>Shark: Samples: IOC: iPojo</name>
 
-	<modules>
-		<module>ioc.blueprint.simple</module>
-		<module>ioc.blueprint.spring.simple</module>
-		<module>ioc.blueprint.spring.messages</module>
-		<module>ioc.blueprint.spring.events</module>
-		<module>ioc.blueprint.spring.security</module>
-		<module>ioc.blueprint.it</module>
-		<module>ioc.ipojo</module>
-	</modules>
 </project>

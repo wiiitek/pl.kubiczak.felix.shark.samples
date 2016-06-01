@@ -5,29 +5,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>ioc</artifactId>
-		<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
+		<artifactId>samples</artifactId>
+		<groupId>pl.kubiczak.felix.shark.samples</groupId>
 		<version>1.3-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>ioc.blueprint.spring.security</artifactId>
+	<artifactId>samples.ioc.blueprint.spring.events</artifactId>
 	<packaging>bundle</packaging>
 
-	<name>Shark: Samples: IOC: Blueprint: Spring: Security</name>
+	<name>Shark: Samples: IOC: Blueprint: Spring: Events</name>
 
 	<dependencies>
-		<!-- HTTP -->
-		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.http.jetty</artifactId>
-		</dependency>
-
-		<!-- SCR -->
-		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.scr.annotations</artifactId>
-		</dependency>
-
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
@@ -54,16 +42,6 @@
 			<artifactId>org.apache.servicemix.bundles.spring-test</artifactId>
 		</dependency>
 
-		<!-- Spring Security -->
-		<dependency>
-			<groupId>org.apache.servicemix.bundles</groupId>
-			<artifactId>org.apache.servicemix.bundles.spring-security-config</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.servicemix.bundles</groupId>
-			<artifactId>org.apache.servicemix.bundles.spring-security-web</artifactId>
-		</dependency>
-
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -87,46 +65,21 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.jayway.awaitility</groupId>
+			<artifactId>awaitility</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-scr-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>generate-scr-scrdescriptor</id>
-						<goals>
-							<goal>scr</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Import-Package>
-							org.springframework.web.filter,
-							org.springframework.context.support,
-							org.springframework.security.access.vote,
-							org.springframework.security.authentication,
-							org.springframework.security.authentication.dao,
-							org.springframework.security.config,
-							org.springframework.security.core,
-							org.springframework.security.provisioning,
-							org.springframework.security.web,
-							org.springframework.security.web.authentication,
-							org.springframework.security.web.util.matcher,
-							org.springframework.dao;resolution:=optional,
-							org.springframework.jdbc.core;resolution:=optional,
-							org.springframework.jdbc.core.support;resolution:=optional,
-							org.springframework.web.servlet.support;resolution:=optional,
-							*
-						</Import-Package>
+						<Export-Package>pl.kubiczak.felix.shark.samples.ioc.${project.artifactId}</Export-Package>
 					</instructions>
 				</configuration>
 			</plugin>

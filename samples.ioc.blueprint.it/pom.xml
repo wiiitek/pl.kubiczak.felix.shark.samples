@@ -5,12 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>ioc</artifactId>
-		<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
+		<artifactId>samples</artifactId>
+		<groupId>pl.kubiczak.felix.shark.samples</groupId>
 		<version>1.3-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>ioc.blueprint.it</artifactId>
+	<artifactId>samples.ioc.blueprint.it</artifactId>
 	<packaging>pom</packaging>
 
 	<name>Shark: Samples: IOC: Blueprint: Integration Tests</name>
@@ -28,13 +28,13 @@
 			<artifactId>org.apache.felix.eventadmin</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
-			<artifactId>ioc.blueprint.simple</artifactId>
+			<groupId>pl.kubiczak.felix.shark</groupId>
+			<artifactId>samples.ioc.blueprint.simple</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
-			<artifactId>ioc.blueprint.spring.simple</artifactId>
+			<groupId>pl.kubiczak.felix.shark</groupId>
+			<artifactId>samples.ioc.blueprint.spring.simple</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

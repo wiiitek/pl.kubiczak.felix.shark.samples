@@ -18,8 +18,8 @@
 	<dependencies>
 		<!-- Spring Security -->
 		<dependency>
-			<groupId>pl.kubiczak.felix.shark.samples.ioc</groupId>
-			<artifactId>ioc.blueprint.spring.security</artifactId>
+			<groupId>pl.kubiczak.felix.shark</groupId>
+			<artifactId>samples.ioc.blueprint.spring.security</artifactId>
 			<version>${project.version}</version>
 			<scope>provided</scope>
 		</dependency>

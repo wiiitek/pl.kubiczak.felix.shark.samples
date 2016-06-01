@@ -30,7 +30,14 @@
 		<module>samples.http.resources</module>
 		<module>samples.http.servlet</module>
 
-		<module>ioc</module>
+		<module>samples.ioc.ipojo</module>
+		<module>samples.ioc.blueprint.simple</module>
+		<module>samples.ioc.blueprint.spring.simple</module>
+		<module>samples.ioc.blueprint.spring.messages</module>
+		<module>samples.ioc.blueprint.spring.events</module>
+		<module>samples.ioc.blueprint.spring.security</module>
+		<module>samples.ioc.blueprint.it</module>
+
 		<module>samples.webconsole.security</module>
 	</modules>
 

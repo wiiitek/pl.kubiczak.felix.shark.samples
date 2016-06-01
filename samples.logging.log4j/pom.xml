@@ -13,7 +13,7 @@
 	<artifactId>samples.logging.log4j</artifactId>
 	<packaging>bundle</packaging>
 
-	<name>Shark: Samples: Logging: Log4j: Log4j 1</name>
+	<name>Shark: Samples: Logging: Log4j</name>
 
 	<dependencies>
 		<dependency>
