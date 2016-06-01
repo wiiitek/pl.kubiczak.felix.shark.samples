@@ -5,15 +5,15 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>security</artifactId>
-		<groupId>pl.kubiczak.felix.shark.samples.security</groupId>
+		<artifactId>samples</artifactId>
+		<groupId>pl.kubiczak.felix.shark.samples</groupId>
 		<version>1.3-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>security.webconsole</artifactId>
+	<artifactId>samples.webconsole.security</artifactId>
 	<packaging>bundle</packaging>
 
-	<name>Shark: Samples: Security: Webconsole</name>
+	<name>Shark: Samples: Webconsole: Security</name>
 
 	<dependencies>
 		<!-- Spring Security -->
@@ -58,7 +58,6 @@
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
-			<version>1.10</version>
 		</dependency>
 
 		<!-- Logging -->
