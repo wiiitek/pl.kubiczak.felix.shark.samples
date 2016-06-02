@@ -7,10 +7,9 @@ pl.kubiczak.felix.shark.samples
 
 Code samples for Shark.
 
-Project site available at [http://site.kubiczak.pl/][project-site]
+Project site available at [https://shark.kubiczak.pl/samples/][project-site]
 
-Maven artifacts at [http://maven.kubiczak.pl/][custom-maven-repo]
+Maven artifacts at [http://maven.kubiczak.pl/pl/kubiczak/felix/shark/samples/][custom-maven-repo]
 
-[license]: http://creativecommons.org/licenses/by-nc/4.0/
-[project-site]: http://site.kubiczak.pl/
-[custom-maven-repo]: http://maven.kubiczak.pl/
+[project-site]: https://shark.kubiczak.pl/samples/
+[custom-maven-repo]: http://maven.kubiczak.pl/pl/kubiczak/felix/shark/samples/
