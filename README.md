@@ -2,7 +2,10 @@
 pl.kubiczak.felix.shark.samples
 ===============================
 
-Sample applications for Shark.
+[![Build Status](https://travis-ci.org/wiiitek/pl.kubiczak.felix.shark.samples.svg?branch=master)](https://travis-ci.org/wiiitek/pl.kubiczak.felix.shark.samples)
+
+
+Code samples for Shark.
 
 Project site available at [http://site.kubiczak.pl/][project-site]
 
