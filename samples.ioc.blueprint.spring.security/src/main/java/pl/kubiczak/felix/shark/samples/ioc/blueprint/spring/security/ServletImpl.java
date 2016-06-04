@@ -1,5 +1,13 @@
 package pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.security;
 
+import org.apache.felix.scr.annotations.Component;
+import org.apache.felix.scr.annotations.Properties;
+import org.apache.felix.scr.annotations.Property;
+import org.apache.felix.scr.annotations.Service;
+import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -9,14 +17,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Properties;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Service;
-import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 @Component(immediate = true)
 @Service(value = javax.servlet.Servlet.class)
 @Properties({
@@ -24,7 +24,9 @@ import org.slf4j.LoggerFactory;
 })
 public class ServletImpl extends HttpServlet {
 
-	private static final String PATTERN = "Date = '%tY-%tm-%td %tH%tM%tS.%tL'\nRequestURI = '%s'\nPathInfo = '%s'\nQueryString = '%s'";
+	static final String DATE_PATTERN = "%1$tY-%1$tm-%1$td %1$tH.%1$tM.%1$tS.%1$tL";
+
+	private static final String RESPONSE_PATTERN = "Date = '%1s'\nRequestURI = '%2s'\nPathInfo = '%3s'\nQueryString = '%4s'";
 
 	private static int seq = 0;
 
@@ -41,11 +43,8 @@ public class ServletImpl extends HttpServlet {
 		res.setCharacterEncoding("UTF-8");
 		res.setStatus(HttpServletResponse.SC_OK);
 
-		String msg = String.format(PATTERN,
-				new Date(),
-				req.getRequestURI(),
-				req.getPathInfo(),
-				req.getQueryString());
+		String dateString = String.format(DATE_PATTERN, new Date());
+		String msg = String.format(RESPONSE_PATTERN, dateString, req.getRequestURI(), req.getPathInfo(), req.getQueryString());
 
 		PrintWriter out = res.getWriter();
 		out.println(msg);
