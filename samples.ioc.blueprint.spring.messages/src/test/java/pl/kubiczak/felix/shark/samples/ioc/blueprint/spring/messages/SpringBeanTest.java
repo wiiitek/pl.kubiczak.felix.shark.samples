@@ -18,28 +18,28 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("classpath:OSGI-INF/blueprint/spring-context.xml")
 public class SpringBeanTest {
 
-	@Autowired
-	private ApplicationContext applicationContext;
+    @Autowired
+    private ApplicationContext applicationContext;
 
-	@Test
-	public void messageSourceShouldBeInserted() {
-		Bean bean = applicationContext.getBean("beanId", Bean.class);
-		assertThat(bean, is(notNullValue()));
+    @Test
+    public void messageSourceShouldBeInserted() {
+        Bean bean = applicationContext.getBean("beanId", Bean.class);
+        assertThat(bean, is(notNullValue()));
 
-		MessageSource messageSource = bean.getMessageSource();
-		assertThat(messageSource, is(notNullValue()));
-	}
+        MessageSource messageSource = bean.getMessageSource();
+        assertThat(messageSource, is(notNullValue()));
+    }
 
-	@Test
-	public void injectedMessageSourceDefaultMessages() {
-		Bean bean = applicationContext.getBean("beanId", Bean.class);
-		MessageSource messageSource = bean.getMessageSource();
+    @Test
+    public void injectedMessageSourceDefaultMessages() {
+        Bean bean = applicationContext.getBean("beanId", Bean.class);
+        MessageSource messageSource = bean.getMessageSource();
 
-		Locale irrelevantLocale = new Locale("en");
-		String retrievedMessage = messageSource.getMessage(
-				"irrelevant.key", new String[]{"irrelevant", "arguments"}, "Default message", irrelevantLocale);
+        Locale irrelevantLocale = new Locale("en");
+        String retrievedMessage = messageSource.getMessage(
+                "irrelevant.key", new String[]{"irrelevant", "arguments"}, "Default message", irrelevantLocale);
 
-		assertThat(retrievedMessage, is("Default message"));
-	}
+        assertThat(retrievedMessage, is("Default message"));
+    }
 
 }

@@ -5,13 +5,13 @@ import org.springframework.context.MessageSourceAware;
 
 public class Bean implements MessageSourceAware {
 
-	private MessageSource messageSource;
+    private MessageSource messageSource;
 
-	public void setMessageSource(MessageSource messageSource) {
-		this.messageSource = messageSource;
-	}
+    public void setMessageSource(MessageSource messageSource) {
+        this.messageSource = messageSource;
+    }
 
-	public MessageSource getMessageSource() {
-		return messageSource;
-	}
+    public MessageSource getMessageSource() {
+        return messageSource;
+    }
 }

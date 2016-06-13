@@ -8,25 +8,25 @@ import org.osgi.framework.BundleContext;
 
 public class Activator implements BundleActivator {
 
-	private static final Logger LOG = LogManager.getLogger(Activator.class);
+    private static final Logger LOG = LogManager.getLogger(Activator.class);
 
-	public void start(BundleContext context) throws Exception {
+    public void start(BundleContext context) throws Exception {
 
-		String msg = "bundle " + context.getBundle().getSymbolicName() + " START";
+        String msg = "bundle " + context.getBundle().getSymbolicName() + " START";
 
-		LOG.debug("debug: " + msg);
-		LOG.info("info: " + msg);
-		LOG.warn("warn: " + msg);
-		LOG.error("error: " + msg);
-	}
+        LOG.debug("debug: " + msg);
+        LOG.info("info: " + msg);
+        LOG.warn("warn: " + msg);
+        LOG.error("error: " + msg);
+    }
 
-	public void stop(BundleContext context) throws Exception {
+    public void stop(BundleContext context) throws Exception {
 
-		String msg = "bundle " + context.getBundle().getSymbolicName() + " STOP";
+        String msg = "bundle " + context.getBundle().getSymbolicName() + " STOP";
 
-		LOG.debug("debug: " + msg);
-		LOG.info("info: " + msg);
-		LOG.warn("warn: " + msg);
-		LOG.error("error: " + msg);
-	}
+        LOG.debug("debug: " + msg);
+        LOG.info("info: " + msg);
+        LOG.warn("warn: " + msg);
+        LOG.error("error: " + msg);
+    }
 }

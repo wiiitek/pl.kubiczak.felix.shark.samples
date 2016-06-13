@@ -12,17 +12,17 @@ import pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.DateFormatter;
  */
 public class SimpleImpl implements DateFormatter {
 
-	private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = LoggerFactory.getLogger(getClass());
 
-	public String getFormatted(Date date) {
-		return Long.toString(date.getTime());
-	}
+    public String getFormatted(Date date) {
+        return Long.toString(date.getTime());
+    }
 
-	public void init(){
-		log.debug("initialized bean");
-	}
+    public void init() {
+        log.debug("initialized bean");
+    }
 
-	public void destroy(){
-		log.debug("destroyed bean");
-	}
+    public void destroy() {
+        log.debug("destroyed bean");
+    }
 }

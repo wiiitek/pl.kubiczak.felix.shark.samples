@@ -4,9 +4,9 @@ import java.util.Date;
 
 public interface DateFormatter {
 
-	/**
-	 * @param date date instance for UTC timezone
-	 * @return implementation specific representation of date
-	 */
-	String getFormatted(Date date);
+    /**
+     * @param date date instance for UTC timezone
+     * @return implementation specific representation of date
+     */
+    String getFormatted(Date date);
 }

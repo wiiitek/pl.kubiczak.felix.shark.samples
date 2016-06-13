@@ -15,15 +15,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("classpath:OSGI-INF/blueprint/spring-context.xml")
 public class SpringBeanTest {
 
-	@Autowired
-	private ApplicationContext applicationContext;
+    @Autowired
+    private ApplicationContext applicationContext;
 
-	@Test
-	public void springBeanAInitialization() {
-		Bean bean = applicationContext.getBean("beanA", Bean.class);
-		assertThat(bean, is(notNullValue()));
+    @Test
+    public void springBeanAInitialization() {
+        Bean bean = applicationContext.getBean("beanA", Bean.class);
+        assertThat(bean, is(notNullValue()));
 
-		String string = bean.toString();
-		assertThat(string, is("Bean A[Sample Value]"));
-	}
+        String string = bean.toString();
+        assertThat(string, is("Bean A[Sample Value]"));
+    }
 }

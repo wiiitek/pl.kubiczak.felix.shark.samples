@@ -24,35 +24,35 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("classpath:OSGI-INF/blueprint/spring-context.xml")
 public class SpringBeansTest {
 
-	private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = LoggerFactory.getLogger(getClass());
 
-	@Autowired
-	private ApplicationContext applicationContext;
+    @Autowired
+    private ApplicationContext applicationContext;
 
-	@Test
-	public void springSecurityFilterChainShouldBeCreated() {
-		FilterChainProxy securityFilterChain
-				= applicationContext.getBean("springSecurityFilterChain", FilterChainProxy.class);
-		assertThat(securityFilterChain, is(notNullValue()));
-	}
+    @Test
+    public void springSecurityFilterChainShouldBeCreated() {
+        FilterChainProxy securityFilterChain
+                = applicationContext.getBean("springSecurityFilterChain", FilterChainProxy.class);
+        assertThat(securityFilterChain, is(notNullValue()));
+    }
 
-	@Test
-	public void springSecurityFilterChainShouldContainFilters() {
-		FilterChainProxy securityFilterChain
-				= applicationContext.getBean("springSecurityFilterChain", FilterChainProxy.class);
-		List<SecurityFilterChain> filterChains = securityFilterChain.getFilterChains();
+    @Test
+    public void springSecurityFilterChainShouldContainFilters() {
+        FilterChainProxy securityFilterChain
+                = applicationContext.getBean("springSecurityFilterChain", FilterChainProxy.class);
+        List<SecurityFilterChain> filterChains = securityFilterChain.getFilterChains();
 
-		boolean containsFilter = false;
-		if (log.isDebugEnabled()) {
-			for (SecurityFilterChain filterChain : filterChains) {
-				log.debug("logging filterChain...");
-				for (Filter filter : filterChain.getFilters()) {
-					log.debug("filter: '{}'", filter.getClass().getName());
-					containsFilter = true;
-				}
-			}
-		}
+        boolean containsFilter = false;
+        if (log.isDebugEnabled()) {
+            for (SecurityFilterChain filterChain : filterChains) {
+                log.debug("logging filterChain...");
+                for (Filter filter : filterChain.getFilters()) {
+                    log.debug("filter: '{}'", filter.getClass().getName());
+                    containsFilter = true;
+                }
+            }
+        }
 
-		assertTrue("Should contain at least one filter", containsFilter);
-	}
+        assertTrue("Should contain at least one filter", containsFilter);
+    }
 }
