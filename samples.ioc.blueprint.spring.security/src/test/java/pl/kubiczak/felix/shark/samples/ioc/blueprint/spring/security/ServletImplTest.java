@@ -1,12 +1,12 @@
 package pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.security;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
 import org.junit.Test;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ServletImplTest {
 

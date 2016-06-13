@@ -1,8 +1,8 @@
 package pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.simple;
 
-import java.util.Arrays;
-
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.Arrays;
 
 public class Bean {
 

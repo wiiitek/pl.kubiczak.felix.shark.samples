@@ -1,13 +1,13 @@
 package pl.kubiczak.felix.shark.samples.ioc.blueprint.simple;
 
 
-import java.util.Date;
-import java.util.concurrent.atomic.AtomicLong;
-
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Date;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * Sample OSGi events handler.
