@@ -1,10 +1,11 @@
-#./gitignore
-
+# maven output
 target
 
+# IntelliJ files
 /.idea
 *.iml
 
+# Eclipse files
 .project
 .classpath
 .settings
