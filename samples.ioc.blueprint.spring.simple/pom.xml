@@ -77,11 +77,20 @@
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
 				<extensions>true</extensions>
-				<configuration>
-					<instructions>
-						<Export-Package>pl.kubiczak.felix.shark.samples.ioc.${project.artifactId}</Export-Package>
-					</instructions>
-				</configuration>
+				<executions>
+					<execution>
+						<id>default-bundle</id>
+						<phase>package</phase>
+						<goals>
+							<goal>bundle</goal>
+						</goals>
+						<configuration>
+							<instructions>
+								<Export-Package>pl.kubiczak.felix.shark.samples.ioc.${project.artifactId}</Export-Package>
+							</instructions>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
