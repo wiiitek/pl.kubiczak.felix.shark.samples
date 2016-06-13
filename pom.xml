@@ -5,7 +5,7 @@
 	<parent>
 		<artifactId>parent</artifactId>
 		<groupId>pl.kubiczak.felix.shark</groupId>
-		<version>1.6.1</version>
+		<version>1.7-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>samples</artifactId>
@@ -16,23 +16,23 @@
 	<url>https://shark.kubiczak.pl/samples</url>
 
 	<modules>
+		<module>samples.http.resources</module>
+		<module>samples.http.servlet</module>
+
+		<module>samples.ioc.blueprint.it</module>
+		<module>samples.ioc.blueprint.simple</module>
+		<module>samples.ioc.blueprint.spring.events</module>
+		<module>samples.ioc.blueprint.spring.messages</module>
+		<module>samples.ioc.blueprint.spring.security</module>
+		<module>samples.ioc.blueprint.spring.simple</module>
+		<module>samples.ioc.ipojo</module>
+
 		<module>samples.logging.jcl</module>
 		<module>samples.logging.jul</module>
 		<module>samples.logging.log4j</module>
 		<module>samples.logging.log4j2</module>
 		<module>samples.logging.logservice</module>
 		<module>samples.logging.slf4j</module>
-
-		<module>samples.http.resources</module>
-		<module>samples.http.servlet</module>
-
-		<module>samples.ioc.ipojo</module>
-		<module>samples.ioc.blueprint.simple</module>
-		<module>samples.ioc.blueprint.spring.simple</module>
-		<module>samples.ioc.blueprint.spring.messages</module>
-		<module>samples.ioc.blueprint.spring.events</module>
-		<module>samples.ioc.blueprint.spring.security</module>
-		<module>samples.ioc.blueprint.it</module>
 
 		<module>samples.webconsole.security</module>
 	</modules>
