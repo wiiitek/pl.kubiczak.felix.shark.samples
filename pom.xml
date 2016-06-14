@@ -15,6 +15,11 @@
   <packaging>pom</packaging>
 
   <name>Shark: Samples</name>
+  <description>
+    This module contains code samples for OSGI integration with Spring, Blueprint, Logging, HTTP...
+    Also manages some dependencies versions that are not configured within shark dependencies module.
+    Submodules are grouped with artifactIds prefixes.
+  </description>
   <url>https://shark.kubiczak.pl/samples</url>
 
   <modules>
