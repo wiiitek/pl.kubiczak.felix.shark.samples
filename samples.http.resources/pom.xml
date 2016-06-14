@@ -14,6 +14,7 @@
   <packaging>bundle</packaging>
 
   <name>Shark: Samples: Http: Resources</name>
+  <description>Code samples for static HTTP resources.</description>
 
   <dependencies>
     <dependency>

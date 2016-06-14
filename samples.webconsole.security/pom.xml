@@ -14,6 +14,7 @@
   <packaging>bundle</packaging>
 
   <name>Shark: Samples: Webconsole: Security</name>
+  <description>Sample for Felix webconsole authentication delegated to Spring security.</description>
 
   <dependencies>
     <!-- Spring Security -->
@@ -123,8 +124,8 @@
 
       <!-- unit tests -->
       <!--
-				Compiles Groovy code. Configured in parent pom.xml file
-			-->
+        Compiles Groovy code. Configured in parent pom.xml file
+      -->
       <plugin>
         <groupId>org.codehaus.gmavenplus</groupId>
         <artifactId>gmavenplus-plugin</artifactId>

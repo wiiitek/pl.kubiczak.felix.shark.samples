@@ -14,6 +14,7 @@
   <packaging>bundle</packaging>
 
   <name>Shark: Samples: Logging: Slf4j</name>
+  <description>Sample bundle for logging with slf4j API.</description>
 
   <dependencies>
     <dependency>

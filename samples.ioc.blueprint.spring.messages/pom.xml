@@ -14,6 +14,7 @@
   <packaging>bundle</packaging>
 
   <name>Shark: Samples: IOC: Blueprint: Spring: Messages</name>
+  <description>Spring messageSource used within Blueprint IOC.</description>
 
   <dependencies>
     <!-- Spring -->

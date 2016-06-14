@@ -14,6 +14,7 @@
   <packaging>bundle</packaging>
 
   <name>Shark: Samples: Logging: JUL</name>
+  <description>Sample bundle for logging with java.util.logging.</description>
 
   <dependencies>
     <dependency>

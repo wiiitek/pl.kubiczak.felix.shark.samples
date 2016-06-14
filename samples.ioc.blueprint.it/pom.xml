@@ -14,6 +14,7 @@
   <packaging>pom</packaging>
 
   <name>Shark: Samples: IOC: Blueprint: Integration Tests</name>
+  <description>Samples for integration tests with Pax Exam. Blueprint bundles are tested.</description>
 
   <properties>
     <!-- may be set by env variable or command-line argument -->
