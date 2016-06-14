@@ -16,9 +16,9 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.when;
 
-public class WebconsoleAuthHelperTest {
+public class WebConsoleAuthHelperTest {
 
-    private WebconsoleAuthHelper tested;
+    private WebConsoleAuthHelper tested;
 
     @Mock
     private HttpServletRequest httpServletRequest;
@@ -32,7 +32,7 @@ public class WebconsoleAuthHelperTest {
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        tested = new WebconsoleAuthHelper(httpServletRequest, httpServletResponse);
+        tested = new WebConsoleAuthHelper(httpServletRequest, httpServletResponse);
     }
 
     @Test

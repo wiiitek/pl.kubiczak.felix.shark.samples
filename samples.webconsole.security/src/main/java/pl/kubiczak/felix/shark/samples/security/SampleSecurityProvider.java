@@ -25,17 +25,17 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     public void logout(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
-        WebconsoleAuthHelper webconsoleAuthHelper = new WebconsoleAuthHelper(httpServletRequest, httpServletResponse);
-        if (webconsoleAuthHelper.isAuthenticated()) {
-            webconsoleAuthHelper.doLogout();
+        WebConsoleAuthHelper webConsoleAuthHelper = new WebConsoleAuthHelper(httpServletRequest, httpServletResponse);
+        if (webConsoleAuthHelper.isAuthenticated()) {
+            webConsoleAuthHelper.doLogout();
         }
     }
 
     public boolean authenticate(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         boolean authenticated = false;
 
-        WebconsoleAuthHelper webconsoleAuthHelper = new WebconsoleAuthHelper(httpServletRequest, httpServletResponse);
-        if (webconsoleAuthHelper.isAuthenticated()) {
+        WebConsoleAuthHelper webConsoleAuthHelper = new WebConsoleAuthHelper(httpServletRequest, httpServletResponse);
+        if (webConsoleAuthHelper.isAuthenticated()) {
             authenticated = true;
         } else {
             BasicHttpAuthDecoder decoder = new BasicHttpAuthDecoder(httpServletRequest);
@@ -56,7 +56,7 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
         }
 
         if (!authenticated) {
-            webconsoleAuthHelper.setupAuthenticationHeaders();
+            webConsoleAuthHelper.setupAuthenticationHeaders();
         }
         return authenticated;
     }

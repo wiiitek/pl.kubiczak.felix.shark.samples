@@ -11,7 +11,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-class WebconsoleAuthHelper {
+class WebConsoleAuthHelper {
 
     private static final String RESPONSE_AUTHENTICATION_HEADER = "WWW-Authenticate";
 
@@ -24,7 +24,7 @@ class WebconsoleAuthHelper {
 
     private final HttpServletResponse httpServletResponse;
 
-    WebconsoleAuthHelper(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+    WebConsoleAuthHelper(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         this.httpServletRequest = httpServletRequest;
         this.httpServletResponse = httpServletResponse;
     }
