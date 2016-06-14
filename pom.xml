@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>samples</artifactId>
-  <version>1.4</version>
+  <version>1.5-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Shark: Samples</name>
@@ -45,7 +45,7 @@
   <scm>
     <connection>scm:git:https://github.com/wiiitek/pl.kubiczak.felix.shark.samples.git</connection>
     <developerConnection>scm:git:git@github.com:wiiitek/pl.kubiczak.felix.shark.samples.git</developerConnection>
-    <tag>1.4</tag>
+    <tag>HEAD</tag>
     <url>https://github.com/wiiitek/pl.kubiczak.felix.shark.samples/tree/${project.scm.tag}</url>
   </scm>
   <distributionManagement>

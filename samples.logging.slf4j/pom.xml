@@ -5,7 +5,7 @@
   <parent>
     <artifactId>samples</artifactId>
     <groupId>pl.kubiczak.felix.shark</groupId>
-    <version>1.4</version>
+    <version>1.5-SNAPSHOT</version>
   </parent>
 
   <artifactId>samples.logging.slf4j</artifactId>
