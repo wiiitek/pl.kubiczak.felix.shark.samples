@@ -19,35 +19,44 @@ import javax.servlet.http.HttpServletResponse;
 
 @Component(immediate = true)
 @Service(value = javax.servlet.Servlet.class)
-@Properties({
-        @Property(name = HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN, value = ServletImpl.SERVLET_PATTERN)
-})
+@Properties
+        ({
+                @Property(
+                        name = HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN,
+                        value = ServletImpl.SERVLET_PATTERN)
+        })
 public class ServletImpl extends HttpServlet {
 
-    static final String DATE_PATTERN = "%1$tY-%1$tm-%1$td %1$tH.%1$tM.%1$tS.%1$tL";
+  static final String DATE_PATTERN = "%1$tY-%1$tm-%1$td %1$tH.%1$tM.%1$tS.%1$tL";
 
-    private static final String RESPONSE_PATTERN = "Date = '%1s'\nRequestURI = '%2s'\nPathInfo = '%3s'\nQueryString = '%4s'";
+  private static final String RESPONSE_PATTERN =
+          "Date = '%1s'\nRequestURI = '%2s'\nPathInfo = '%3s'\nQueryString = '%4s'";
 
-    private static int seq = 0;
+  private static int seq = 0;
 
-    static final String SERVLET_PATTERN = "/samples.ioc.blueprint.spring.security/servlet/*";
+  static final String SERVLET_PATTERN = "/samples.ioc.blueprint.spring.security/servlet/*";
 
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
+  private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse res)
+          throws ServletException, IOException {
 
-        log.debug("remote host: '{}'", req.getRemoteHost());
+    log.debug("remote host: '{}'", req.getRemoteHost());
 
-        res.setContentType("text/plain");
-        res.setCharacterEncoding("UTF-8");
-        res.setStatus(HttpServletResponse.SC_OK);
+    res.setContentType("text/plain");
+    res.setCharacterEncoding("UTF-8");
+    res.setStatus(HttpServletResponse.SC_OK);
 
-        String dateString = String.format(DATE_PATTERN, new Date());
-        String msg = String.format(RESPONSE_PATTERN, dateString, req.getRequestURI(), req.getPathInfo(), req.getQueryString());
+    String dateString = String.format(DATE_PATTERN, new Date());
+    String msg = String.format(RESPONSE_PATTERN,
+            dateString,
+            req.getRequestURI(),
+            req.getPathInfo(),
+            req.getQueryString());
 
-        PrintWriter out = res.getWriter();
-        out.println(msg);
-        out.flush();
-    }
+    PrintWriter out = res.getWriter();
+    out.println(msg);
+    out.flush();
+  }
 }

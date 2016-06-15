@@ -20,29 +20,39 @@ import javax.servlet.http.HttpServletResponse;
 
 @Component
 @Service
-@Properties({
-        @Property(name = HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT, value = WhiteboardContext.CONTEXT_FILTER),
-        @Property(name = HttpWhiteboardConstants.HTTP_WHITEBOARD_FILTER_PATTERN, value = WhiteboardServlet.SERVLET_PATTERN)
-})
+@Properties
+        ({
+                @Property(
+                        name = HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT,
+                        value = WhiteboardContext.CONTEXT_FILTER),
+                @Property(
+                        name = HttpWhiteboardConstants.HTTP_WHITEBOARD_FILTER_PATTERN,
+                        value = WhiteboardServlet.SERVLET_PATTERN)
+        })
 public class WhiteboardFilter implements Filter {
 
-    private static final String HEADER_NAME = "Header-WhiteboardFilter";
+  private static final String HEADER_NAME = "Header-WhiteboardFilter";
 
-    private static final int TIMESTAMP_RADIX = 16;
+  private static final int TIMESTAMP_RADIX = 16;
 
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
+  private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    public void init(FilterConfig filterConfig) throws ServletException {
-        log.debug("init filter with servlet context: {}", filterConfig.getServletContext().getContextPath());
-    }
+  public void init(FilterConfig filterConfig) throws ServletException {
+    log.debug("init filter with servlet context: {}",
+            filterConfig.getServletContext().getContextPath());
+  }
 
-    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-        HttpServletResponse response = (HttpServletResponse) res;
-        response.addHeader(HEADER_NAME, Long.toString(System.currentTimeMillis(), TIMESTAMP_RADIX));
-        chain.doFilter(req, res);
-    }
+  /**
+   * Adds timestamp header to a response (for testing purposes).
+   */
+  public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
+          throws IOException, ServletException {
+    HttpServletResponse response = (HttpServletResponse) res;
+    response.addHeader(HEADER_NAME, Long.toString(System.currentTimeMillis(), TIMESTAMP_RADIX));
+    chain.doFilter(req, res);
+  }
 
-    public void destroy() {
-        log.debug("destroying filter...");
-    }
+  public void destroy() {
+    log.debug("destroying filter...");
+  }
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -12,7 +14,9 @@
   <packaging>pom</packaging>
 
   <name>Shark: Samples: IOC: Blueprint: Integration Tests</name>
-  <description>Samples for integration tests with Pax Exam. Blueprint bundles are tested.</description>
+  <description>
+    Samples for integration tests with Pax Exam. Blueprint bundles are tested.
+  </description>
 
   <properties>
     <!-- may be set by env variable or command-line argument -->
@@ -158,7 +162,9 @@
               <goal>generate-depends-file</goal>
             </goals>
             <configuration>
-              <outputFile>${project.build.testSourceDirectory}/../resources/META-INF/maven/dependencies.properties</outputFile>
+              <outputFile>
+                ${project.build.testSourceDirectory}/../resources/META-INF/maven/dependencies.properties
+              </outputFile>
             </configuration>
           </execution>
         </executions>

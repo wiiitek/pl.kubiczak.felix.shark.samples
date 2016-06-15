@@ -14,25 +14,32 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class EventHandlerImpl implements EventHandler {
 
-    public static final String TOPIC = "pl/kubiczak/felix/shark/samples/ioc/blueprint/simple/EventHandlerImpl/Topic";
+  public static final String TOPIC =
+          "pl/kubiczak/felix/shark/samples/ioc/blueprint/simple/EventHandlerImpl/Topic";
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+  private final Logger log = LoggerFactory.getLogger(getClass());
 
-    private final AtomicLong processedEvents = new AtomicLong();
+  private final AtomicLong processedEvents = new AtomicLong();
 
-    private final DateFormatter dateFormatter;
+  private final DateFormatter dateFormatter;
 
-    public EventHandlerImpl(DateFormatter dateFormatter) {
-        this.dateFormatter = dateFormatter;
-    }
+  public EventHandlerImpl(DateFormatter dateFormatter) {
+    this.dateFormatter = dateFormatter;
+  }
 
-    public void handleEvent(Event event) {
-        long counter = processedEvents.incrementAndGet();
-        log.debug("[{}]: current time: '{}', handling event: '{}'",
-                counter, dateFormatter.getFormatted(new Date()), event.getTopic());
-    }
+  /**
+   * Process passed OSGI events. The events may be filtered during event handler registration.
+   * See <code>context-osgi.xml</code> file for this instance registration.
+   *
+   * @param event passed OSGI event
+   */
+  public void handleEvent(Event event) {
+    long counter = processedEvents.incrementAndGet();
+    log.debug("[{}]: current time: '{}', handling event: '{}'",
+            counter, dateFormatter.getFormatted(new Date()), event.getTopic());
+  }
 
-    public long processedEvents() {
-        return processedEvents.get();
-    }
+  public long processedEvents() {
+    return processedEvents.get();
+  }
 }

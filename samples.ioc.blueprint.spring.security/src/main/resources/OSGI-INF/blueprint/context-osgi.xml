@@ -5,9 +5,8 @@
 
   <service ref="springSecurityFilterChain" interface="javax.servlet.Filter" activation="eager">
     <service-properties>
-      <entry
-              key="osgi.http.whiteboard.filter.pattern"
-              value="/samples.ioc.blueprint.spring.security/servlet/*"/>
+      <entry key="osgi.http.whiteboard.filter.pattern"
+             value="/samples.ioc.blueprint.spring.security/servlet/*"/>
     </service-properties>
   </service>
 

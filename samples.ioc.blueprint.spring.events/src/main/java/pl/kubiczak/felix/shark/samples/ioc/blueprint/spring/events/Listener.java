@@ -9,16 +9,16 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class Listener implements ApplicationListener {
 
-    private static final AtomicLong processedEvents = new AtomicLong();
+  private static final AtomicLong processedEvents = new AtomicLong();
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+  private final Logger log = LoggerFactory.getLogger(getClass());
 
-    public void onApplicationEvent(ApplicationEvent event) {
-        log.debug("processing application event: '{}'", event.getSource());
-        processedEvents.getAndIncrement();
-    }
+  public void onApplicationEvent(ApplicationEvent event) {
+    log.debug("processing application event: '{}'", event.getSource());
+    processedEvents.getAndIncrement();
+  }
 
-    public long processedEvents() {
-        return processedEvents.get();
-    }
+  public long processedEvents() {
+    return processedEvents.get();
+  }
 }

@@ -3,13 +3,17 @@
         xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
         xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
 
-  <service ref="simple" interface="pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.DateFormatter"/>
+  <service ref="simple"
+           interface="pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.DateFormatter"/>
 
-  <service ref="iso8601" interface="pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.DateFormatter"/>
+  <service ref="iso8601"
+           interface="pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.DateFormatter"/>
 
   <service ref="eventHandler" interface="org.osgi.service.event.EventHandler">
     <service-properties>
-      <entry key="event.topics" value="pl/kubiczak/felix/shark/samples/ioc/blueprint/simple/EventHandlerImpl/Topic"/>
+      <entry key="event.topics"
+             value="pl/kubiczak/felix/shark/samples/ioc/blueprint/simple/EventHandlerImpl/Topic"/>
     </service-properties>
   </service>
+
 </blueprint>

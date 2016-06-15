@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -15,7 +17,7 @@
   <name>Shark: Samples</name>
   <description>
     This module contains code samples for OSGI integration with Spring, Blueprint, Logging, HTTP...
-    Also manages some dependencies versions that are not configured within shark dependencies module.
+    Manages some dependencies versions that are not configured within shark dependencies module.
     Submodules are grouped with artifactIds prefixes.
   </description>
   <url>https://shark.kubiczak.pl/samples</url>
@@ -44,7 +46,9 @@
 
   <scm>
     <connection>scm:git:https://github.com/wiiitek/pl.kubiczak.felix.shark.samples.git</connection>
-    <developerConnection>scm:git:git@github.com:wiiitek/pl.kubiczak.felix.shark.samples.git</developerConnection>
+    <developerConnection>
+      scm:git:git@github.com:wiiitek/pl.kubiczak.felix.shark.samples.git
+    </developerConnection>
     <tag>HEAD</tag>
     <url>https://github.com/wiiitek/pl.kubiczak.felix.shark.samples/tree/${project.scm.tag}</url>
   </scm>
@@ -161,7 +165,9 @@
                       </includes>
                     </resource>
                   </resources>
-                  <outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</outputDirectory>
+                  <outputDirectory>
+                    ${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}
+                  </outputDirectory>
                 </configuration>
               </execution>
             </executions>

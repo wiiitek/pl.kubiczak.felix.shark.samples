@@ -3,8 +3,10 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 
-  <bean name="publisherId" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.events.Publisher"/>
+  <bean name="publisherId"
+        class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.events.Publisher"/>
 
-  <bean name="listenerId" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.events.Listener"/>
+  <bean name="listenerId"
+        class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.events.Listener"/>
 
 </beans>

@@ -6,25 +6,26 @@ import java.util.Arrays;
 
 public class Bean {
 
-    private final String name;
+  private final String name;
 
-    private Object sampleProperty;
+  private Object sampleProperty;
 
-    public Bean(String name) {
-        this.name = name;
+  public Bean(String name) {
+    this.name = name;
+  }
+
+  public void setSampleProperty(Object sampleProperty) {
+    this.sampleProperty = sampleProperty;
+  }
+
+  @Override
+  public String toString() {
+    String namePart = name != null ? name : super.toString();
+    String referencedBeanPart = StringUtils.EMPTY;
+    if (sampleProperty != null) {
+      referencedBeanPart =
+              StringUtils.join(Arrays.asList("[", sampleProperty.toString(), "]"), null);
     }
-
-    public void setSampleProperty(Object sampleProperty) {
-        this.sampleProperty = sampleProperty;
-    }
-
-    @Override
-    public String toString() {
-        String namePart = name != null ? name : super.toString();
-        String referencedBeanPart = StringUtils.EMPTY;
-        if (sampleProperty != null) {
-            referencedBeanPart = StringUtils.join(Arrays.asList("[", sampleProperty.toString(), "]"), null);
-        }
-        return StringUtils.join(Arrays.asList(namePart, referencedBeanPart), null);
-    }
+    return StringUtils.join(Arrays.asList(namePart, referencedBeanPart), null);
+  }
 }

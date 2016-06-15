@@ -15,25 +15,28 @@ import org.slf4j.LoggerFactory;
 @Service(value = ResourcesRegistration.class)
 public class ResourcesRegistration {
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+  private final Logger log = LoggerFactory.getLogger(getClass());
 
-    @Reference(policy = ReferencePolicy.DYNAMIC)
-    private volatile HttpService httpService;
+  @Reference(policy = ReferencePolicy.DYNAMIC)
+  private volatile HttpService httpService;
 
-    @Activate
-    public void start() {
-        try {
-            httpService.registerResources("/samples.http.resources", "/static", null);
-            httpService.registerResources("/samples.http.resources/img", "/static/img", null);
-            log.debug("Resources registered");
-        } catch (NamespaceException ne) {
-            log.warn("Failed to register resources", ne);
-        }
+  /**
+   * Registers resources within OSGI HTTP service.
+   */
+  @Activate
+  public void start() {
+    try {
+      httpService.registerResources("/samples.http.resources", "/static", null);
+      httpService.registerResources("/samples.http.resources/img", "/static/img", null);
+      log.debug("Resources registered");
+    } catch (NamespaceException ne) {
+      log.warn("Failed to register resources", ne);
     }
+  }
 
-    @Deactivate
-    public void stop() {
-        httpService.unregister("/samples.http.resources");
-        httpService.unregister("/samples.http.resources/img");
-    }
+  @Deactivate
+  public void stop() {
+    httpService.unregister("/samples.http.resources");
+    httpService.unregister("/samples.http.resources/img");
+  }
 }

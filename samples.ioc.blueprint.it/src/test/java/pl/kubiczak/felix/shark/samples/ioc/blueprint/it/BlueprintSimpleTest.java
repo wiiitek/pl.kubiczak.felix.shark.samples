@@ -1,5 +1,14 @@
 package pl.kubiczak.felix.shark.samples.ioc.blueprint.it;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.core.IsInstanceOf.instanceOf;
+import static org.junit.Assert.assertThat;
+import static org.ops4j.pax.exam.CoreOptions.junitBundles;
+import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
+import static org.ops4j.pax.exam.CoreOptions.systemProperty;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
@@ -21,80 +30,90 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.core.IsInstanceOf.instanceOf;
-import static org.junit.Assert.assertThat;
-import static org.ops4j.pax.exam.CoreOptions.junitBundles;
-import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
-import static org.ops4j.pax.exam.CoreOptions.systemProperty;
-
 
 @RunWith(PaxExam.class)
 @ExamReactorStrategy(PerMethod.class)
 public class BlueprintSimpleTest {
 
-    @Inject
-    private EventAdmin eventAdmin;
+  @Inject
+  private EventAdmin eventAdmin;
 
-    /**
-     * EventHandler implementation from blueprint.simple bundle
-     */
-    @Inject
-    @Filter("(" + EventConstants.EVENT_TOPIC + "=" + EventHandlerImpl.TOPIC + ")")
-    private EventHandler eventHandler;
+  /**
+   * EventHandler implementation from blueprint.simple bundle
+   */
+  @Inject
+  @Filter("(" + EventConstants.EVENT_TOPIC + "=" + EventHandlerImpl.TOPIC + ")")
+  private EventHandler eventHandler;
 
-    @Test
-    public void eventAdminServiceShouldBeAvailable() {
-        assertThat(eventAdmin, is(not(nullValue())));
-    }
+  @Test
+  public void eventAdminServiceShouldBeAvailable() {
+    assertThat(eventAdmin, is(not(nullValue())));
+  }
 
-    @Test
-    public void eventHandlerServiceShouldBeAvailable() {
-        assertThat(eventHandler, is(not(nullValue())));
-    }
+  @Test
+  public void eventHandlerServiceShouldBeAvailable() {
+    assertThat(eventHandler, is(not(nullValue())));
+  }
 
-    @Test
-    public void filterShouldWorkCorrectly() {
-        assertThat(eventHandler, instanceOf(EventHandlerImpl.class));
-    }
+  @Test
+  public void filterShouldWorkCorrectly() {
+    assertThat(eventHandler, instanceOf(EventHandlerImpl.class));
+  }
 
-    @Test
-    public void eventHandlerShouldProcessOsgiEvent() {
-        long before = ((EventHandlerImpl) eventHandler).processedEvents();
-        // sends event synchronously
-        Map<String, Object> eventProperties = new HashMap<String, Object>();
-        eventAdmin.sendEvent(new Event(EventHandlerImpl.TOPIC, eventProperties));
-        long after = ((EventHandlerImpl) eventHandler).processedEvents();
-        assertThat(after, is(before + 1));
-    }
+  @Test
+  public void eventHandlerShouldProcessOsgiEvent() {
+    long before = ((EventHandlerImpl) eventHandler).processedEvents();
+    // sends event synchronously
+    Map<String, Object> eventProperties = new HashMap<String, Object>();
+    eventAdmin.sendEvent(new Event(EventHandlerImpl.TOPIC, eventProperties));
+    long after = ((EventHandlerImpl) eventHandler).processedEvents();
+    assertThat(after, is(before + 1));
+  }
 
-    @Configuration
-    public Option[] provideRequiredBundles() {
-        return new Option[]{
-                junitBundles(),
-                // slf4j configuration for container (see also exam.properties file)
-                mavenBundle("org.slf4j", "slf4j-api").versionAsInProject(),
-                mavenBundle("org.slf4j", "jcl-over-slf4j").versionAsInProject(),
-                mavenBundle("ch.qos.logback", "logback-core").versionAsInProject(),
-                mavenBundle("ch.qos.logback", "logback-classic").versionAsInProject(),
-                systemProperty("logback.configurationFile")
-                        .value("file:" + PathUtils.getBaseDir() + "/src/test/resources/logback.xml"),
-                // gemini blueprint
-                mavenBundle("org.eclipse.gemini.blueprint", "gemini-blueprint-core").versionAsInProject(),
-                mavenBundle("org.eclipse.gemini.blueprint", "gemini-blueprint-io").versionAsInProject(),
-                mavenBundle("org.eclipse.gemini.blueprint", "gemini-blueprint-extender").versionAsInProject(),
-                // spring
-                mavenBundle("org.apache.servicemix.bundles", "org.apache.servicemix.bundles.aopalliance").versionAsInProject(),
-                mavenBundle("org.apache.servicemix.bundles", "org.apache.servicemix.bundles.spring-aop").versionAsInProject(),
-                mavenBundle("org.apache.servicemix.bundles", "org.apache.servicemix.bundles.spring-context").versionAsInProject(),
-                mavenBundle("org.apache.servicemix.bundles", "org.apache.servicemix.bundles.spring-core").versionAsInProject(),
-                mavenBundle("org.apache.servicemix.bundles", "org.apache.servicemix.bundles.spring-beans").versionAsInProject(),
-                mavenBundle("org.apache.servicemix.bundles", "org.apache.servicemix.bundles.spring-expression").versionAsInProject(),
-                // bundles for tests
-                mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").versionAsInProject(),
-                mavenBundle("pl.kubiczak.felix.shark.samples.ioc", "blueprint.simple").versionAsInProject()
-        };
-    }
+  /**
+   * Provides configuration for Pax Exam container.
+   * Contains bundles for logging, blueprint, spring and tested bundles
+   *
+   * @return configuration options for Pax Exam
+   */
+  @Configuration
+  public Option[] provideRequiredBundles() {
+    return new Option[]{
+            junitBundles(),
+            // slf4j configuration for container (see also exam.properties file)
+            mavenBundle("org.slf4j", "slf4j-api").versionAsInProject(),
+            mavenBundle("org.slf4j", "jcl-over-slf4j").versionAsInProject(),
+            mavenBundle("ch.qos.logback", "logback-core").versionAsInProject(),
+            mavenBundle("ch.qos.logback", "logback-classic").versionAsInProject(),
+            systemProperty("logback.configurationFile")
+                    .value("file:" + PathUtils.getBaseDir() + "/src/test/resources/logback.xml"),
+
+            // gemini blueprint
+            mavenBundle("org.eclipse.gemini.blueprint", "gemini-blueprint-core")
+                    .versionAsInProject(),
+            mavenBundle("org.eclipse.gemini.blueprint", "gemini-blueprint-io")
+                    .versionAsInProject(),
+            mavenBundle("org.eclipse.gemini.blueprint", "gemini-blueprint-extender")
+                    .versionAsInProject(),
+
+            // spring
+            mavenBundle("org.apache.servicemix.bundles",
+                    "org.apache.servicemix.bundles.aopalliance").versionAsInProject(),
+            mavenBundle("org.apache.servicemix.bundles",
+                    "org.apache.servicemix.bundles.spring-aop").versionAsInProject(),
+            mavenBundle("org.apache.servicemix.bundles",
+                    "org.apache.servicemix.bundles.spring-context").versionAsInProject(),
+            mavenBundle("org.apache.servicemix.bundles",
+                    "org.apache.servicemix.bundles.spring-core").versionAsInProject(),
+            mavenBundle("org.apache.servicemix.bundles",
+                    "org.apache.servicemix.bundles.spring-beans").versionAsInProject(),
+            mavenBundle("org.apache.servicemix.bundles",
+                    "org.apache.servicemix.bundles.spring-expression").versionAsInProject(),
+
+            // bundles for tests
+            mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").versionAsInProject(),
+            mavenBundle("pl.kubiczak.felix.shark.samples.ioc", "blueprint.simple")
+                    .versionAsInProject()
+    };
+  }
 }

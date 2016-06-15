@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,41 +20,52 @@ import javax.servlet.http.HttpServletResponse;
 
 @Component
 @Service
-@Properties({
-        @Property(name = HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT, value = WhiteboardContext.CONTEXT_FILTER),
-        @Property(name = HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN, value = WhiteboardServlet.SERVLET_PATTERN)
-})
+@Properties
+        ({
+                @Property(
+                        name = HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT,
+                        value = WhiteboardContext.CONTEXT_FILTER),
+                @Property(
+                        name = HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN,
+                        value = WhiteboardServlet.SERVLET_PATTERN)
+        })
 public class WhiteboardServlet extends HttpServlet {
 
-    static final String SERVLET_PATTERN = "/whiteboardServlet/*";
+  static final String SERVLET_PATTERN = "/whiteboardServlet/*";
 
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
+  private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    private String pattern;
+  private String pattern;
 
-    @Activate
-    public void activate() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Service = '").append(getClass().getCanonicalName()).append("'\n\n");
-        sb.append("Test = 'zażółć gęślą jaźń'\n");
-        sb.append("RequestURI = '%s'\nPathInfo = '%s'\nQueryString = '%s'");
-        this.pattern = sb.toString();
-    }
+  /**
+   * Initializes pattern for servlet response.
+   */
+  @Activate
+  public void activate() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("Service = '").append(getClass().getCanonicalName()).append("'\n\n");
+    sb.append("Test = 'zażółć gęślą jaźń'\n");
+    sb.append("Service activation at: ").append(new Date());
+    sb.append("RequestURI = '%s'\nPathInfo = '%s'\nQueryString = '%s'");
+    this.pattern = sb.toString();
+  }
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse res)
+          throws ServletException, IOException {
 
-        log.debug("remote host: '{}'", req.getRemoteHost());
+    log.debug("remote host: '{}'", req.getRemoteHost());
 
-        res.setContentType("text/plain");
-        res.setCharacterEncoding("UTF-8");
-        res.setStatus(HttpServletResponse.SC_OK);
+    res.setContentType("text/plain");
+    res.setCharacterEncoding("UTF-8");
+    res.setStatus(HttpServletResponse.SC_OK);
 
-        String msg = String.format(pattern, req.getRequestURI(), req.getPathInfo(), req.getQueryString());
+    String msg =
+            String.format(pattern, req.getRequestURI(), req.getPathInfo(), req.getQueryString());
 
-        PrintWriter out = res.getWriter();
-        out.println(msg);
-        out.flush();
-    }
+    PrintWriter out = res.getWriter();
+    out.println(msg);
+    out.flush();
+  }
 
 }

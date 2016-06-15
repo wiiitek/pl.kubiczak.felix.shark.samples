@@ -4,12 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.1.xsd">
 
-  <bean id="springSecurityFilterChain" class="org.springframework.web.filter.DelegatingFilterProxy" init-method="initFilterBean">
+  <bean id="springSecurityFilterChain"
+        class="org.springframework.web.filter.DelegatingFilterProxy"
+        init-method="initFilterBean">
     <constructor-arg ref="filterChain"/>
   </bean>
 
   <sec:http>
-    <sec:intercept-url pattern="/samples.ioc.blueprint.spring.security/servlet/*" access="hasRole('ADMIN')"/>
+    <sec:intercept-url pattern="/samples.ioc.blueprint.spring.security/servlet/*"
+                       access="hasRole('ADMIN')"/>
 
     <sec:http-basic/>
   </sec:http>
@@ -22,7 +25,8 @@
     </sec:authentication-provider>
   </sec:authentication-manager>
 
-  <bean id="usernamePasswordAuthenticatorId" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.security.UsernamePasswordAuthenticator">
+  <bean id="usernamePasswordAuthenticatorId"
+        class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.security.UsernamePasswordAuthenticator">
     <property name="authenticationManager" ref="authenticationManager"/>
   </bean>
 
