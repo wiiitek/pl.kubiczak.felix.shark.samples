@@ -58,7 +58,7 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
 
       if (authentication != null) {
         String principal = authentication.getPrincipal().toString();
-        log.info("password correct for: {}", principal);
+        log.debug("password correct for: {}", principal);
         httpServletRequest.setAttribute(WebConsoleSecurityProvider2.USER_ATTRIBUTE, authentication);
         log.debug("request attribute set for key: {}", WebConsoleSecurityProvider2.USER_ATTRIBUTE);
         authenticated = true;
