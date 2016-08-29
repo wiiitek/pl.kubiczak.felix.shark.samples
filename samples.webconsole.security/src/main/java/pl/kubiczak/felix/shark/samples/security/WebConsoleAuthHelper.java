@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 class WebConsoleAuthHelper {
 
@@ -35,14 +36,19 @@ class WebConsoleAuthHelper {
   }
 
   void doLogout() {
-    if (log.isDebugEnabled()) {
-      if (isAuthenticated()) {
-        Authentication authentication = getAuthentication(request);
-        log.info("logging out: '{}'..", authentication.getPrincipal());
-        new SecurityContextLogoutHandler().logout(request, response, authentication);
-      } else {
-        log.debug("there is no authenticated user to log out");
+    if (isAuthenticated()) {
+      Authentication authentication = getAuthentication(request);
+      log.info("logging out: '{}'..", authentication.getPrincipal());
+
+      // testing if we could retrieve a session in SecurityContextLogoutHandler
+      HttpSession session = request.getSession(false);
+      if (session == null) {
+        log.warn("error while retrieving session from request: '{}'", request);
       }
+
+      new SecurityContextLogoutHandler().logout(request, response, authentication);
+    } else {
+      log.debug("there is no authenticated user to log out");
     }
     request.removeAttribute(WebConsoleSecurityProvider2.USER_ATTRIBUTE);
     response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
