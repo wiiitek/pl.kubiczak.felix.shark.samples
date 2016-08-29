@@ -113,7 +113,7 @@
         <executions>
           <execution>
             <id>watch-versions-for-dependencies-versions</id>
-            <phase>verify</phase>
+            <phase>validate</phase>
             <goals>
               <goal>display-dependency-updates</goal>
             </goals>
