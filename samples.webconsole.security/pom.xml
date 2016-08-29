@@ -116,8 +116,6 @@
             <configuration>
               <instructions>
                 <Export-Package/>
-                <!-- maybe should rather be provided by OSGI.. -->
-                <Embed-Dependency>commons-codec</Embed-Dependency>
               </instructions>
             </configuration>
           </execution>
