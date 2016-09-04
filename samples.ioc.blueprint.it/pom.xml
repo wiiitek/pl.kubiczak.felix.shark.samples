@@ -11,7 +11,6 @@
   </parent>
 
   <artifactId>samples.ioc.blueprint.it</artifactId>
-  <packaging>pom</packaging>
 
   <name>Shark: Samples: IOC: Blueprint: Integration Tests</name>
   <description>

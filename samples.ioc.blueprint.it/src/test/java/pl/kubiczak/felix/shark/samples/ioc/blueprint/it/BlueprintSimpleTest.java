@@ -7,7 +7,6 @@ import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.ops4j.pax.exam.CoreOptions.junitBundles;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
-import static org.ops4j.pax.exam.CoreOptions.systemProperty;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,13 +14,14 @@ import org.ops4j.pax.exam.Configuration;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.junit.PaxExam;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
-import org.ops4j.pax.exam.spi.reactors.PerMethod;
+import org.ops4j.pax.exam.spi.reactors.PerClass;
 import org.ops4j.pax.exam.util.Filter;
-import org.ops4j.pax.exam.util.PathUtils;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
 import org.osgi.service.event.EventConstants;
 import org.osgi.service.event.EventHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.EventHandlerImpl;
 
@@ -32,8 +32,10 @@ import javax.inject.Inject;
 
 
 @RunWith(PaxExam.class)
-@ExamReactorStrategy(PerMethod.class)
+@ExamReactorStrategy(PerClass.class)
 public class BlueprintSimpleTest {
+
+  private final Logger log = LoggerFactory.getLogger(getClass());
 
   @Inject
   private EventAdmin eventAdmin;
@@ -63,7 +65,7 @@ public class BlueprintSimpleTest {
   @Test
   public void eventHandlerShouldProcessOsgiEvent() {
     long before = ((EventHandlerImpl) eventHandler).processedEvents();
-    // sends event synchronously
+    log.debug("sending synchronous event..");
     Map<String, Object> eventProperties = new HashMap<String, Object>();
     eventAdmin.sendEvent(new Event(EventHandlerImpl.TOPIC, eventProperties));
     long after = ((EventHandlerImpl) eventHandler).processedEvents();
@@ -80,39 +82,13 @@ public class BlueprintSimpleTest {
   public Option[] provideRequiredBundles() {
     return new Option[]{
             junitBundles(),
-            // slf4j configuration for container (see also exam.properties file)
-            mavenBundle("org.slf4j", "slf4j-api").versionAsInProject(),
-            mavenBundle("org.slf4j", "jcl-over-slf4j").versionAsInProject(),
-            mavenBundle("ch.qos.logback", "logback-core").versionAsInProject(),
-            mavenBundle("ch.qos.logback", "logback-classic").versionAsInProject(),
-            systemProperty("logback.configurationFile")
-                    .value("file:" + PathUtils.getBaseDir() + "/src/test/resources/logback.xml"),
 
-            // gemini blueprint
-            mavenBundle("org.eclipse.gemini.blueprint", "gemini-blueprint-core")
-                    .versionAsInProject(),
-            mavenBundle("org.eclipse.gemini.blueprint", "gemini-blueprint-io")
-                    .versionAsInProject(),
-            mavenBundle("org.eclipse.gemini.blueprint", "gemini-blueprint-extender")
-                    .versionAsInProject(),
-
-            // spring
-            mavenBundle("org.apache.servicemix.bundles",
-                    "org.apache.servicemix.bundles.aopalliance").versionAsInProject(),
-            mavenBundle("org.apache.servicemix.bundles",
-                    "org.apache.servicemix.bundles.spring-aop").versionAsInProject(),
-            mavenBundle("org.apache.servicemix.bundles",
-                    "org.apache.servicemix.bundles.spring-context").versionAsInProject(),
-            mavenBundle("org.apache.servicemix.bundles",
-                    "org.apache.servicemix.bundles.spring-core").versionAsInProject(),
-            mavenBundle("org.apache.servicemix.bundles",
-                    "org.apache.servicemix.bundles.spring-beans").versionAsInProject(),
-            mavenBundle("org.apache.servicemix.bundles",
-                    "org.apache.servicemix.bundles.spring-expression").versionAsInProject(),
+            Options.logbackBundlesAndConfiguration(),
+            Options.springAndGeminiBlueprint(),
 
             // bundles for tests
             mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").versionAsInProject(),
-            mavenBundle("pl.kubiczak.felix.shark.samples.ioc", "blueprint.simple")
+            mavenBundle("pl.kubiczak.felix.shark", "samples.ioc.blueprint.simple")
                     .versionAsInProject()
     };
   }

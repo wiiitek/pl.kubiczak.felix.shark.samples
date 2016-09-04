@@ -20,7 +20,10 @@
   <logger name="pl.kubiczak" level="DEBUG"/>
 
   <root level="WARN">
-    <appender-ref ref="CONSOLE"/>
+    <!--
+      there are some issues when logging to console
+      (pax exam runs tests inside OSGI container)
+    -->
     <appender-ref ref="FILE"/>
   </root>
 
