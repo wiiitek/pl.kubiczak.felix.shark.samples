@@ -135,21 +135,6 @@
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>test</phase>
-            <goals>
-              <goal>test</goal>
-            </goals>
-            <configuration>
-              <argLine>-Dorg.ops4j.pax.url.mvn.localRepository=${maven.repo.local}</argLine>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
       <!-- generate dependencies versions for pax -->
       <plugin>
         <groupId>org.apache.servicemix.tooling</groupId>
@@ -163,7 +148,7 @@
             </goals>
             <configuration>
               <outputFile>
-                ${project.build.testSourceDirectory}/../resources/META-INF/maven/dependencies.properties
+                ${project.build.testOutputDirectory}/META-INF/maven/dependencies.properties
               </outputFile>
             </configuration>
           </execution>
