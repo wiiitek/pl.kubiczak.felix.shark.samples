@@ -24,11 +24,7 @@
   </properties>
 
   <dependencies>
-    <!-- Bundles for tests -->
-    <dependency>
-      <groupId>org.apache.felix</groupId>
-      <artifactId>org.apache.felix.eventadmin</artifactId>
-    </dependency>
+    <!-- Tested bundles -->
     <dependency>
       <groupId>pl.kubiczak.felix.shark</groupId>
       <artifactId>samples.ioc.blueprint.simple</artifactId>
@@ -38,6 +34,11 @@
       <groupId>pl.kubiczak.felix.shark</groupId>
       <artifactId>samples.ioc.blueprint.spring.simple</artifactId>
       <version>${project.version}</version>
+    </dependency>
+    <!-- Tests dependencies -->
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.eventadmin</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.felix</groupId>
@@ -124,7 +125,7 @@
       <groupId>org.ops4j.pax.url</groupId>
       <artifactId>pax-url-aether</artifactId>
     </dependency>
-    <!-- pax will use felix felix -->
+    <!-- pax will use felix -->
     <dependency>
       <groupId>org.apache.felix</groupId>
       <artifactId>org.apache.felix.framework</artifactId>
