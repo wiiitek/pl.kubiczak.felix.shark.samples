@@ -13,17 +13,28 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:OSGI-INF/blueprint/spring-context.xml")
-public class SpringBeanTest {
+public class SpringSimpleBeanTest {
 
   @Autowired
   private ApplicationContext applicationContext;
 
   @Test
-  public void springBeanAInitialization() {
-    Bean bean = applicationContext.getBean("beanA", Bean.class);
-    assertThat(bean, is(notNullValue()));
+  public void springSimpleBeanShouldBeCreated() {
+    SpringSimpleBean springSimpleBean = applicationContext.getBean("springSimpleBean",
+            SpringSimpleBean.class);
+    assertThat(springSimpleBean, is(notNullValue()));
 
-    String string = bean.toString();
+    String string = springSimpleBean.toString();
     assertThat(string, is("Bean A[Sample Value]"));
+  }
+
+  @Test
+  public void anotherInstanceShouldAlsoBeCreated() {
+    SpringSimpleBean springSimpleBean = applicationContext.getBean("another",
+            SpringSimpleBean.class);
+    assertThat(springSimpleBean, is(notNullValue()));
+
+    String string = springSimpleBean.toString();
+    assertThat(string, is("Bean B"));
   }
 }

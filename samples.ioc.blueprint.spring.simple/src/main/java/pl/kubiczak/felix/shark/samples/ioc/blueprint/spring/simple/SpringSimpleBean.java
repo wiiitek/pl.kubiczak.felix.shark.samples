@@ -4,27 +4,27 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 
-public class Bean {
+public class SpringSimpleBean {
 
   private final String name;
 
-  private Object sampleProperty;
+  private Object property;
 
-  public Bean(String name) {
+  public SpringSimpleBean(String name) {
     this.name = name;
   }
 
-  public void setSampleProperty(Object sampleProperty) {
-    this.sampleProperty = sampleProperty;
+  public void setProperty(Object sampleProperty) {
+    this.property = sampleProperty;
   }
 
   @Override
   public String toString() {
     String namePart = name != null ? name : super.toString();
     String referencedBeanPart = StringUtils.EMPTY;
-    if (sampleProperty != null) {
+    if (property != null) {
       referencedBeanPart =
-              StringUtils.join(Arrays.asList("[", sampleProperty.toString(), "]"), null);
+              StringUtils.join(Arrays.asList("[", property.toString(), "]"), null);
     }
     return StringUtils.join(Arrays.asList(namePart, referencedBeanPart), null);
   }

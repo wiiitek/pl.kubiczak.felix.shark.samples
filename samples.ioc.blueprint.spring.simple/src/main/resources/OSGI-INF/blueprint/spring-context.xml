@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns="http://www.springframework.org/schema/beans"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <bean name="beanA" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.simple.Bean">
+  <bean name="springSimpleBean" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.simple.SpringSimpleBean">
     <constructor-arg value="Bean A"/>
-    <property name="sampleProperty" value="Sample Value"/>
+    <property name="property" value="Sample Value"/>
   </bean>
 
-  <bean name="beanB" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.simple.Bean">
+  <bean name="another" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.simple.SpringSimpleBean">
     <constructor-arg value="Bean B"/>
   </bean>
 
