@@ -30,23 +30,10 @@
       <artifactId>samples.ioc.blueprint.simple</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
-      <groupId>pl.kubiczak.felix.shark</groupId>
-      <artifactId>samples.ioc.blueprint.spring.simple</artifactId>
-      <version>${project.version}</version>
-    </dependency>
     <!-- Tests dependencies -->
     <dependency>
       <groupId>org.apache.felix</groupId>
       <artifactId>org.apache.felix.eventadmin</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.felix</groupId>
-      <artifactId>org.apache.felix.http.servlet-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
     </dependency>
 
     <!-- Logging -->
