@@ -36,6 +36,7 @@
             </goals>
             <configuration>
               <instructions>
+                <Bundle-Category>shark</Bundle-Category>
                 <Export-Package />
                 <Bundle-Activator>
                   pl.kubiczak.felix.shark.samples.logging.jul.Activator

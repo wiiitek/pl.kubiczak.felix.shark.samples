@@ -60,6 +60,7 @@
             </goals>
             <configuration>
               <instructions>
+                <Bundle-Category>shark</Bundle-Category>
                 <Export-Package />
                 <!-- Amdatu settings -->
                 <X-Web-Resource>/samples.http.resources.amdatu;/static</X-Web-Resource>

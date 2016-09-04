@@ -115,6 +115,7 @@
             </goals>
             <configuration>
               <instructions>
+                <Bundle-Category>shark</Bundle-Category>
                 <Import-Package>
                   org.springframework.web.filter,
                   org.springframework.context.support,

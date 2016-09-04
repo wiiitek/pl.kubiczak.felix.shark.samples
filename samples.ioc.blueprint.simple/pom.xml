@@ -50,6 +50,7 @@
             </goals>
             <configuration>
               <instructions>
+                <Bundle-Category>shark</Bundle-Category>
                 <Export-Package>
                   pl.kubiczak.felix.shark.samples.ioc.blueprint.simple
                 </Export-Package>
