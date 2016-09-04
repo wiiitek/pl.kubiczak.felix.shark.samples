@@ -1,18 +1,24 @@
 package pl.kubiczak.felix.shark.samples.ioc.blueprint.it;
 
+import static com.jayway.awaitility.Awaitility.await;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.ops4j.pax.exam.CoreOptions.junitBundles;
+import static org.ops4j.pax.exam.CoreOptions.maven;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
+import static org.ops4j.pax.exam.CoreOptions.wrappedBundle;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.junit.PaxExam;
+import org.ops4j.pax.exam.options.MavenArtifactUrlReference;
+import org.ops4j.pax.exam.options.WrappedUrlProvisionOption;
 import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerClass;
 import org.ops4j.pax.exam.util.Filter;
@@ -25,8 +31,9 @@ import org.slf4j.LoggerFactory;
 
 import pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.EventHandlerImpl;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Collections;
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
@@ -65,11 +72,23 @@ public class BlueprintSimpleTest {
   @Test
   public void eventHandlerShouldProcessOsgiEvent() {
     long before = ((EventHandlerImpl) eventHandler).processedEvents();
-    log.debug("sending synchronous event..");
-    Map<String, Object> eventProperties = new HashMap<String, Object>();
-    eventAdmin.sendEvent(new Event(EventHandlerImpl.TOPIC, eventProperties));
+    log.debug("sending asynchronous event..");
+    eventAdmin.postEvent(new Event(EventHandlerImpl.TOPIC, Collections.EMPTY_MAP));
+
+    await().atMost(5, TimeUnit.SECONDS).until(listenerHasReceivedEvent(before, eventHandler));
+
     long after = ((EventHandlerImpl) eventHandler).processedEvents();
     assertThat(after, is(before + 1));
+  }
+
+  private Callable<Boolean> listenerHasReceivedEvent(
+          final long before, final EventHandler eventHandlerImpl) {
+    return new Callable<Boolean>() {
+      public Boolean call() throws Exception {
+        long processedEvents = ((EventHandlerImpl) eventHandler).processedEvents();
+        return processedEvents > before;
+      }
+    };
   }
 
   /**
@@ -80,11 +99,16 @@ public class BlueprintSimpleTest {
    */
   @Configuration
   public Option[] provideRequiredBundles() {
+
+    MavenArtifactUrlReference awaitility = maven("com.jayway.awaitility", "awaitility")
+            .versionAsInProject();
+    WrappedUrlProvisionOption awaitilityOption = wrappedBundle(awaitility);
+
     return new Option[]{
             junitBundles(),
 
             Options.logbackBundlesAndConfiguration(),
-            Options.springAndGeminiBlueprint(),
+            Options.springAndGeminiBlueprint(), awaitilityOption,
 
             // bundles for tests
             mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").versionAsInProject(),
