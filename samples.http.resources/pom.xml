@@ -63,7 +63,7 @@
                 <Bundle-Category>shark</Bundle-Category>
                 <Export-Package />
                 <!-- Amdatu settings -->
-                <X-Web-Resource>/samples.http.resources.amdatu;/static</X-Web-Resource>
+                <X-Web-Resource>/samples.http.resources.amdatu;/content</X-Web-Resource>
                 <X-Web-Resource-Default-Page>index.html</X-Web-Resource-Default-Page>
                 <X-Web-Resource-Version>1.1</X-Web-Resource-Version>
               </instructions>

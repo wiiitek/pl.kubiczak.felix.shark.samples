@@ -26,8 +26,8 @@ public class ResourcesRegistration {
   @Activate
   public void start() {
     try {
-      httpService.registerResources("/samples.http.resources", "/static", null);
-      httpService.registerResources("/samples.http.resources/img", "/static/img", null);
+      httpService.registerResources("/samples.http.resources", "/content", null);
+      httpService.registerResources("/samples.http.resources/img", "/content/img", null);
       log.debug("Resources registered");
     } catch (NamespaceException ne) {
       log.warn("Failed to register resources", ne);
