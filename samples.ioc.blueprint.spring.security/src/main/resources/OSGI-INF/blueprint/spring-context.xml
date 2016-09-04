@@ -7,7 +7,6 @@
   <bean id="springSecurityFilterChain"
         class="org.springframework.web.filter.DelegatingFilterProxy"
         init-method="initFilterBean">
-    <constructor-arg ref="filterChain"/>
   </bean>
 
   <sec:http>

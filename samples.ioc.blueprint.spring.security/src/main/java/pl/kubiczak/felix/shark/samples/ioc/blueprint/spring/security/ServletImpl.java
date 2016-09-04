@@ -32,8 +32,6 @@ public class ServletImpl extends HttpServlet {
   private static final String RESPONSE_PATTERN =
           "Date = '%1s'\nRequestURI = '%2s'\nPathInfo = '%3s'\nQueryString = '%4s'";
 
-  private static int seq = 0;
-
   static final String SERVLET_PATTERN = "/samples.ioc.blueprint.spring.security/servlet/*";
 
   private final Logger log = LoggerFactory.getLogger(this.getClass());
