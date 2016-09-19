@@ -117,7 +117,6 @@
               <instructions>
                 <Bundle-Category>shark</Bundle-Category>
                 <Import-Package>
-                  org.springframework.web.filter,
                   org.springframework.context.support,
                   org.springframework.security.access.vote,
                   org.springframework.security.authentication,
@@ -128,6 +127,7 @@
                   org.springframework.security.web,
                   org.springframework.security.web.authentication,
                   org.springframework.security.web.util.matcher,
+                  org.springframework.web.filter,
                   org.springframework.dao;resolution:=optional,
                   org.springframework.jdbc.core;resolution:=optional,
                   org.springframework.jdbc.core.support;resolution:=optional,
