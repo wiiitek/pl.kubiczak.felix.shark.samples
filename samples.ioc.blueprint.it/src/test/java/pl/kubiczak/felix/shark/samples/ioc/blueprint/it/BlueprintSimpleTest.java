@@ -71,24 +71,19 @@ public class BlueprintSimpleTest {
 
   @Test
   public void eventHandlerShouldProcessOsgiEvent() {
-    long before = ((EventHandlerImpl) eventHandler).processedEvents();
+    final long before = ((EventHandlerImpl) eventHandler).processedEvents();
     log.debug("sending asynchronous event..");
     eventAdmin.postEvent(new Event(EventHandlerImpl.TOPIC, Collections.EMPTY_MAP));
 
-    await().atMost(5, TimeUnit.SECONDS).until(listenerHasReceivedEvent(before, eventHandler));
-
-    long after = ((EventHandlerImpl) eventHandler).processedEvents();
-    assertThat(after, is(before + 1));
-  }
-
-  private Callable<Boolean> listenerHasReceivedEvent(
-          final long before, final EventHandler eventHandlerImpl) {
-    return new Callable<Boolean>() {
+    await().atMost(10, TimeUnit.SECONDS).until(new Callable<Boolean>() {
       public Boolean call() throws Exception {
         long processedEvents = ((EventHandlerImpl) eventHandler).processedEvents();
         return processedEvents > before;
       }
-    };
+    });
+
+    long after = ((EventHandlerImpl) eventHandler).processedEvents();
+    assertThat(after, is(before + 1));
   }
 
   /**
