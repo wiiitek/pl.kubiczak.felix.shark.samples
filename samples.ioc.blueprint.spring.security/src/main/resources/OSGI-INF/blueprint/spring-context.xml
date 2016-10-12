@@ -18,6 +18,11 @@
   <!-- Empty filter chain for the login page -->
   <sec:http pattern="/samples.ioc.blueprint.spring.security/login/" security="none"/>
 
+  <!--
+    for OAuth 2 see
+    https://github.com/pwheel/spring-security-oauth2-client
+    https://github.com/spring-projects/spring-security-oauth/blob/114fbd44beef0382009f207c08f0b1d9c24e95a9/samples/oauth2/sparklr/src/main/webapp/WEB-INF/spring-servlet.xml
+  -->
   <sec:http>
     <sec:intercept-url pattern="/samples.ioc.blueprint.spring.security/admin/**"
                        access="hasAnyRole('ADMIN')"/>
