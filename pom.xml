@@ -59,6 +59,9 @@
 
   <properties>
     <bundles.deploy.dir>load/level-20-samples</bundles.deploy.dir>
+
+    <!-- for Pax Exam (overwritten in profile) -->
+    <maven.repo.local>C:/maven-repository</maven.repo.local>
   </properties>
 
   <dependencyManagement>
@@ -162,6 +165,17 @@
           </plugin>
         </plugins>
       </build>
+    </profile>
+    <profile>
+      <id>set-maven-repo-path-for-pax-exam</id>
+      <activation>
+        <property>
+          <name>env.M2_REPO</name>
+        </property>
+      </activation>
+      <properties>
+        <maven.repo.local>${env.M2_REPO}</maven.repo.local>
+      </properties>
     </profile>
   </profiles>
 </project>

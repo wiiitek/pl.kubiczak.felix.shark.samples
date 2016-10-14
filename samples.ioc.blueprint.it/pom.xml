@@ -15,12 +15,6 @@
     Samples for integration tests with Pax Exam. Blueprint bundles are tested.
   </description>
 
-  <properties>
-    <!-- may be set by env variable or command-line argument -->
-    <username>username</username>
-    <maven.repo.local>/home/${username}/.m2/repository</maven.repo.local>
-  </properties>
-
   <dependencies>
     <!-- Tested bundles -->
     <dependency>
@@ -151,29 +145,4 @@
       </plugin>
     </plugins>
   </build>
-
-  <profiles>
-    <profile>
-      <id>set-username</id>
-      <activation>
-        <property>
-          <name>env.USER</name>
-        </property>
-      </activation>
-      <properties>
-        <username>${env.USER}</username>
-      </properties>
-    </profile>
-    <profile>
-      <id>set-maven-repo-path-for-pax</id>
-      <activation>
-        <property>
-          <name>env.M2_REPO</name>
-        </property>
-      </activation>
-      <properties>
-        <maven.repo.local>${env.M2_REPO}</maven.repo.local>
-      </properties>
-    </profile>
-  </profiles>
 </project>
