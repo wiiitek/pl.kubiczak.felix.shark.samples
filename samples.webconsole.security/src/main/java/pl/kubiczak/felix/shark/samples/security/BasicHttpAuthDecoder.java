@@ -60,7 +60,7 @@ class BasicHttpAuthDecoder {
       }
     }
     log.debug("decoded username: {}", username);
-    return new ImmutablePair<String, String>(username, password);
+    return new ImmutablePair<>(username, password);
   }
 
   private boolean hasCorrectPrefix(String headerValue) {

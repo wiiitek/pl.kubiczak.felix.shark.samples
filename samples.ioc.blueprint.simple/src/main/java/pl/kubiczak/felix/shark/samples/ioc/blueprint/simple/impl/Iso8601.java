@@ -22,6 +22,7 @@ public class Iso8601 implements DateFormatter {
    * @param date date instance for UTC timezone
    * @return text representing the date in iso-8601 format
    */
+  @Override
   public String getFormatted(Date date) {
     TimeZone tz = TimeZone.getTimeZone(TIMEZONE);
     DateFormat df = new SimpleDateFormat(PATTERN);

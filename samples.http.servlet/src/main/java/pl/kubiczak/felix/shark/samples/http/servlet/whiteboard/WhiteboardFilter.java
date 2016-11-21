@@ -37,6 +37,7 @@ public class WhiteboardFilter implements Filter {
 
   private final Logger log = LoggerFactory.getLogger(this.getClass());
 
+  @Override
   public void init(FilterConfig filterConfig) throws ServletException {
     log.debug("init filter with servlet context: {}",
             filterConfig.getServletContext().getContextPath());
@@ -45,6 +46,7 @@ public class WhiteboardFilter implements Filter {
   /**
    * Adds timestamp header to a response (for testing purposes).
    */
+  @Override
   public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
           throws IOException, ServletException {
     HttpServletResponse response = (HttpServletResponse) res;
@@ -52,6 +54,7 @@ public class WhiteboardFilter implements Filter {
     chain.doFilter(req, res);
   }
 
+  @Override
   public void destroy() {
     log.debug("destroying filter...");
   }

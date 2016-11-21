@@ -14,6 +14,7 @@ public class SimpleImpl implements DateFormatter {
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
+  @Override
   public String getFormatted(Date date) {
     return Long.toString(date.getTime());
   }

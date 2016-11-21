@@ -7,6 +7,11 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 
+/**
+ * Provides a service (see <code>context-osgi.xml</code>)
+ * for authenticating users outside of Spring Security.
+ * Uses Spring authentication manager.
+ */
 public class UsernamePasswordAuthenticator {
 
   private final Logger log = LoggerFactory.getLogger(getClass());
@@ -22,13 +27,11 @@ public class UsernamePasswordAuthenticator {
   }
 
   /**
-   * Authenticator that creates a service (see <code>context-osgi.xml</code>)
-   * for authenticating users outside of Spring Security.
-   * Uses Spring authentication manager.
+   * Authenticate given credentials using Spring authentication manager.
    *
    * @param username user login
    * @param password user authentication secret
-   * @return Spring authentication object or null if credentials are incorrect
+   * @return Spring authentication object or <code>null</code> if credentials are incorrect
    */
   public Authentication authenticate(String username, String password) {
     Authentication authentication = null;
@@ -37,7 +40,7 @@ public class UsernamePasswordAuthenticator {
     try {
       authentication = authenticationManager.authenticate(usernamePasswordToken);
     } catch (AuthenticationException e) {
-      log.info("failed authentication for: '{}': {}", username, e.getMessage());
+      log.info("failed authentication for: '{}': {}", username, e.getMessage(), e);
     }
     return authentication;
   }

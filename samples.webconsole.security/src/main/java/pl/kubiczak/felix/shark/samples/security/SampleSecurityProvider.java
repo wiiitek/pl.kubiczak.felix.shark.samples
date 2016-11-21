@@ -27,6 +27,7 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
   /**
    * Implements the logout mechanism for user pressing logout button in Felix  web console.
    */
+  @Override
   public void logout(HttpServletRequest httpServletRequest,
                      HttpServletResponse httpServletResponse) {
     WebConsoleAuthHelper webConsoleAuthHelper =
@@ -41,6 +42,7 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
    *
    * @return true if user is already authenticated, false otherwise
    */
+  @Override
   public boolean authenticate(HttpServletRequest httpServletRequest,
                               HttpServletResponse httpServletResponse) {
     boolean authenticated = false;
@@ -74,11 +76,13 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
     return authenticated;
   }
 
+  @Override
   public Object authenticate(String username, String password) {
     log.debug("authenticating username '{}'", username);
     return authenticator.authenticate(username, password);
   }
 
+  @Override
   public boolean authorize(Object authentication, String role) {
     log.info("authorizing role {} for auth object {}", role, authentication);
     return true;

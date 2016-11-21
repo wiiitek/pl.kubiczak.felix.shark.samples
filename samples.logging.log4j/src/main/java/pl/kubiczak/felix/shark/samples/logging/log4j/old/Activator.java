@@ -16,6 +16,7 @@ public class Activator implements BundleActivator {
    * Publish log messages with all possible levels while bundle is started
    * with <code>org.apache.log4j.Logger</code>.
    */
+  @Override
   public void start(BundleContext context) throws Exception {
 
     String msg = "bundle " + context.getBundle().getSymbolicName() + " START";
@@ -30,6 +31,7 @@ public class Activator implements BundleActivator {
    * Publish log messages with all possible levels while bundle is stopped
    * with <code>org.apache.log4j.Logger</code>.
    */
+  @Override
   public void stop(BundleContext context) throws Exception {
 
     String msg = "bundle " + context.getBundle().getSymbolicName() + " STOP";

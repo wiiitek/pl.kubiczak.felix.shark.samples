@@ -33,6 +33,7 @@ public class EventHandlerImpl implements EventHandler {
    *
    * @param event passed OSGI event
    */
+  @Override
   public void handleEvent(Event event) {
     long counter = processedEvents.incrementAndGet();
     log.debug("[{}]: current time: '{}', handling event: '{}'",

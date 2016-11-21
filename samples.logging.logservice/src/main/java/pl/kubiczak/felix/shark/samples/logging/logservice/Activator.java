@@ -15,6 +15,7 @@ public class Activator implements BundleActivator {
    * with <code>org.osgi.service.log.LogService</code>.
    * Service is retrieved with <code>ServiceTracker</code>.
    */
+  @Override
   public void start(BundleContext context) throws Exception {
     // create a tracker and track the log service
     logServiceTracker = new ServiceTracker(context, LogService.class.getName(), null);
@@ -37,6 +38,7 @@ public class Activator implements BundleActivator {
    * with <code>org.osgi.service.log.LogService</code>.
    * Service is retrieved with <code>ServiceTracker</code>.
    */
+  @Override
   public void stop(BundleContext context) throws Exception {
     if (logService != null) {
       String msg = "bundle " + context.getBundle().getSymbolicName() + " STOP";

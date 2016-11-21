@@ -9,7 +9,7 @@ class Event extends ApplicationEvent {
    *
    * @param source the object on which the event initially occurred (never {@code null})
    */
-  public Event(Object source) {
+  Event(Object source) {
     super(source);
   }
 }

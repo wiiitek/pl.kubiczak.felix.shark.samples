@@ -7,6 +7,7 @@ public class Bean implements MessageSourceAware {
 
   private MessageSource messageSource;
 
+  @Override
   public void setMessageSource(MessageSource messageSource) {
     this.messageSource = messageSource;
   }

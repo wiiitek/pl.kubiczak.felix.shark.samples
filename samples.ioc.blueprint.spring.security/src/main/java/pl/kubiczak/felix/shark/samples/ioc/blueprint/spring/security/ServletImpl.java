@@ -29,12 +29,12 @@ public class ServletImpl extends HttpServlet {
 
   static final String DATE_PATTERN = "%1$tY-%1$tm-%1$td %1$tH.%1$tM.%1$tS.%1$tL";
 
+  static final String SERVLET_PATTERN = "/samples.ioc.blueprint.spring.security/*";
+
   private static final String RESPONSE_PATTERN =
           "Date = '%1s'\nRequestURI = '%2s'\nPathInfo = '%3s'\nQueryString = '%4s'";
 
-  static final String SERVLET_PATTERN = "/samples.ioc.blueprint.spring.security/*";
-
-  private final Logger log = LoggerFactory.getLogger(this.getClass());
+  private final transient Logger log = LoggerFactory.getLogger(this.getClass());
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse res)
@@ -53,8 +53,11 @@ public class ServletImpl extends HttpServlet {
             req.getPathInfo(),
             req.getQueryString());
 
-    PrintWriter out = res.getWriter();
-    out.println(msg);
-    out.flush();
+    try (PrintWriter out = res.getWriter()) {
+      out.println(msg);
+      out.flush();
+    } catch (IllegalStateException | IOException exception) {
+      log.error("error while getting writer: {}", exception.getMessage(), exception);
+    }
   }
 }

@@ -13,6 +13,7 @@ public class Listener implements ApplicationListener {
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
+  @Override
   public void onApplicationEvent(ApplicationEvent event) {
     log.debug("processing application event: '{}'", event.getSource());
     processedEvents.getAndIncrement();

@@ -33,9 +33,9 @@ public class WhiteboardServlet extends HttpServlet {
 
   static final String SERVLET_PATTERN = "/whiteboardServlet/*";
 
-  private final Logger log = LoggerFactory.getLogger(this.getClass());
+  private final transient Logger log = LoggerFactory.getLogger(this.getClass());
 
-  private String pattern;
+  private static String responsePattern;
 
   /**
    * Initializes pattern for servlet response.
@@ -47,7 +47,11 @@ public class WhiteboardServlet extends HttpServlet {
     sb.append("Test = 'zażółć gęślą jaźń'\n");
     sb.append("Service activation at: ").append(new Date());
     sb.append("RequestURI = '%s'\nPathInfo = '%s'\nQueryString = '%s'");
-    this.pattern = sb.toString();
+    WhiteboardServlet.setResponsePattern(sb.toString());
+  }
+
+  private static void setResponsePattern(String pattern) {
+    WhiteboardServlet.responsePattern = pattern;
   }
 
   @Override
@@ -60,12 +64,15 @@ public class WhiteboardServlet extends HttpServlet {
     res.setCharacterEncoding("UTF-8");
     res.setStatus(HttpServletResponse.SC_OK);
 
-    String msg =
-            String.format(pattern, req.getRequestURI(), req.getPathInfo(), req.getQueryString());
+    String msg = String.format(responsePattern,
+            req.getRequestURI(), req.getPathInfo(), req.getQueryString());
 
-    PrintWriter out = res.getWriter();
-    out.println(msg);
-    out.flush();
+    try (PrintWriter out = res.getWriter()) {
+      out.println(msg);
+      out.flush();
+    } catch (IllegalStateException | IOException exception) {
+      log.error("error while getting writer: {}", exception.getMessage(), exception);
+    }
   }
 
 }
