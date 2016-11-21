@@ -3,7 +3,7 @@ pl.kubiczak.felix.shark.samples
 ===============================
 
 [![Build Status](https://travis-ci.org/wiiitek/pl.kubiczak.felix.shark.samples.svg?branch=master)](https://travis-ci.org/wiiitek/pl.kubiczak.felix.shark.samples)
-
+[![Quality Gate](https://sonarqube.com/api/badges/gate?key=pl.kubiczak.felix.shark:samples)](https://sonarqube.com/dashboard/index/pl.kubiczak.felix.shark:samples)
 
 Code samples for Shark.
 
