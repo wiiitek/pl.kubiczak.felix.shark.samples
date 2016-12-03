@@ -31,14 +31,14 @@
     <module>samples.ioc.blueprint.spring.security</module>
     <module>samples.ioc.blueprint.spring.simple</module>
     <module>samples.ioc.ipojo</module>
-
+    <!--
     <module>samples.logging.jcl</module>
     <module>samples.logging.jul</module>
     <module>samples.logging.log4j</module>
     <module>samples.logging.log4j2</module>
     <module>samples.logging.logservice</module>
     <module>samples.logging.slf4j</module>
-
+    -->
     <module>samples.webconsole.security</module>
   </modules>
 
