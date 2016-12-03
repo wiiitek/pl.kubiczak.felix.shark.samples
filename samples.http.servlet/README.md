@@ -2,8 +2,11 @@
 samples.http.servlet
 ====================
 
-Code samples use `org.apache.felix.scr.annotations` and `maven-scr-plugin`
-for managing HTTP Service.
+This module creates sample Servlet, Filter and Context with a little help of
+
+```
+org.osgi.service.http.whiteboard
+```
 
 Project site available at [http://site.kubiczak.pl/][project-site]
 
@@ -16,7 +19,7 @@ Maven artifacts at [http://maven.kubiczak.pl/][custom-maven-repo]
 Whiteboard Servlet
 ------------------
 
-[http://localhost:8080/shark/samples/http/servlet/whiteboard/whiteboardServlet/*](http://localhost:8080/shark/samples/http/servlet/whiteboard/whiteboardServlet/*)
+[http://localhost:8080/samples.http.servlet.whiteboard/whiteboardServlet/*](http://localhost:8080/samples.http.servlet.whiteboard/whiteboardServlet/*)
 
 * `http://localhost:8080` is the domain and port for the Felix HTTP service
 * `/shark/samples/http/servlet/whiteboard` is whiteboard context path

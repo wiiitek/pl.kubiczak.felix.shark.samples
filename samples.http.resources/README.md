@@ -2,8 +2,8 @@
 samples.http.resources
 ======================
 
-Code samples use `org.apache.felix.scr.annotations` and `maven-scr-plugin`
-for managing HTTP Service.
+Code samples use `org.osgi.service.component.annotations` to create service
+for registering HTTP resources.
 
 Project site available at [http://site.kubiczak.pl/][project-site]
 
@@ -18,14 +18,14 @@ Http Resources
 
 ### Registered with HttpService
 
-[http://localhost:8080/shark/samples/http/resources/index.html](http://localhost:8080/shark/samples/http/resources/index.html)
+[http://localhost:8080/samples.http.resources/index.html](http://localhost:8080/samples.http.resources/index.html)
 
 * `http://localhost:8080` is the domain and port for the Felix HTTP service
-* `/shark/samples/http/resources` is a path for Http resources registration
+* `/samples.http.resources` is a path for Http resources registration
 
 ### Amdatu
 
-[http://localhost:8080/shark/samples/http/resources/amdatu/](http://localhost:8080/shark/samples/http/resources/amdatu/)
+[http://localhost:8080/samples.http.resources.amdatu/](http://localhost:8080/samples.http.resources.amdatu/)
 
 [Amdatu][amdatu-static-resources] static resources require
 [Amdatu resourcehandler bundle][amdatu-resourcehandler-bundle]
