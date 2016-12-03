@@ -1,9 +1,6 @@
 package pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.security;
 
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Properties;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Service;
+import org.osgi.service.component.annotations.Component;
 import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,16 +22,14 @@ import javax.servlet.http.HttpServletResponse;
  * But no for the 'login' page itself as it is available without authentication.
  */
 @Component
-@Service
-@Properties
-        ({
-                @Property(
-                        name = HttpWhiteboardConstants.HTTP_WHITEBOARD_FILTER_PATTERN,
-                        value = LoginPageFilter.PATTERN),
-                @Property(
-                        name = HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT,
-                        value = LoginPageFilter.CONTEXT_FILTER),
-        })
+        (
+                property = {
+                        HttpWhiteboardConstants.HTTP_WHITEBOARD_FILTER_PATTERN + "="
+                                + LoginPageFilter.PATTERN,
+                        HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT + "="
+                                + LoginPageFilter.CONTEXT_FILTER
+                }
+        )
 public class LoginPageFilter implements Filter {
 
   static final String PATTERN = ServletImpl.PATH_PREFIX + "/login";

@@ -1,9 +1,6 @@
 package pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.security;
 
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Properties;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Service;
+import org.osgi.service.component.annotations.Component;
 import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,19 +9,21 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 
+import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@Component(immediate = true)
-@Service(value = javax.servlet.Servlet.class)
-@Properties
-        ({
-                @Property(
-                        name = HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN,
-                        value = ServletImpl.SERVLET_PATTERN)
-        })
+@Component
+        (
+                service = Servlet.class,
+                property = {
+                        HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN + "="
+                                + ServletImpl.SERVLET_PATTERN
+                }
+
+        )
 public class ServletImpl extends HttpServlet {
 
   static final String DATE_PATTERN = "%1$tY-%1$tm-%1$td %1$tH.%1$tM.%1$tS.%1$tL";
