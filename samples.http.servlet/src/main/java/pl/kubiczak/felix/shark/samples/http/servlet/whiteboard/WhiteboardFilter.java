@@ -39,8 +39,10 @@ public class WhiteboardFilter implements Filter {
 
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
-    log.debug("init filter with servlet context: {}",
-            filterConfig.getServletContext().getContextPath());
+    if (log.isDebugEnabled()) {
+      log.debug("init filter with servlet context: {}",
+              filterConfig.getServletContext().getContextPath());
+    }
   }
 
   /**
