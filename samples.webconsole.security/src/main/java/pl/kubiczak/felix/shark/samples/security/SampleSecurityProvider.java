@@ -1,11 +1,10 @@
 package pl.kubiczak.felix.shark.samples.security;
 
 import org.apache.commons.lang3.tuple.Pair;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.felix.webconsole.WebConsoleSecurityProvider2;
 import org.apache.felix.webconsole.WebConsoleSecurityProvider3;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
@@ -16,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
-@Service
 public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
 
   @Reference
