@@ -3,13 +3,17 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <bean name="springSimpleBean" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.simple.SpringSimpleBean">
-    <constructor-arg value="Bean A"/>
-    <property name="property" value="Sample Value"/>
-  </bean>
+    <bean
+            name="springSimpleBean"
+            class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.simple.SpringSimpleBean">
+        <constructor-arg value="Bean A"/>
+        <property name="property" value="Sample Value"/>
+    </bean>
 
-  <bean name="another" class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.simple.SpringSimpleBean">
-    <constructor-arg value="Bean B"/>
-  </bean>
+    <bean
+            name="another"
+            class="pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.simple.SpringSimpleBean">
+        <constructor-arg value="Bean B"/>
+    </bean>
 
 </beans>
