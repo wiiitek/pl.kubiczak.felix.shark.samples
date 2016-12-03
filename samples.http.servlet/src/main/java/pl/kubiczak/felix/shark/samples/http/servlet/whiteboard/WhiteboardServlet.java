@@ -1,10 +1,7 @@
 package pl.kubiczak.felix.shark.samples.http.servlet.whiteboard;
 
-import org.apache.felix.scr.annotations.Activate;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Properties;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Service;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
 import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,22 +10,22 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 
+import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
-@Service
-@Properties
-        ({
-                @Property(
-                        name = HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT,
-                        value = WhiteboardContext.CONTEXT_FILTER),
-                @Property(
-                        name = HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN,
-                        value = WhiteboardServlet.SERVLET_PATTERN)
-        })
+        (
+                service = Servlet.class,
+                property = {
+                        HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT + "="
+                                + WhiteboardContext.CONTEXT_FILTER,
+                        HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN + "="
+                                + WhiteboardServlet.SERVLET_PATTERN
+                }
+        )
 public class WhiteboardServlet extends HttpServlet {
 
   static final String SERVLET_PATTERN = "/whiteboardServlet/*";

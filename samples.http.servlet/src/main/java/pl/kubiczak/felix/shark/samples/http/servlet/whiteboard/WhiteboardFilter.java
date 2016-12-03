@@ -1,9 +1,6 @@
 package pl.kubiczak.felix.shark.samples.http.servlet.whiteboard;
 
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Properties;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Service;
+import org.osgi.service.component.annotations.Component;
 import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,16 +16,15 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
-@Service
-@Properties
-        ({
-                @Property(
-                        name = HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT,
-                        value = WhiteboardContext.CONTEXT_FILTER),
-                @Property(
-                        name = HttpWhiteboardConstants.HTTP_WHITEBOARD_FILTER_PATTERN,
-                        value = WhiteboardServlet.SERVLET_PATTERN)
-        })
+        (
+                service = Filter.class,
+                property = {
+                        HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT + "="
+                                + WhiteboardContext.CONTEXT_FILTER,
+                        HttpWhiteboardConstants.HTTP_WHITEBOARD_FILTER_PATTERN + "="
+                                + WhiteboardServlet.SERVLET_PATTERN
+                }
+        )
 public class WhiteboardFilter implements Filter {
 
   private static final String HEADER_NAME = "Header-WhiteboardFilter";
