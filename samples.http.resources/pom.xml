@@ -24,8 +24,8 @@
       <artifactId>org.apache.felix.http.jetty</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.felix</groupId>
-      <artifactId>org.apache.felix.scr.annotations</artifactId>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.service.component.annotations</artifactId>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -35,18 +35,6 @@
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>maven-scr-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>generate-scr-scrdescriptor</id>
-            <goals>
-              <goal>scr</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
@@ -62,6 +50,13 @@
               <instructions>
                 <Bundle-Category>shark</Bundle-Category>
                 <Export-Package />
+                <!--
+                  for Require-Capability entry of osgi.extender osgi.component
+                  see
+                  http://blog.vogella.com/2016/06/21/getting-started-with-osgi-declarative-services/
+                  http://stackoverflow.com/a/25854649
+                -->
+                <_dsannotations-options>extender</_dsannotations-options>
                 <!-- Amdatu settings -->
                 <X-Web-Resource>/samples.http.resources.amdatu;/content</X-Web-Resource>
                 <X-Web-Resource-Default-Page>index.html</X-Web-Resource-Default-Page>
