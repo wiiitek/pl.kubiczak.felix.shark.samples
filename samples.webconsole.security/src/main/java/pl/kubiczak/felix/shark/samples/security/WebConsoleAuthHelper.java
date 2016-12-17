@@ -38,7 +38,10 @@ class WebConsoleAuthHelper {
   void doLogout() {
     if (isAuthenticated()) {
       Authentication authentication = getAuthentication(request);
-      log.info("logging out: '{}'..", authentication.getPrincipal());
+      if(log.isDebugEnabled()){
+        Object authObject = authentication == null ? null : authentication.getPrincipal();
+        log.info("logging out: '{}'", authObject);
+      }
 
       // testing if we could retrieve a session in SecurityContextLogoutHandler
       HttpSession session = request.getSession(false);
