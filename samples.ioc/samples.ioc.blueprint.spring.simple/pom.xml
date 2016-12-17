@@ -3,16 +3,16 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>samples</artifactId>
+    <artifactId>samples.ioc</artifactId>
     <groupId>pl.kubiczak.felix.shark</groupId>
     <version>1.9-SNAPSHOT</version>
   </parent>
 
-  <artifactId>samples.ioc.blueprint.spring.events</artifactId>
+  <artifactId>samples.ioc.blueprint.spring.simple</artifactId>
   <packaging>bundle</packaging>
 
-  <name>Shark: Samples: IOC: Blueprint: Spring: Events</name>
-  <description>Spring applicationEventPublisher used within Blueprint IOC.</description>
+  <name>Shark: Samples: IOC: Blueprint: Spring: Simple</name>
+  <description>Sample for simple Spring namespace usage within Blueprint IOC.</description>
 
   <dependencies>
     <!-- Spring -->
@@ -41,6 +41,12 @@
       <artifactId>org.apache.servicemix.bundles.spring-test</artifactId>
     </dependency>
 
+    <!-- Common -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+    </dependency>
+
     <!-- Logging -->
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -63,10 +69,6 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.jayway.awaitility</groupId>
-      <artifactId>awaitility</artifactId>
     </dependency>
   </dependencies>
 

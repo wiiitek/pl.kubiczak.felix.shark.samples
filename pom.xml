@@ -41,6 +41,7 @@
     -->
     <module>samples.webconsole.security</module>
     <module>samples.logging</module>
+    <module>samples.ioc</module>
   </modules>
 
   <scm>

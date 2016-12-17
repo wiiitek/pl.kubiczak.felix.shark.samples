@@ -3,29 +3,18 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>samples</artifactId>
+    <artifactId>samples.ioc</artifactId>
     <groupId>pl.kubiczak.felix.shark</groupId>
     <version>1.9-SNAPSHOT</version>
   </parent>
 
-  <artifactId>samples.ioc.blueprint.spring.security</artifactId>
+  <artifactId>samples.ioc.blueprint.spring.messages</artifactId>
   <packaging>bundle</packaging>
 
-  <name>Shark: Samples: IOC: Blueprint: Spring: Security</name>
-  <description>Spring security used in OSGI container.</description>
+  <name>Shark: Samples: IOC: Blueprint: Spring: Messages</name>
+  <description>Spring messageSource used within Blueprint IOC.</description>
 
   <dependencies>
-    <!-- HTTP -->
-    <dependency>
-      <groupId>org.apache.felix</groupId>
-      <artifactId>org.apache.felix.http.jetty</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.service.component.annotations</artifactId>
-    </dependency>
-
     <!-- Spring -->
     <dependency>
       <groupId>org.apache.servicemix.bundles</groupId>
@@ -50,16 +39,6 @@
     <dependency>
       <groupId>org.apache.servicemix.bundles</groupId>
       <artifactId>org.apache.servicemix.bundles.spring-test</artifactId>
-    </dependency>
-
-    <!-- Spring Security -->
-    <dependency>
-      <groupId>org.apache.servicemix.bundles</groupId>
-      <artifactId>org.apache.servicemix.bundles.spring-security-config</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.servicemix.bundles</groupId>
-      <artifactId>org.apache.servicemix.bundles.spring-security-web</artifactId>
     </dependency>
 
     <!-- Logging -->
@@ -103,37 +82,9 @@
             <configuration>
               <instructions>
                 <Bundle-Category>shark</Bundle-Category>
-                <Import-Package>
-                  org.springframework.context.support,
-                  org.springframework.security.access.vote,
-                  org.springframework.security.authentication,
-                  org.springframework.security.authentication.dao,
-                  org.springframework.security.config,
-                  org.springframework.security.core,
-                  org.springframework.security.provisioning,
-                  org.springframework.security.web,
-                  org.springframework.security.web.authentication,
-                  org.springframework.security.web.util.matcher,
-                  org.springframework.web.filter,
-                  org.springframework.dao;resolution:=optional,
-                  org.springframework.jdbc.core;resolution:=optional,
-                  org.springframework.jdbc.core.support;resolution:=optional,
-                  org.springframework.web.servlet.support;resolution:=optional,
-                  *
-                </Import-Package>
-                <!--
-                  for Require-Capability entry of osgi.extender osgi.component
-                  see
-                  http://blog.vogella.com/2016/06/21/getting-started-with-osgi-declarative-services/
-                  http://stackoverflow.com/a/25854649
-                -->
-                <_dsannotations-options>extender</_dsannotations-options>
-                <!-- Amdatu settings -->
-                <X-Web-Resource>
-                  /samples.ioc.blueprint.spring.security/login;/login
-                </X-Web-Resource>
-                <X-Web-Resource-Default-Page>index.html</X-Web-Resource-Default-Page>
-                <X-Web-Resource-Version>1.1</X-Web-Resource-Version>
+                <Export-Package>
+                  pl.kubiczak.felix.shark.samples.ioc.${project.artifactId}
+                </Export-Package>
               </instructions>
             </configuration>
           </execution>
