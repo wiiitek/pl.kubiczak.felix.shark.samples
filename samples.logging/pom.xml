@@ -40,7 +40,7 @@
                             <execution>
                                 <id>deploy-sample-bundle-to-felix-framework</id>
                                 <!-- skips deploying logging samples to felix -->
-                                <phase>none</phase>-->
+                                <phase>none</phase>
                             </execution>
                         </executions>
                     </plugin>
