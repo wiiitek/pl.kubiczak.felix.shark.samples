@@ -40,6 +40,7 @@
     <module>samples.logging.slf4j</module>
     -->
     <module>samples.webconsole.security</module>
+    <module>samples.logging</module>
   </modules>
 
   <scm>

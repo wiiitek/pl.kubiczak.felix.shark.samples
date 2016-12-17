@@ -3,25 +3,21 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>samples</artifactId>
+    <artifactId>samples.logging</artifactId>
     <groupId>pl.kubiczak.felix.shark</groupId>
-    <version>1.7-SNAPSHOT</version>
+    <version>1.9-SNAPSHOT</version>
   </parent>
 
-  <artifactId>samples.logging.log4j2</artifactId>
+  <artifactId>samples.logging.jul</artifactId>
   <packaging>bundle</packaging>
 
-  <name>Shark: Samples: Logging: Log4j 2</name>
-  <description>Sample bundle for logging with new log4j 2.</description>
+  <name>Shark: Samples: Logging: JUL</name>
+  <description>Sample bundle for logging with java.util.logging.</description>
 
   <dependencies>
     <dependency>
       <groupId>org.osgi</groupId>
       <artifactId>org.osgi.core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-api</artifactId>
     </dependency>
   </dependencies>
 
@@ -43,7 +39,7 @@
                 <Bundle-Category>shark</Bundle-Category>
                 <Export-Package />
                 <Bundle-Activator>
-                  pl.kubiczak.felix.shark.samples.logging.log4j.Activator
+                  pl.kubiczak.felix.shark.samples.logging.jul.Activator
                 </Bundle-Activator>
               </instructions>
             </configuration>

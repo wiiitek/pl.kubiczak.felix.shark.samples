@@ -3,16 +3,16 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>samples</artifactId>
+    <artifactId>samples.logging</artifactId>
     <groupId>pl.kubiczak.felix.shark</groupId>
-    <version>1.7-SNAPSHOT</version>
+    <version>1.9-SNAPSHOT</version>
   </parent>
 
-  <artifactId>samples.logging.log4j</artifactId>
+  <artifactId>samples.logging.log4j2</artifactId>
   <packaging>bundle</packaging>
 
-  <name>Shark: Samples: Logging: Log4j</name>
-  <description>Sample bundle for logging with log4j.</description>
+  <name>Shark: Samples: Logging: Log4j 2</name>
+  <description>Sample bundle for logging with new log4j 2.</description>
 
   <dependencies>
     <dependency>
@@ -20,8 +20,8 @@
       <artifactId>org.osgi.core</artifactId>
     </dependency>
     <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
     </dependency>
   </dependencies>
 
@@ -43,7 +43,7 @@
                 <Bundle-Category>shark</Bundle-Category>
                 <Export-Package />
                 <Bundle-Activator>
-                  pl.kubiczak.felix.shark.samples.logging.log4j.old.Activator
+                  pl.kubiczak.felix.shark.samples.logging.log4j.Activator
                 </Bundle-Activator>
               </instructions>
             </configuration>
