@@ -1,0 +1,6 @@
+name=John Doe
+port=1234567
+# in order to convert UTF-8 values to ISO-8859-1 use
+# `native2ascii` from JDK tools as described at:
+# http://stackoverflow.com/a/4660195
+text=zażółć gęś mą i jaźń

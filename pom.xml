@@ -32,6 +32,7 @@
     <module>samples.ioc.blueprint.spring.security</module>
     <module>samples.ioc.blueprint.spring.simple</module>
     <module>samples.ioc.ipojo</module>
+    <module>samples.managedservices</module>
     <!--
     <module>samples.logging.jcl</module>
     <module>samples.logging.jul</module>
