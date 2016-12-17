@@ -6,7 +6,9 @@
   <service ref="springSecurityFilterChain" interface="javax.servlet.Filter" activation="eager">
     <service-properties>
       <entry key="osgi.http.whiteboard.filter.pattern"
-             value="/samples.ioc.blueprint.spring.security/*"/>
+             value="/spring.security/*"/>
+      <entry key="osgi.http.whiteboard.context.select"
+             value="(osgi.http.whiteboard.context.name=org.osgi.service.http)"/>
     </service-properties>
   </service>
 
