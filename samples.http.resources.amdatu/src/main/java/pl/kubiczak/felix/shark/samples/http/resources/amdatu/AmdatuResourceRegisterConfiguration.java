@@ -1,4 +1,4 @@
-package pl.kubiczak.felix.shark.samples.http.resources;
+package pl.kubiczak.felix.shark.samples.http.resources.amdatu;
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -6,12 +6,14 @@ import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.http.HttpService;
-import org.osgi.service.http.NamespaceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * This configures Amdatu resource register.
+ */
 @Component
-public class ResourcesRegistration {
+public class AmdatuResourceRegisterConfiguration {
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
@@ -23,16 +25,11 @@ public class ResourcesRegistration {
    */
   @Activate
   public void start() {
-    try {
-      httpService.registerResources("/resources", "/content/resources", null);
-      log.debug("Resources registered");
-    } catch (NamespaceException ne) {
-      log.warn("Failed to register resources", ne);
-    }
+    log.debug("Starting configuration component...");
   }
 
   @Deactivate
   public void stop() {
-    httpService.unregister("/resources");
+    log.debug("Stopping configuration component...");
   }
 }

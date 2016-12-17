@@ -16,20 +16,11 @@ Maven artifacts at [http://maven.kubiczak.pl/][custom-maven-repo]
 Http Resources
 --------------
 
-### Registered with HttpService
+### Registered with [HttpService][http-service]
 
-[http://localhost:8080/samples.http.resources/index.html](http://localhost:8080/samples.http.resources/index.html)
+[http://localhost:8080/resources/index.html](http://localhost:8080/resources/index.html)
 
 * `http://localhost:8080` is the domain and port for the Felix HTTP service
-* `/samples.http.resources` is a path for Http resources registration
+* `/resources` is a path for HTTP service resources
 
-### Amdatu
-
-[http://localhost:8080/samples.http.resources.amdatu/](http://localhost:8080/samples.http.resources.amdatu/)
-
-[Amdatu][amdatu-static-resources] static resources require
-[Amdatu resourcehandler bundle][amdatu-resourcehandler-bundle]
-in OSGI container.
-
-[amdatu-resourcehandler-bundle]: http://repository.amdatu.org/release/org.amdatu.web.resourcehandler/
-[amdatu-static-resources]: http://www.amdatu.org/components/web.html#staticresources
+[http-service]: http://felix.apache.org/documentation/subprojects/apache-felix-http-service.html#using-the-httpservice
