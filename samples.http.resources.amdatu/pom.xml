@@ -8,17 +8,13 @@
     <version>1.9-SNAPSHOT</version>
   </parent>
 
-  <artifactId>samples.http.resources</artifactId>
+  <artifactId>samples.http.resources.amdatu</artifactId>
   <packaging>bundle</packaging>
 
   <name>Shark: Samples: Http: Resources</name>
   <description>Code samples for static HTTP resources.</description>
 
   <dependencies>
-    <dependency>
-      <groupId>org.apache.felix</groupId>
-      <artifactId>org.apache.felix.http.servlet-api</artifactId>
-    </dependency>
     <dependency>
       <groupId>org.apache.felix</groupId>
       <artifactId>org.apache.felix.http.jetty</artifactId>
@@ -57,6 +53,10 @@
                   http://stackoverflow.com/a/25854649
                 -->
                 <_dsannotations-options>extender</_dsannotations-options>
+                <!-- Amdatu settings -->
+                <X-Web-Resource>/amdatu;/content/amdatu</X-Web-Resource>
+                <X-Web-Resource-Default-Page>index.html</X-Web-Resource-Default-Page>
+                <X-Web-Resource-Version>1.1</X-Web-Resource-Version>
               </instructions>
             </configuration>
           </execution>

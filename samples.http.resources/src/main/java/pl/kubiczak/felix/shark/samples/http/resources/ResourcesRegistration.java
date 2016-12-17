@@ -13,6 +13,10 @@ import org.slf4j.LoggerFactory;
 @Component
 public class ResourcesRegistration {
 
+  private static final String WEB_PATH = "/resources";
+
+  private static final String CONTENT = "/content/resources";
+
   private final Logger log = LoggerFactory.getLogger(getClass());
 
   @Reference(policy = ReferencePolicy.DYNAMIC)
@@ -24,8 +28,7 @@ public class ResourcesRegistration {
   @Activate
   public void start() {
     try {
-      httpService.registerResources("/samples.http.resources", "/content", null);
-      httpService.registerResources("/samples.http.resources/img", "/content/img", null);
+      httpService.registerResources(WEB_PATH, CONTENT, null);
       log.debug("Resources registered");
     } catch (NamespaceException ne) {
       log.warn("Failed to register resources", ne);
@@ -34,7 +37,6 @@ public class ResourcesRegistration {
 
   @Deactivate
   public void stop() {
-    httpService.unregister("/samples.http.resources");
-    httpService.unregister("/samples.http.resources/img");
+    httpService.unregister(WEB_PATH);
   }
 }
