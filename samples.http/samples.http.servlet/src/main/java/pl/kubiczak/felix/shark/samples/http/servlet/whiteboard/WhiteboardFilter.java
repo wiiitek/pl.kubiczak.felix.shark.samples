@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletResponse;
         )
 public class WhiteboardFilter implements Filter {
 
-  private static final String HEADER_NAME = "Header-WhiteboardFilter";
+  private static final String HTTP_HEADER_NAME = "Whiteboard-Filter";
 
   private static final int TIMESTAMP_RADIX = 16;
 
@@ -36,7 +36,7 @@ public class WhiteboardFilter implements Filter {
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
     if (log.isDebugEnabled()) {
-      log.debug("init filter with servlet context: {}",
+      log.debug("init filter with servlet context path: '{}'",
               filterConfig.getServletContext().getContextPath());
     }
   }
@@ -48,7 +48,8 @@ public class WhiteboardFilter implements Filter {
   public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
           throws IOException, ServletException {
     HttpServletResponse response = (HttpServletResponse) res;
-    response.addHeader(HEADER_NAME, Long.toString(System.currentTimeMillis(), TIMESTAMP_RADIX));
+    String timestampString = Long.toString(System.currentTimeMillis(), TIMESTAMP_RADIX);
+    response.addHeader(HTTP_HEADER_NAME, timestampString);
     chain.doFilter(req, res);
   }
 

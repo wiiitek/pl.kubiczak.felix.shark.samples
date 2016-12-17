@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
         )
 public class WhiteboardServlet extends HttpServlet {
 
-  static final String SERVLET_PATTERN = "/whiteboardServlet/*";
+  static final String SERVLET_PATTERN = "/*";
 
   private final transient Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -42,7 +42,7 @@ public class WhiteboardServlet extends HttpServlet {
     StringBuilder sb = new StringBuilder();
     sb.append("Service = '").append(getClass().getCanonicalName()).append("'\n\n");
     sb.append("Test = 'zażółć gęślą jaźń'\n");
-    sb.append("Service activation at: ").append(new Date());
+    sb.append("Service activation at: ").append(new Date()).append("\n");
     sb.append("RequestURI = '%s'\nPathInfo = '%s'\nQueryString = '%s'");
     WhiteboardServlet.setResponsePattern(sb.toString());
   }

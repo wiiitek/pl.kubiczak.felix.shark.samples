@@ -5,7 +5,7 @@
   <parent>
     <artifactId>parent</artifactId>
     <groupId>pl.kubiczak.felix.shark</groupId>
-    <version>1.14</version>
+    <version>1.15-SNAPSHOT</version>
   </parent>
 
   <artifactId>samples</artifactId>
@@ -21,9 +21,7 @@
   <url>https://shark.kubiczak.pl/samples</url>
 
   <modules>
-    <module>samples.http.resources</module>
-    <module>samples.http.resources.amdatu</module>
-    <module>samples.http.servlet</module>
+    <module>samples.http</module>
 
     <module>samples.ioc.blueprint.it</module>
     <module>samples.ioc.blueprint.simple</module>

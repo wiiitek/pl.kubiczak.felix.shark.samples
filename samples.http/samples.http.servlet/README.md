@@ -19,8 +19,8 @@ Maven artifacts at [http://maven.kubiczak.pl/][custom-maven-repo]
 Whiteboard Servlet
 ------------------
 
-[http://localhost:8080/samples.http.servlet.whiteboard/whiteboardServlet/*](http://localhost:8080/samples.http.servlet.whiteboard/whiteboardServlet/*)
+[http://localhost:8080/whiteboard/*](http://localhost:8080/whiteboard/*)
 
 * `http://localhost:8080` is the domain and port for the Felix HTTP service
-* `/shark/samples/http/servlet/whiteboard` is whiteboard context path
-* `/whiteboardServlet/*` is servlet pattern (same pattern is used for filter)
+* `/whiteboard` is whiteboard context path
+* `/*` is servlet pattern (same pattern is used for filter)
