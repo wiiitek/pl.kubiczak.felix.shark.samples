@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>samples</artifactId>
+        <groupId>pl.kubiczak.felix.shark</groupId>
+        <version>1.9-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>samples.logging</artifactId>
+    <packaging>pom</packaging>
+
+    <name>Shark: Samples: Logging</name>
+    <description>Container module for Logging samples.</description>
+
+    <modules>
+        <module>samples.logging.jcl</module>
+        <module>samples.logging.jul</module>
+        <module>samples.logging.log4j</module>
+        <module>samples.logging.log4j2</module>
+        <module>samples.logging.logservice</module>
+        <module>samples.logging.slf4j</module>
+    </modules>
+
+    <profiles>
+        <profile>
+            <id>deploy-samples-to-felix-framework</id>
+            <activation>
+                <property>
+                    <name>env.SHARK_HOME</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>deploy-sample-bundle-to-felix-framework</id>
+                                <!-- skips deploying logging samples to felix -->
+                                <phase>none</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

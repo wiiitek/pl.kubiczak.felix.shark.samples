@@ -38,7 +38,7 @@ class WebConsoleAuthHelper {
   void doLogout() {
     if (isAuthenticated()) {
       Authentication authentication = getAuthentication(request);
-      if(log.isDebugEnabled()){
+      if (log.isDebugEnabled()) {
         Object authObject = authentication == null ? null : authentication.getPrincipal();
         log.info("logging out: '{}'", authObject);
       }
