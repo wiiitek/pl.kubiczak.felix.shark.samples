@@ -31,7 +31,6 @@ import javax.servlet.http.HttpServletResponse;
                                 + "[404,403]",
                         Constants.SERVICE_RANKING + ":Integer="
                                 + "100",
-
                 }
         )
 public class WhiteboardErrorPageServlet extends HttpServlet {

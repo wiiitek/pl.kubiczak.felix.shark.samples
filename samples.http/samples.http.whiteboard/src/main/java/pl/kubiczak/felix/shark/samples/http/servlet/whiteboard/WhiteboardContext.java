@@ -10,7 +10,10 @@ import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
  */
 @Component
         (
-                service = ServletContextHelper.class,
+                service = {
+                        ServletContextHelper.class,
+                        WhiteboardContext.class
+                },
                 name = WhiteboardContext.CONTEXT_NAME,
                 property = {
                         HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "="
