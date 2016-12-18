@@ -103,8 +103,7 @@
             <configuration>
               <instructions>
                 <Bundle-Category>shark</Bundle-Category>
-                <Import-Package>
-                  org.springframework.context.support,
+                <Import-Package>org.springframework.context.support,
                   org.springframework.security.access.vote,
                   org.springframework.security.authentication,
                   org.springframework.security.authentication.dao,
@@ -119,8 +118,7 @@
                   org.springframework.jdbc.core;resolution:=optional,
                   org.springframework.jdbc.core.support;resolution:=optional,
                   org.springframework.web.servlet.support;resolution:=optional,
-                  *
-                </Import-Package>
+                  *</Import-Package>
                 <!--
                   for Require-Capability entry of osgi.extender osgi.component
                   see
@@ -129,9 +127,7 @@
                 -->
                 <_dsannotations-options>extender</_dsannotations-options>
                 <!-- Amdatu settings -->
-                <X-Web-Resource>
-                  /spring.security/login;/login
-                </X-Web-Resource>
+                <X-Web-Resource>/spring.security/login;/login</X-Web-Resource>
                 <X-Web-Resource-Default-Page>index.html</X-Web-Resource-Default-Page>
                 <X-Web-Resource-Version>1.1</X-Web-Resource-Version>
               </instructions>
@@ -157,9 +153,7 @@
                   </includes>
                 </resource>
               </resources>
-              <outputDirectory>
-                ${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}
-              </outputDirectory>
+              <outputDirectory>${env.SHARK_HOME}/${felix.dir}/${bundles.deploy.dir}</outputDirectory>
             </configuration>
           </execution>
         </executions>

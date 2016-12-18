@@ -42,9 +42,7 @@
               <instructions>
                 <Bundle-Category>shark</Bundle-Category>
                 <Export-Package />
-                <Bundle-Activator>
-                  pl.kubiczak.felix.shark.samples.logging.logservice.Activator
-                </Bundle-Activator>
+                <Bundle-Activator>pl.kubiczak.felix.shark.samples.logging.logservice.Activator</Bundle-Activator>
               </instructions>
             </configuration>
           </execution>

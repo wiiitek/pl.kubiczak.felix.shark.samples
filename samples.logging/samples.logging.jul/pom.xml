@@ -38,9 +38,7 @@
               <instructions>
                 <Bundle-Category>shark</Bundle-Category>
                 <Export-Package />
-                <Bundle-Activator>
-                  pl.kubiczak.felix.shark.samples.logging.jul.Activator
-                </Bundle-Activator>
+                <Bundle-Activator>pl.kubiczak.felix.shark.samples.logging.jul.Activator</Bundle-Activator>
               </instructions>
             </configuration>
           </execution>

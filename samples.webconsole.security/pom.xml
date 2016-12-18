@@ -12,9 +12,7 @@
   <packaging>bundle</packaging>
 
   <name>Shark: Samples: Webconsole: Security</name>
-  <description>
-    Sample for Felix webconsole authentication delegated to Spring security.
-  </description>
+  <description>Sample for Felix webconsole authentication delegated to Spring security.</description>
 
   <dependencies>
     <!-- Spring Security -->

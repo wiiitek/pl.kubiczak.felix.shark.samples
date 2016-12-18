@@ -88,9 +88,7 @@
             <configuration>
               <instructions>
                 <Bundle-Category>shark</Bundle-Category>
-                <Export-Package>
-                  pl.kubiczak.felix.shark.samples.ioc.${project.artifactId}
-                </Export-Package>
+                <Export-Package>pl.kubiczak.felix.shark.samples.ioc.${project.artifactId}</Export-Package>
               </instructions>
             </configuration>
           </execution>

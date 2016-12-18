@@ -44,9 +44,7 @@
                 <!-- jcl imported version needed to be lowered, as slf4j provide ver. 1.1 -->
                 <Import-Package>org.apache.commons.logging;version="[1,2)",*</Import-Package>
                 <Export-Package />
-                <Bundle-Activator>
-                  pl.kubiczak.felix.shark.samples.logging.jcl.Activator
-                </Bundle-Activator>
+                <Bundle-Activator>pl.kubiczak.felix.shark.samples.logging.jcl.Activator</Bundle-Activator>
               </instructions>
             </configuration>
           </execution>

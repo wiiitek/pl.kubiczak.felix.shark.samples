@@ -11,9 +11,7 @@
   <artifactId>samples.ioc.blueprint.it</artifactId>
 
   <name>Shark: Samples: IOC: Blueprint: Integration Tests</name>
-  <description>
-    Samples for integration tests with Pax Exam. Blueprint bundles are tested.
-  </description>
+  <description>Samples for integration tests with Pax Exam. Blueprint bundles are tested.</description>
 
   <dependencies>
     <!-- Tested bundles -->
@@ -136,9 +134,7 @@
               <goal>generate-depends-file</goal>
             </goals>
             <configuration>
-              <outputFile>
-                ${project.build.testOutputDirectory}/META-INF/maven/dependencies.properties
-              </outputFile>
+              <outputFile>${project.build.testOutputDirectory}/META-INF/maven/dependencies.properties</outputFile>
             </configuration>
           </execution>
         </executions>
