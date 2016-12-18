@@ -8,10 +8,10 @@
     <version>1.9-SNAPSHOT</version>
   </parent>
 
-  <artifactId>samples.http.servlet</artifactId>
+  <artifactId>samples.http.whiteboard</artifactId>
   <packaging>bundle</packaging>
 
-  <name>Shark: Samples: Http: Servlet</name>
+  <name>Shark: Samples: Http: Whiteboard</name>
   <description>Code samples for servlets.</description>
 
   <dependencies>

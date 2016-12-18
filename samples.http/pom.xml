@@ -18,5 +18,6 @@
         <module>samples.http.resources</module>
         <module>samples.http.resources.amdatu</module>
         <module>samples.http.servlet</module>
+      <module>samples.http.whiteboard.errorpage</module>
     </modules>
 </project>

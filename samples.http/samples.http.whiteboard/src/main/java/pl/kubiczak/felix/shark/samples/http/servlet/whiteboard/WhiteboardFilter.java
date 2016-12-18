@@ -27,9 +27,7 @@ import javax.servlet.http.HttpServletResponse;
         )
 public class WhiteboardFilter implements Filter {
 
-  private static final String HTTP_HEADER_NAME = "Whiteboard-Filter";
-
-  private static final int TIMESTAMP_RADIX = 16;
+  private static final String HTTP_HEADER_NAME = "Whiteboard-Filter-Timestamp";
 
   private final Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -48,7 +46,7 @@ public class WhiteboardFilter implements Filter {
   public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
           throws IOException, ServletException {
     HttpServletResponse response = (HttpServletResponse) res;
-    String timestampString = Long.toString(System.currentTimeMillis(), TIMESTAMP_RADIX);
+    String timestampString = Long.toString(System.currentTimeMillis());
     response.addHeader(HTTP_HEADER_NAME, timestampString);
     chain.doFilter(req, res);
   }

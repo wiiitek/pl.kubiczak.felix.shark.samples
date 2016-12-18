@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
         )
 public class WhiteboardServlet extends HttpServlet {
 
-  static final String SERVLET_PATTERN = "/*";
+  static final String SERVLET_PATTERN = "/servlet/*";
 
   private final transient Logger log = LoggerFactory.getLogger(this.getClass());
 
