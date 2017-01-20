@@ -5,7 +5,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.Test;
 
-import pl.kubiczak.felix.shark.samples.tests.functional.SharkWebconsoleRequest;
+import pl.kubiczak.felix.shark.samples.tests.functional.SimpleHttpRequest;
 
 import java.io.IOException;
 
@@ -21,7 +21,7 @@ public class ResourcesTest {
 
   @Test
   public void httpResourceShouldBeAvailable() throws IOException {
-    SharkWebconsoleRequest request = new SharkWebconsoleRequest(HTTP_RESOURCE_URL);
+    SimpleHttpRequest request = new SimpleHttpRequest(HTTP_RESOURCE_URL);
     Integer actual = request.retrieveStatusLine().getStatusCode();
 
     assertThat(actual, equalTo(STATUS_OK));
@@ -29,7 +29,7 @@ public class ResourcesTest {
 
   @Test
   public void amdatuResourceShouldBeAvailable() throws IOException {
-    SharkWebconsoleRequest request = new SharkWebconsoleRequest(AMDATU_RESOURCE_URL);
+    SimpleHttpRequest request = new SimpleHttpRequest(AMDATU_RESOURCE_URL);
     Integer actual = request.retrieveStatusLine().getStatusCode();
 
     assertThat(actual, equalTo(STATUS_OK));

@@ -5,7 +5,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.Test;
 
-import pl.kubiczak.felix.shark.samples.tests.functional.SharkWebconsoleRequest;
+import pl.kubiczak.felix.shark.samples.tests.functional.SimpleHttpRequest;
 
 import java.io.IOException;
 
@@ -19,7 +19,7 @@ public class ServletTest {
   @Test
   public void whiteboardServletShouldBeAvailable() throws IOException {
     String suffix = Long.toString(System.currentTimeMillis());
-    SharkWebconsoleRequest request = new SharkWebconsoleRequest(WHITEBOARD_SEVLET_URL + suffix);
+    SimpleHttpRequest request = new SimpleHttpRequest(WHITEBOARD_SEVLET_URL + suffix);
     String content = request.retrieveContent();
 
     assertThat(content, containsString(suffix));

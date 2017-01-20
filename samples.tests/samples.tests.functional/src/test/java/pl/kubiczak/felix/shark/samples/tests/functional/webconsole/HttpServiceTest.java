@@ -5,7 +5,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.Test;
 
-import pl.kubiczak.felix.shark.samples.tests.functional.SharkWebconsoleRequest;
+import pl.kubiczak.felix.shark.samples.tests.functional.SimpleHttpRequest;
 
 import java.io.IOException;
 
@@ -18,7 +18,7 @@ public class HttpServiceTest {
 
   @Test
   public void httpServicePageShouldBeAvailable() throws IOException {
-    SharkWebconsoleRequest request = new SharkWebconsoleRequest(HTTP_SERVICE_URL);
+    SimpleHttpRequest request = new SimpleHttpRequest(HTTP_SERVICE_URL);
     Integer actual = request.retrieveStatusLine().getStatusCode();
 
     assertThat(actual, equalTo(STATUS_OK));

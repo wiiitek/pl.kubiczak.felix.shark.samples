@@ -1,11 +1,12 @@
 package pl.kubiczak.felix.shark.samples.tests.functional;
 
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.StatusLine;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,14 +21,16 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 
-public class SharkWebconsoleRequest {
+public class SimpleHttpRequest {
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
   private final URL url;
 
-  public SharkWebconsoleRequest(String url) throws MalformedURLException {
+  public SimpleHttpRequest(String url) throws MalformedURLException {
     this.url = new URL(url);
   }
 
@@ -39,13 +42,39 @@ public class SharkWebconsoleRequest {
    */
   public StatusLine retrieveStatusLine() throws IOException {
     StatusLine statusLine;
-    try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
+    try (CloseableHttpClient httpclient = createHttpClient()) {
+
       HttpGet httpGet = new HttpGet(this.url.toString());
       try (CloseableHttpResponse response = httpclient.execute(httpGet)) {
         statusLine = response.getStatusLine();
       }
     }
     return statusLine;
+  }
+
+  /**
+   * Collects headers from HTTP response.
+   *
+   * @return HTTP response headers
+   * @throws IOException if there are some errors with HTTP client
+   */
+  public Map<String, String> retrieveHeaders() throws IOException {
+    Map<String, String> headers = new HashMap<>();
+    try (CloseableHttpClient httpclient = createHttpClient()) {
+
+      HttpGet httpGet = new HttpGet(this.url.toString());
+      try (CloseableHttpResponse response = httpclient.execute(httpGet)) {
+        for (Header header : response.getAllHeaders()) {
+          if (headers.keySet().contains(header)) {
+            String msg = "header: '" + header.getName() + "' duplicated. url: '" + this.url + "'";
+            throw new DuplicatedHeaderInResponseException(msg);
+          } else {
+            headers.put(header.getName(), header.getValue());
+          }
+        }
+      }
+    }
+    return headers;
   }
 
   /**
@@ -56,7 +85,7 @@ public class SharkWebconsoleRequest {
    */
   public String retrieveContent() throws IOException {
     String content;
-    try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
+    try (CloseableHttpClient httpclient = createHttpClient()) {
       HttpGet httpGet = new HttpGet(this.url.toString());
       try (CloseableHttpResponse response = httpclient.execute(httpGet)) {
         content = collectContent(response);
@@ -82,6 +111,10 @@ public class SharkWebconsoleRequest {
       }
     }
     return result;
+  }
+
+  protected CloseableHttpClient createHttpClient() {
+    return HttpClientBuilder.create().setRedirectStrategy(new NoFollowStrategy()).build();
   }
 
   private String collectContent(CloseableHttpResponse response) throws IOException {

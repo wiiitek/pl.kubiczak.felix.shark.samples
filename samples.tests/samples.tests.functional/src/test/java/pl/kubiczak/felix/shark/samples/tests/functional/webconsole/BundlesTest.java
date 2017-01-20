@@ -7,7 +7,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import pl.kubiczak.felix.shark.samples.tests.functional.SharkWebconsoleRequest;
+import pl.kubiczak.felix.shark.samples.tests.functional.SimpleHttpRequest;
 
 import java.io.IOException;
 
@@ -18,7 +18,7 @@ public class BundlesTest {
 
   @Test
   public void bundlesShouldHaveCorrectStatus() throws IOException {
-    SharkWebconsoleRequest request = new SharkWebconsoleRequest(BUNDLES_URL);
+    SimpleHttpRequest request = new SimpleHttpRequest(BUNDLES_URL);
     JSONObject response = request.retrieveJson();
 
     String status = response.getString("status");
