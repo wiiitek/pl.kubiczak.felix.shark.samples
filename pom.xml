@@ -24,6 +24,7 @@
     <module>samples.ioc</module>
     <module>samples.logging</module>
     <module>samples.managedservices</module>
+    <module>samples.tests</module>
     <module>samples.webconsole.security</module>
   </modules>
 
