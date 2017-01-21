@@ -20,16 +20,11 @@ public class Activator implements BundleActivator {
     // create a tracker and track the log service
     logServiceTracker = new ServiceTracker(context, LogService.class.getName(), null);
     logServiceTracker.open();
-
     // grab the service
     logService = (LogService) logServiceTracker.getService();
-
     if (logService != null) {
       String msg = "bundle " + context.getBundle().getSymbolicName() + " START";
-      logService.log(LogService.LOG_DEBUG, ": " + msg);
-      logService.log(LogService.LOG_INFO, ": " + msg);
-      logService.log(LogService.LOG_WARNING, ": " + msg);
-      logService.log(LogService.LOG_ERROR, ": " + msg);
+      testLogging(logService, msg);
     }
   }
 
@@ -42,14 +37,17 @@ public class Activator implements BundleActivator {
   public void stop(BundleContext context) throws Exception {
     if (logService != null) {
       String msg = "bundle " + context.getBundle().getSymbolicName() + " STOP";
-      logService.log(LogService.LOG_DEBUG, ": " + msg);
-      logService.log(LogService.LOG_INFO, ": " + msg);
-      logService.log(LogService.LOG_WARNING, ": " + msg);
-      logService.log(LogService.LOG_ERROR, ": " + msg);
+      testLogging(logService, msg);
     }
-
     // close the service tracker
     logServiceTracker.close();
     logServiceTracker = null;
+  }
+
+  private void testLogging(LogService logService, String msg) {
+    logService.log(LogService.LOG_DEBUG, ": " + msg);
+    logService.log(LogService.LOG_INFO, ": " + msg);
+    logService.log(LogService.LOG_WARNING, ": " + msg);
+    logService.log(LogService.LOG_ERROR, ": " + msg);
   }
 }

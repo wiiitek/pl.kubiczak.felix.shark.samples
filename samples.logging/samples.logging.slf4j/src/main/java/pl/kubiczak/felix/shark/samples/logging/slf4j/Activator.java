@@ -16,16 +16,9 @@ public class Activator implements BundleActivator {
    */
   @Override
   public void start(BundleContext context) throws Exception {
-
     String msg = "bundle " + context.getBundle().getSymbolicName() + " START";
-
     MDC.put("userId", "log4j test");
-
-    LOG.trace("trace: {}", msg);
-    LOG.debug("debug: {}", msg);
-    LOG.info("info: {}", msg);
-    LOG.warn("warn: {}", msg);
-    LOG.error("error: {}", msg);
+    testLogging(msg);
   }
 
   /**
@@ -34,15 +27,16 @@ public class Activator implements BundleActivator {
    */
   @Override
   public void stop(BundleContext context) throws Exception {
-
     String msg = "bundle " + context.getBundle().getSymbolicName() + " STOP";
+    testLogging(msg);
+    MDC.clear();
+  }
 
+  private void testLogging(String msg) {
     LOG.trace("trace: {}", msg);
     LOG.debug("debug: {}", msg);
     LOG.info("info: {}", msg);
     LOG.warn("warn: {}", msg);
     LOG.error("error: {}", msg);
-
-    MDC.clear();
   }
 }

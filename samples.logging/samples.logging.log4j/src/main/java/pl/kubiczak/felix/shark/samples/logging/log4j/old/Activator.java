@@ -18,13 +18,8 @@ public class Activator implements BundleActivator {
    */
   @Override
   public void start(BundleContext context) throws Exception {
-
     String msg = "bundle " + context.getBundle().getSymbolicName() + " START";
-
-    LOG.debug("debug: " + msg);
-    LOG.info("info: " + msg);
-    LOG.warn("warn: " + msg);
-    LOG.error("error: " + msg);
+    testLogging(msg);
   }
 
   /**
@@ -33,9 +28,11 @@ public class Activator implements BundleActivator {
    */
   @Override
   public void stop(BundleContext context) throws Exception {
-
     String msg = "bundle " + context.getBundle().getSymbolicName() + " STOP";
+    testLogging(msg);
+  }
 
+  private void testLogging(String msg) {
     LOG.debug("debug: " + msg);
     LOG.info("info: " + msg);
     LOG.warn("warn: " + msg);
