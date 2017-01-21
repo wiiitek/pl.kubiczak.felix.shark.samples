@@ -64,14 +64,7 @@ public class SimpleHttpRequest {
 
       HttpGet httpGet = new HttpGet(this.url.toString());
       try (CloseableHttpResponse response = httpclient.execute(httpGet)) {
-        for (Header header : response.getAllHeaders()) {
-          if (headers.keySet().contains(header.getName())) {
-            String msg = "header: '" + header.getName() + "' duplicated. url: '" + this.url + "'";
-            throw new DuplicatedHeaderInResponseException(msg);
-          } else {
-            headers.put(header.getName(), header.getValue());
-          }
-        }
+        headers = toMap(response.getAllHeaders());
       }
     }
     return headers;
@@ -113,27 +106,46 @@ public class SimpleHttpRequest {
     return result;
   }
 
-  protected CloseableHttpClient createHttpClient() {
+  private CloseableHttpClient createHttpClient() {
     return HttpClientBuilder.create().setRedirectStrategy(new NoFollowStrategy()).build();
   }
 
+  private Map<String, String> toMap(Header[] headersArray) {
+    Map<String, String> headers = new HashMap<>();
+    for (Header header : headersArray) {
+      if (headers.keySet().contains(header.getName())) {
+        String msg = "header: '" + header.getName() + "' duplicated. url: '" + this.url + "'";
+        throw new DuplicatedHeaderInResponseException(msg);
+      } else {
+        headers.put(header.getName(), header.getValue());
+      }
+    }
+    return headers;
+  }
+
   private String collectContent(CloseableHttpResponse response) throws IOException {
-    StringBuilder sb = new StringBuilder();
+    String content = null;
     BufferedReader br;
     try {
       HttpEntity entity = response.getEntity();
       if (entity != null) {
         br = toBufferedReader(entity);
-        if (br != null) {
-          String line;
-          while ((line = br.readLine()) != null) {
-            sb.append(line);
-          }
-        }
+        content = readLines(br);
       }
       EntityUtils.consume(entity);
     } finally {
       response.close();
+    }
+    return content;
+  }
+
+  private String readLines(BufferedReader br) throws IOException {
+    StringBuilder sb = new StringBuilder();
+    if (br != null) {
+      String line;
+      while ((line = br.readLine()) != null) {
+        sb.append(line);
+      }
     }
     return sb.toString();
   }
