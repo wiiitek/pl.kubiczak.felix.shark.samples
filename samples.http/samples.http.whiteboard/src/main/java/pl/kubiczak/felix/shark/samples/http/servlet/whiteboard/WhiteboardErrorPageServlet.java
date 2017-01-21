@@ -53,11 +53,21 @@ public class WhiteboardErrorPageServlet extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse res)
           throws ServletException, IOException {
 
-    String requestedPath = collectRequestedPath(req);
+    String requestedPath = null;
+    try {
+      requestedPath = collectRequestedPath(req);
+    } catch (MalformedURLException murle) {
+      log.error("error while collecting the path from request", murle);
+    }
     log.debug("page not found: '{}', redirecting to: '{}'", requestedPath, REDIRECT_TO_URL);
 
     res.setHeader("Redirect-Type", "Page not found: " + requestedPath);
-    res.sendRedirect(REDIRECT_TO_URL);
+    try {
+      res.sendRedirect(REDIRECT_TO_URL);
+    } catch (IOException ioe) {
+      log.error("error while sending redirect: {}", ioe.getMessage(), ioe);
+      throw ioe;
+    }
   }
 
   private String collectRequestedPath(HttpServletRequest request) throws MalformedURLException {
