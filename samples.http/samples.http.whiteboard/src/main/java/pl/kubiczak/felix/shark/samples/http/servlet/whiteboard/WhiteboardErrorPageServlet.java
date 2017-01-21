@@ -66,7 +66,6 @@ public class WhiteboardErrorPageServlet extends HttpServlet {
       res.sendRedirect(REDIRECT_TO_URL);
     } catch (IOException ioe) {
       log.error("error while sending redirect: {}", ioe.getMessage(), ioe);
-      throw ioe;
     }
   }
 
