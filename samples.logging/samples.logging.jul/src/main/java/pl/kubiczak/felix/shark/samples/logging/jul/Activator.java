@@ -3,6 +3,8 @@ package pl.kubiczak.felix.shark.samples.logging.jul;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
+import java.util.function.Supplier;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Activator implements BundleActivator {
@@ -18,12 +20,14 @@ public class Activator implements BundleActivator {
 
     String msg = "bundle " + context.getBundle().getSymbolicName() + " START";
 
-    LOG.finest("finest: " + msg);
-    LOG.finer("finer: " + msg);
-    LOG.fine("fine: " + msg);
-    LOG.info("info: " + msg);
-    LOG.warning("warning: " + msg);
-    LOG.severe("severe: " + msg);
+    // changed because sonar reports performance issues
+    //LOG.info("severe: " + msg);
+    LOG.log(Level.FINEST, "finest: {0}", msg);
+    LOG.log(Level.FINER, "finer: {0}", msg);
+    LOG.log(Level.FINE, "fine: {0}", msg);
+    LOG.log(Level.INFO, "info: {0}", msg);
+    LOG.log(Level.WARNING, "warning: {0}", msg);
+    LOG.log(Level.SEVERE, "severe: {0}", msg);
   }
 
   /**
@@ -35,11 +39,13 @@ public class Activator implements BundleActivator {
 
     String msg = "bundle " + context.getBundle().getSymbolicName() + " STOP";
 
-    LOG.finest("finest: " + msg);
-    LOG.finer("finer: " + msg);
-    LOG.fine("fine: " + msg);
-    LOG.info("info: " + msg);
-    LOG.warning("warning: " + msg);
-    LOG.severe("severe: " + msg);
+    // changed because sonar reports performance issues
+    //LOG.info("severe: " + msg);
+    LOG.log(Level.FINEST, "finest: {0}", msg);
+    LOG.log(Level.FINER, "finer: {0}", msg);
+    LOG.log(Level.FINE, "fine: {0}", msg);
+    LOG.log(Level.INFO, "info: {0}", msg);
+    LOG.log(Level.WARNING, "warning: {0}", msg);
+    LOG.log(Level.SEVERE, "severe: {0}", msg);
   }
 }

@@ -65,7 +65,7 @@ public class SimpleHttpRequest {
       HttpGet httpGet = new HttpGet(this.url.toString());
       try (CloseableHttpResponse response = httpclient.execute(httpGet)) {
         for (Header header : response.getAllHeaders()) {
-          if (headers.keySet().contains(header)) {
+          if (headers.keySet().contains(header.getName())) {
             String msg = "header: '" + header.getName() + "' duplicated. url: '" + this.url + "'";
             throw new DuplicatedHeaderInResponseException(msg);
           } else {
@@ -124,9 +124,11 @@ public class SimpleHttpRequest {
       HttpEntity entity = response.getEntity();
       if (entity != null) {
         br = toBufferedReader(entity);
-        String line;
-        while ((line = br.readLine()) != null) {
-          sb.append(line);
+        if (br != null) {
+          String line;
+          while ((line = br.readLine()) != null) {
+            sb.append(line);
+          }
         }
       }
       EntityUtils.consume(entity);
