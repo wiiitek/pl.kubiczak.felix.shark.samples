@@ -59,7 +59,7 @@ public class SimpleHttpRequest {
    * @throws IOException if there are some errors with HTTP client
    */
   public Map<String, String> retrieveHeaders() throws IOException {
-    Map<String, String> headers = new HashMap<>();
+    Map<String, String> headers;
     try (CloseableHttpClient httpclient = createHttpClient()) {
 
       HttpGet httpGet = new HttpGet(this.url.toString());

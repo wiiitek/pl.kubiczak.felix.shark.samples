@@ -1,4 +1,4 @@
-package pl.kubiczak.felix.shark.samples.tests.functional.samples;
+package pl.kubiczak.felix.shark.samples.tests.functional.samples.http;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
