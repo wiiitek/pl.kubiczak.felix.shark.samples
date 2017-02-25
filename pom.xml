@@ -26,6 +26,7 @@
     <module>samples.managedservices</module>
     <module>samples.tests</module>
     <module>samples.webconsole.security</module>
+    <module>samples.scr</module>
   </modules>
 
   <scm>
