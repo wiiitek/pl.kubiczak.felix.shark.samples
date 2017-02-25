@@ -54,7 +54,7 @@
                 -->
                 <_dsannotations-options>extender</_dsannotations-options>
                 <!-- Amdatu settings -->
-                <X-Web-Resource>/amdatu;/content/amdatu</X-Web-Resource>
+                <X-Web-Resource>/amdatu-resources;/content/amdatu</X-Web-Resource>
                 <X-Web-Resource-Default-Page>index.html</X-Web-Resource-Default-Page>
                 <X-Web-Resource-Version>1.1</X-Web-Resource-Version>
               </instructions>

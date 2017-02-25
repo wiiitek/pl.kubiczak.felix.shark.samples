@@ -14,7 +14,7 @@ import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
                         HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT + "="
                                 + WhiteboardContext.CONTEXT_FILTER,
                         HttpWhiteboardConstants.HTTP_WHITEBOARD_RESOURCE_PATTERN + "="
-                                + "/resources/*",
+                                + "/whiteboard-resources/*",
                         HttpWhiteboardConstants.HTTP_WHITEBOARD_RESOURCE_PREFIX + "="
                                 + "/content"
                 }
