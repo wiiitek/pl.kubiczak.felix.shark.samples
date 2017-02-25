@@ -5,7 +5,7 @@
   <parent>
     <artifactId>samples.ioc</artifactId>
     <groupId>pl.kubiczak.felix.shark</groupId>
-    <version>1.10-SNAPSHOT</version>
+    <version>1.10</version>
   </parent>
 
   <artifactId>samples.ioc.blueprint.spring.simple</artifactId>
