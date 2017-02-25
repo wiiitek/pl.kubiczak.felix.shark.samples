@@ -35,9 +35,9 @@ public class SimpleHttpRequest {
   }
 
   /**
-   * Checks HTTP response status code.
+   * Checks HTTP response status line (for status code and reason).
    *
-   * @return HTTP status code
+   * @return HTTP status line
    * @throws IOException if there are some errors with HTTP client
    */
   public StatusLine retrieveStatusLine() throws IOException {
