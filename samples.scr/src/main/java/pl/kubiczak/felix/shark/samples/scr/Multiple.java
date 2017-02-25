@@ -25,7 +25,7 @@ public class Multiple {
   private String[] colors;
 
   @Property(label = "Names Label", unbounded = PropertyUnbounded.ARRAY)
-  static final String NAMES = "key.for.names.property";
+  static final String NAMES_PROPERTY = "key.for.names.property";
 
   private String[] names;
 
@@ -37,7 +37,7 @@ public class Multiple {
   @Activate
   public void activate(Map<String, Object> properties) {
     colors = (String[]) properties.get("colors");
-    names = (String[]) properties.get(NAMES);
+    names = (String[]) properties.get(NAMES_PROPERTY);
     log.debug("activating for colors: '{}' and names: '{}'", colors, names);
   }
 
