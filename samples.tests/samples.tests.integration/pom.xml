@@ -3,15 +3,15 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>samples.ioc</artifactId>
+    <artifactId>samples.tests</artifactId>
     <groupId>pl.kubiczak.felix.shark</groupId>
     <version>1.11-SNAPSHOT</version>
   </parent>
 
-  <artifactId>samples.ioc.blueprint.it</artifactId>
+  <artifactId>samples.tests.integration</artifactId>
 
-  <name>Shark: Samples: IOC: Blueprint: Integration Tests</name>
-  <description>Samples for integration tests with Pax Exam. Blueprint bundles are tested.</description>
+  <name>Shark: Samples: Tests: Integration</name>
+  <description>Integration tests for bundles using Pax Exam.</description>
 
   <dependencies>
     <!-- Tested bundles -->

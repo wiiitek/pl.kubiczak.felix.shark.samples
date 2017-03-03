@@ -10,6 +10,9 @@
 
   <artifactId>samples.tests.functional</artifactId>
 
+  <name>Shark: Samples: Tests: Functional</name>
+  <description>End to End tests or running Shark instance.</description>
+
   <properties>
     <skip.functional.tests>true</skip.functional.tests>
   </properties>

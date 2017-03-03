@@ -11,7 +11,11 @@
   <artifactId>samples.tests</artifactId>
   <packaging>pom</packaging>
 
+  <name>Shark: Samples: Tests</name>
+  <description>Samples for non-unit tests. For framework and bundles validation.</description>
+
   <modules>
     <module>samples.tests.functional</module>
+    <module>samples.tests.integration</module>
   </modules>
 </project>

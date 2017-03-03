@@ -16,7 +16,6 @@
 
   <modules>
     <module>samples.ioc.annotations.scr</module>
-    <module>samples.ioc.blueprint.it</module>
     <module>samples.ioc.blueprint.simple</module>
     <module>samples.ioc.blueprint.spring.events</module>
     <module>samples.ioc.blueprint.spring.messages</module>

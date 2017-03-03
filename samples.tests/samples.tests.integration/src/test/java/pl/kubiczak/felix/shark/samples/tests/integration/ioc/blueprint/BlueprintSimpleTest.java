@@ -1,7 +1,6 @@
-package pl.kubiczak.felix.shark.samples.ioc.blueprint.it;
+package pl.kubiczak.felix.shark.samples.tests.integration.ioc.blueprint;
 
 import static com.jayway.awaitility.Awaitility.await;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;

@@ -1,4 +1,4 @@
-package pl.kubiczak.felix.shark.samples.ioc.blueprint.it;
+package pl.kubiczak.felix.shark.samples.tests.integration.ioc.blueprint;
 
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.systemProperty;
