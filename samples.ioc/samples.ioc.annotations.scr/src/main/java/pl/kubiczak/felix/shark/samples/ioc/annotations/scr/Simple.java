@@ -1,10 +1,9 @@
-package pl.kubiczak.felix.shark.samples.scr;
+package pl.kubiczak.felix.shark.samples.ioc.annotations.scr;
 
 import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Deactivate;
 import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.PropertyOption;
 import org.apache.felix.scr.annotations.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,19 +15,15 @@ import java.util.Map;
                 immediate = true,
                 metatype = true
         )
-@Service(Options.class)
-public class Options {
+@Service(Simple.class)
+public class Simple {
+
+  // see also: scr-annotations: naming-the-property
+  @Property(label = "Name Label")
+  static final String PROP_NAME = "prop.name";
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
-  @Property
-          (
-                  label = "Name Label",
-                  options = {
-                          @PropertyOption(name = "james.bond", value = "James Bond"),
-                          @PropertyOption(name = "john.doe", value = "John Doe")
-                  }
-          )
   private String name;
 
   /**
@@ -38,7 +33,7 @@ public class Options {
    */
   @Activate
   public void activate(Map<String, Object> properties) {
-    name = (String) properties.get("name");
+    name = (String) properties.get(PROP_NAME);
     log.debug("activating for name: '{}'", name);
   }
 

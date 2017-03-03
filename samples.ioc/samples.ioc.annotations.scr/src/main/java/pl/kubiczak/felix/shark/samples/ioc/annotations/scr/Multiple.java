@@ -1,9 +1,10 @@
-package pl.kubiczak.felix.shark.samples.scr;
+package pl.kubiczak.felix.shark.samples.ioc.annotations.scr;
 
 import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Deactivate;
 import org.apache.felix.scr.annotations.Property;
+import org.apache.felix.scr.annotations.PropertyUnbounded;
 import org.apache.felix.scr.annotations.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,16 +16,18 @@ import java.util.Map;
                 immediate = true,
                 metatype = true
         )
-@Service(Simple.class)
-public class Simple {
-
-  // see also: scr-annotations: naming-the-property
-  @Property(label = "Name Label")
-  static final String PROP_NAME = "prop.name";
+@Service(Multiple.class)
+public class Multiple {
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
-  private String name;
+  @Property(label = "Colors Label", cardinality = Integer.MAX_VALUE)
+  private String[] colors;
+
+  @Property(label = "Names Label", unbounded = PropertyUnbounded.ARRAY)
+  static final String NAMES_PROPERTY = "key.for.names.property";
+
+  private String[] names;
 
   /**
    * Called upon service activation / update.
@@ -33,16 +36,18 @@ public class Simple {
    */
   @Activate
   public void activate(Map<String, Object> properties) {
-    name = (String) properties.get(PROP_NAME);
-    log.debug("activating for name: '{}'", name);
+    colors = (String[]) properties.get("colors");
+    names = (String[]) properties.get(NAMES_PROPERTY);
+    log.debug("activating for colors: '{}' and names: '{}'", colors, names);
   }
 
   /**
    * Called upon service deactivation / before update.
    */
   @Deactivate
-  public void deactivate() {
+  public void deactivate(Map<String, Object> properties) {
     log.debug("deactivating");
-    name = null;
+    colors = null;
+    names = null;
   }
 }

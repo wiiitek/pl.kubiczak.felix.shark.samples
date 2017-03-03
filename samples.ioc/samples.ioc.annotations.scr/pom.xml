@@ -3,16 +3,15 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>samples</artifactId>
+    <artifactId>samples.ioc</artifactId>
     <groupId>pl.kubiczak.felix.shark</groupId>
     <version>1.11-SNAPSHOT</version>
   </parent>
 
-  <artifactId>samples.scr</artifactId>
-  <packaging>bundle</packaging>
+  <artifactId>samples.ioc.annotations.scr</artifactId>
 
-  <name>Shark: Samples: SCR</name>
-  <description>OSGI example for services configuration.</description>
+  <name>Shark: Samples: IOC: Annotations - SCR</name>
+  <description>Sample project that uses Apache SCR annotations plugin.</description>
 
   <dependencies>
     <dependency>
@@ -87,7 +86,7 @@
             <configuration>
               <instructions>
                 <Bundle-Category>shark</Bundle-Category>
-                <Service-Component>OSGI-INF/pl.kubiczak.felix.shark.samples.scr.ProvidedMetatypeXml.xml</Service-Component>
+                <Service-Component>OSGI-INF/pl.kubiczak.felix.shark.samples.ioc.annotations.scr.ProvidedMetatypeXml.xml</Service-Component>
               </instructions>
             </configuration>
           </execution>

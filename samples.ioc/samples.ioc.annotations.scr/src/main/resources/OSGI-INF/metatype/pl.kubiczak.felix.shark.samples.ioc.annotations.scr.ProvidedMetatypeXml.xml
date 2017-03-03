@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData
+        xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0"
+        localization="OSGI-INF/metatype/pl.kubiczak.felix.shark.samples.ioc.annotations.scr.ProvidedMetatypeXml">
+  <OCD
+          id="pl.kubiczak.felix.shark.samples.ioc.annotations.scr.ProvidedMetatypeXml"
+          name="%pl.kubiczak.felix.shark.samples.ioc.annotations.scr.ProvidedMetatypeXml.name"
+          description="%pl.kubiczak.felix.shark.samples.ioc.annotations.scr.ProvidedMetatypeXml.description">
+    <AD
+            id="name"
+            type="String"
+            default="James\ Bond"
+            name="%pl.kubiczak.felix.shark.samples.ioc.annotations.scr.ProvidedMetatypeXml.name.name"
+            description="%pl.kubiczak.felix.shark.samples.ioc.annotations.scr.ProvidedMetatypeXml.name.description"/>
+    <AD
+            id="number"
+            type="Integer"
+            default="123"
+            min="0"
+            max="2147483647"
+            name="%pl.kubiczak.felix.shark.samples.ioc.annotations.scr.ProvidedMetatypeXml.number.name"
+            description="%pl.kubiczak.felix.shark.samples.ioc.annotations.scr.ProvidedMetatypeXml.number.description"/>
+    <AD
+            id="multiple"
+            type="String"
+            name="%pl.kubiczak.felix.shark.samples.ioc.annotations.scr.ProvidedMetatypeXml.multiple.name"
+            description="%pl.kubiczak.felix.shark.samples.ioc.annotations.scr.ProvidedMetatypeXml.multiple.description"
+            cardinality="3"/>
+  </OCD>
+  <Designate pid="pl.kubiczak.felix.shark.samples.ioc.annotations.scr.ProvidedMetatypeXml">
+    <Object ocdref="pl.kubiczak.felix.shark.samples.ioc.annotations.scr.ProvidedMetatypeXml"/>
+  </Designate>
+</metatype:MetaData>

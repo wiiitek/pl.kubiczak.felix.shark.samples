@@ -1,4 +1,4 @@
-package pl.kubiczak.felix.shark.samples.scr;
+package pl.kubiczak.felix.shark.samples.ioc.annotations.scr;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

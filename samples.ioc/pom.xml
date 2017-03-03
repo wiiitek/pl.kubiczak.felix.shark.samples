@@ -15,6 +15,7 @@
   <description>Container module for Inversion Of Control samples.</description>
 
   <modules>
+    <module>samples.ioc.annotations.scr</module>
     <module>samples.ioc.blueprint.it</module>
     <module>samples.ioc.blueprint.simple</module>
     <module>samples.ioc.blueprint.spring.events</module>

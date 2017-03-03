@@ -1,4 +1,4 @@
-package pl.kubiczak.felix.shark.samples.scr;
+package pl.kubiczak.felix.shark.samples.ioc.annotations.scr;
 
 import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
