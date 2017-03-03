@@ -17,7 +17,7 @@ public class ResourcesTest {
           "http://localhost:8080/resources/index.html";
 
   private static final String AMDATU_RESOURCE_URL =
-          "http://localhost:8080/amdatu/";
+          "http://localhost:8080/amdatu-resources/";
 
   @Test
   public void httpResourceShouldBeAvailable() throws IOException {
