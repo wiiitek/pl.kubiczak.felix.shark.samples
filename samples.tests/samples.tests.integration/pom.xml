@@ -20,10 +20,10 @@
       <artifactId>samples.ioc.blueprint.simple</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <!-- Tests dependencies -->
     <dependency>
-      <groupId>org.apache.felix</groupId>
-      <artifactId>org.apache.felix.eventadmin</artifactId>
+      <groupId>pl.kubiczak.felix.shark</groupId>
+      <artifactId>samples.ioc.annotations.scr</artifactId>
+      <version>${project.version}</version>
     </dependency>
 
     <!-- Logging -->
@@ -42,6 +42,17 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-core</artifactId>
+    </dependency>
+
+    <!-- Apache Felix Event Admin -->
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.eventadmin</artifactId>
+    </dependency>
+    <!-- Apache Felix SCR -->
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.scr</artifactId>
     </dependency>
 
     <!-- Blueprint -->

@@ -29,6 +29,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.EventHandlerImpl;
+import pl.kubiczak.felix.shark.samples.tests.integration.ioc.LoggingOptions;
 
 import java.util.Collections;
 import java.util.concurrent.Callable;
@@ -101,7 +102,7 @@ public class BlueprintSimpleTest {
     return new Option[]{
             junitBundles(),
 
-            Options.logbackBundlesAndConfiguration(),
+            LoggingOptions.logbackBundlesAndConfiguration(),
             Options.springAndGeminiBlueprint(), awaitilityOption,
 
             // bundles for tests

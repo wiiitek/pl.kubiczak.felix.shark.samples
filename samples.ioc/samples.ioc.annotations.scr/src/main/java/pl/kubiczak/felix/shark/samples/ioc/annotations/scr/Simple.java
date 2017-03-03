@@ -45,4 +45,8 @@ public class Simple {
     log.debug("deactivating");
     name = null;
   }
+
+  public String getName() {
+    return name;
+  }
 }
