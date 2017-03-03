@@ -38,7 +38,7 @@
             <artifactId>maven-resources-plugin</artifactId>
             <executions>
               <execution>
-                <id>deploy-sample-bundle-to-felix-framework</id>
+                <id>deploy-sample-bundles-to-felix</id>
                 <!-- skips deploying logging samples to felix -->
                 <phase>none</phase>
               </execution>
