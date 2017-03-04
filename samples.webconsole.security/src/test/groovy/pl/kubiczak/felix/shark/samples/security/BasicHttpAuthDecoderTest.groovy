@@ -10,9 +10,6 @@ import static org.mockito.Matchers.eq
 import static org.mockito.Mockito.mock
 import static org.mockito.Mockito.when
 
-/**
- * Created by witek on 2016-04-15.
- */
 class BasicHttpAuthDecoderTest extends Specification {
 
     @Unroll
@@ -20,7 +17,7 @@ class BasicHttpAuthDecoderTest extends Specification {
 
         given:
         HttpServletRequest mockHttpServletRequest = mock(HttpServletRequest.class)
-        when(mockHttpServletRequest.getHeader(eq("Authorization"))).thenReturn(headerValue);
+        when(mockHttpServletRequest.getHeader(eq("Authorization"))).thenReturn(headerValue)
 
         BasicHttpAuthDecoder tested = new BasicHttpAuthDecoder(mockHttpServletRequest)
 
