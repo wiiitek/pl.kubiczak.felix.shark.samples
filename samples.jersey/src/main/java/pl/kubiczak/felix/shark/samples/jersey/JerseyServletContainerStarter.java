@@ -64,10 +64,8 @@ public class JerseyServletContainerStarter {
    */
   @Deactivate
   public void unregisterJerseyServletContainer() {
-    if (httpService != null) {
-      httpService.unregister(JERSEY_APPLICATION_PATH);
-      httpService = null;
-    }
+    httpService.unregister(JERSEY_APPLICATION_PATH);
+    httpService = null;
   }
 
   private Dictionary populateServletContainerParams() {
