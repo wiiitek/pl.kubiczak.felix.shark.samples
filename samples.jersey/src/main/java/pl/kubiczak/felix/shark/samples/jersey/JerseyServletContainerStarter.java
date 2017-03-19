@@ -31,19 +31,19 @@ public class JerseyServletContainerStarter {
   private final Logger log = LoggerFactory.getLogger(this.getClass());
 
   @Reference
-  private transient HttpService httpService;
+  transient HttpService httpService;
 
   /**
    * See also org.glassfish.jersey.examples.osgihttpservice.Activator.
    */
   @Activate
   public void registerJerseyServletContainer() {
-    ClassLoader myClassLoader = getClass().getClassLoader();
+    ClassLoader thisBundleClassLoader = getClass().getClassLoader();
     ClassLoader originalContextClassLoader = Thread.currentThread().getContextClassLoader();
     try {
-      Thread.currentThread().setContextClassLoader(myClassLoader);
+      Thread.currentThread().setContextClassLoader(thisBundleClassLoader);
       try {
-
+        log.debug("current thread class loader: '{}'", thisBundleClassLoader);
         httpService.registerServlet(JERSEY_APPLICATION_PATH, new ServletContainer(),
                 populateServletContainerParams(), null);
       } catch (ServletException se) {
