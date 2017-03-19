@@ -57,6 +57,9 @@ public class JerseyServletContainerStarter {
     }
   }
 
+  /**
+   * Deactivates Jersey servlet container when HTTP service is missing.
+   */
   @Deactivate
   public void unregisterJerseyServletContainer() {
     if (httpService != null) {
