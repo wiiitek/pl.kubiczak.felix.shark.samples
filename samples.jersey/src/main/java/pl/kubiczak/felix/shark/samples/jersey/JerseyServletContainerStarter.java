@@ -1,5 +1,6 @@
 package pl.kubiczak.felix.shark.samples.jersey;
 
+import org.apache.felix.framework.util.MapToDictionary;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.glassfish.jersey.servlet.ServletProperties;
 import org.osgi.service.component.annotations.Activate;
@@ -12,7 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Dictionary;
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 
@@ -31,7 +33,7 @@ public class JerseyServletContainerStarter {
   private final Logger log = LoggerFactory.getLogger(this.getClass());
 
   @Reference
-  transient HttpService httpService;
+  HttpService httpService;
 
   /**
    * See also org.glassfish.jersey.examples.osgihttpservice.Activator.
@@ -69,8 +71,8 @@ public class JerseyServletContainerStarter {
   }
 
   private Dictionary populateServletContainerParams() {
-    Dictionary<String, String> params = new Hashtable<>();
+    Map<String, String> params = new HashMap<>();
     params.put(ServletProperties.JAXRS_APPLICATION_CLASS, JerseyApplication.class.getName());
-    return params;
+    return new MapToDictionary(params);
   }
 }
