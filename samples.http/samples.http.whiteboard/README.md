@@ -1,6 +1,6 @@
 
-samples.http.servlet
-====================
+samples.http.whiteboard
+=======================
 
 This module creates sample Servlet, Filter and Context with a little help of
 
