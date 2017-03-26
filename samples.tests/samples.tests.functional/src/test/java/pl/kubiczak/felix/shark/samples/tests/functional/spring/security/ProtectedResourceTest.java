@@ -1,6 +1,8 @@
 package pl.kubiczak.felix.shark.samples.tests.functional.spring.security;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.startsWith;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.apache.http.StatusLine;
@@ -12,6 +14,8 @@ import java.io.IOException;
 import java.util.Map;
 
 public class ProtectedResourceTest {
+
+  private static final Integer STATUS_OK = 200;
 
   private static final Integer STATUS_REDIRECT = 302;
 
@@ -38,5 +42,22 @@ public class ProtectedResourceTest {
     String redirectTo = headers.get(REDIRECT_HEADER_KEY);
 
     assertThat(redirectTo, equalTo(LOGIN_PAGE_URL));
+  }
+
+  @Test
+  public void loginPageShouldBeAvailableForUnauthenticatedUser() throws IOException {
+    SimpleHttpRequest request = new SimpleHttpRequest(LOGIN_PAGE_URL);
+    StatusLine statusLine = request.retrieveStatusLine();
+
+    assertThat(statusLine.getStatusCode(), equalTo(STATUS_OK));
+  }
+
+  @Test
+  public void loginPageShouldContainHtmlMarkup() throws IOException {
+    SimpleHttpRequest request = new SimpleHttpRequest(LOGIN_PAGE_URL);
+    String loginPageContent = request.retrieveContent();
+
+    assertThat(loginPageContent, startsWith("<!DOCTYPE html>"));
+    assertThat(loginPageContent, containsString("<title>Login</title>"));
   }
 }
