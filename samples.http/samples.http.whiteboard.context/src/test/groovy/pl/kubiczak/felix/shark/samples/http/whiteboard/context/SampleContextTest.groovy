@@ -8,7 +8,7 @@ class SampleContextTest extends Specification {
     private SampleContext tested
 
     void setup() {
-        tested = new SampleContext();
+        tested = new SampleContext()
     }
 
     @Unroll

@@ -49,7 +49,7 @@ public class SampleContext extends ServletContextHelper implements HttpContext {
   /**
    * Creates Whiteboard HTTP context.
    *
-   * @param componentContext current comoponent context
+   * @param componentContext current component context
    */
   @Activate
   private void activate(final ComponentContext componentContext) {
