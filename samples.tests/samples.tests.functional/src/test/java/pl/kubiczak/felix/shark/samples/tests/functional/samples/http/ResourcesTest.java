@@ -14,10 +14,10 @@ public class ResourcesTest {
   private static final Integer STATUS_OK = 200;
 
   private static final String HTTP_RESOURCE_URL =
-          "http://localhost:8080/resources/index.html";
+          "http://localhost:8080/samples.http.resources/index.html";
 
   private static final String AMDATU_RESOURCE_URL =
-          "http://localhost:8080/amdatu-resources/";
+          "http://localhost:8080/samples.http.resources.amdatu/";
 
   @Test
   public void httpResourceShouldBeAvailable() throws IOException {

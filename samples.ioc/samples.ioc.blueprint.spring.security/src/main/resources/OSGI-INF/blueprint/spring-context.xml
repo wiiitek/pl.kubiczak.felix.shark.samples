@@ -10,7 +10,7 @@
   </bean>
 
   <!-- Empty filter chain for the login page -->
-  <sec:http pattern="/spring.security/login/" security="none"/>
+  <sec:http pattern="/samples.ioc.blueprint.spring.security/login/" security="none"/>
 
   <!--
     for OAuth 2 see
@@ -18,20 +18,20 @@
     https://github.com/spring-projects/spring-security-oauth/blob/114fbd44beef0382009f207c08f0b1d9c24e95a9/samples/oauth2/sparklr/src/main/webapp/WEB-INF/spring-servlet.xml
   -->
   <sec:http>
-    <sec:intercept-url pattern="/spring.security/admin/**"
+    <sec:intercept-url pattern="/samples.ioc.blueprint.spring.security/admin/**"
                        access="hasAnyRole('ADMIN')"/>
-    <sec:intercept-url pattern="/spring.security/manager/**"
+    <sec:intercept-url pattern="/samples.ioc.blueprint.spring.security/manager/**"
                        access="hasAnyRole('ADMIN','MANAGER')"/>
-    <sec:intercept-url pattern="/spring.security/**"
+    <sec:intercept-url pattern="/samples.ioc.blueprint.spring.security/**"
                        access="hasAnyRole('ADMIN','MANAGER','USER')"/>
     <!-- CSRF disabled for now -->
     <sec:csrf disabled="true"/>
-    <sec:form-login login-page="/spring.security/login/"
-                    login-processing-url="/spring.security/authenticate"
-                    authentication-failure-url="/spring.security/login/?failure"
-                    default-target-url="/spring.security/login/?success"/>
-    <sec:logout logout-url="/spring.security/logout"
-                logout-success-url="/spring.security/login/?logout"/>
+    <sec:form-login login-page="/samples.ioc.blueprint.spring.security/login/"
+                    login-processing-url="/samples.ioc.blueprint.spring.security/authenticate"
+                    authentication-failure-url="/samples.ioc.blueprint.spring.security/login/?failure"
+                    default-target-url="/samples.ioc.blueprint.spring.security/login/?success"/>
+    <sec:logout logout-url="/samples.ioc.blueprint.spring.security/logout"
+                logout-success-url="/samples.ioc.blueprint.spring.security/login/?logout"/>
   </sec:http>
 
   <sec:authentication-manager alias="authenticationManager">

@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
         )
 public class ResourcesRegistration {
 
-  private static final String PATH = "/sample-context/resources";
+  private static final String PATH = "/samples.http.whiteboard.context/resources";
 
   private static final String CONTENT = "/content/html";
 

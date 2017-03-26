@@ -14,7 +14,7 @@ public class ServletTest {
   private static final String SERVLET_RESPONSE_FRAGMENT = "Test = 'zażółć gęślą jaźń'";
 
   private static final String WHITEBOARD_SEVLET_URL =
-          "http://localhost:8080/whiteboard/servlet/";
+          "http://localhost:8080/samples.http.whiteboard/servlet/";
 
   @Test
   public void whiteboardServletShouldBeAvailable() throws IOException {

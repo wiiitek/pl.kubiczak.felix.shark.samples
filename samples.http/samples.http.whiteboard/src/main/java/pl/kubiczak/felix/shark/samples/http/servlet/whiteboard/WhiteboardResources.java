@@ -3,6 +3,7 @@ package pl.kubiczak.felix.shark.samples.http.servlet.whiteboard;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 
+import javax.servlet.Servlet;
 import javax.servlet.http.HttpServlet;
 
 /**
@@ -11,13 +12,13 @@ import javax.servlet.http.HttpServlet;
  */
 @Component
         (
-                //service = Servlet.class,
                 service = WhiteboardResources.class,
+                immediate = true,
                 property = {
                         HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT + "="
                                 + WhiteboardContext.CONTEXT_FILTER,
                         HttpWhiteboardConstants.HTTP_WHITEBOARD_RESOURCE_PATTERN + "="
-                                + "/whiteboard/resources/*",
+                                + "/resources/*",
                         HttpWhiteboardConstants.HTTP_WHITEBOARD_RESOURCE_PREFIX + "="
                                 + "/content"
                 }

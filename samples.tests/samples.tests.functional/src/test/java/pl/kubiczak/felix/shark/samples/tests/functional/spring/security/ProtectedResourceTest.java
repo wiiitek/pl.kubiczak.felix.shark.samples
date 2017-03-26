@@ -18,10 +18,10 @@ public class ProtectedResourceTest {
   private static final String REDIRECT_HEADER_KEY = "Location";
 
   private static final String PROTECTED_URL =
-          "http://localhost:8080/spring.security/protected-resource/";
+          "http://localhost:8080/samples.ioc.blueprint.spring.security/protected-resource/";
 
   private static final String LOGIN_PAGE_URL =
-          "http://localhost:8080/spring.security/login/";
+          "http://localhost:8080/samples.ioc.blueprint.spring.security/login/";
 
   @Test
   public void shouldRedirect() throws IOException {

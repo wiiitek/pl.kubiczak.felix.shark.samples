@@ -30,7 +30,7 @@ public class WhiteboardContext extends ServletContextHelper {
   static final String CONTEXT_FILTER =
           "(" + HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "=" + CONTEXT_NAME + ")";
 
-  static final String CONTEXT_PATH = "/whiteboard";
+  static final String CONTEXT_PATH = "/samples.http.whiteboard";
 
   public WhiteboardContext() {
     super();

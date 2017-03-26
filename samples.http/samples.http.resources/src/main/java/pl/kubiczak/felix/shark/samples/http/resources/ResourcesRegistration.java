@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
         )
 public class ResourcesRegistration {
 
-  private static final String WEB_PATH = "/resources";
+  private static final String WEB_PATH = "/samples.http.resources";
 
   private static final String CONTENT = "/content/html";
 

@@ -38,7 +38,7 @@ public class SampleContext extends ServletContextHelper implements HttpContext {
   static final String CONTEXT_NAME =
           "pl.kubiczak.felix.shark.samples.http.whiteboard.context.SampleContext";
 
-  static final String CONTEXT_PATH = "/sample-context/*";
+  static final String CONTEXT_PATH = "/samples.http.whiteboard.context/*";
 
   private static final String DEFAULT_PAGE = "index.html";
 
