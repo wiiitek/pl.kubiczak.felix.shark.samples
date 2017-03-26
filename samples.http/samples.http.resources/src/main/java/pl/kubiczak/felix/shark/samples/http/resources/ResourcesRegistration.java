@@ -11,11 +11,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Component
+        (
+                immediate = true
+        )
 public class ResourcesRegistration {
 
   private static final String WEB_PATH = "/resources";
 
-  private static final String CONTENT = "/content/resources";
+  private static final String CONTENT = "/content/html";
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
