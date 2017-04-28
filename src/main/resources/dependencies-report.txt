@@ -1,7 +1,18 @@
 The following dependencies in Dependency Management have newer versions:
   com.google.code.gson:gson ............................... 2.7 -> 2.8.0
   javax.mail:mail ................................... 1.4.7 -> 1.5.0-b01
-  javax.validation:validation-api .......... 1.1.0.Final -> 2.0.0.Alpha1
+  javax.validation:validation-api ........... 1.1.0.Final -> 2.0.0.Beta1
   log4j:log4j ............................. 1.2.17 -> 1.2.17-atlassian-1
+  org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-security-config ...
+                                      4.1.4.RELEASE_1 -> 4.2.2.RELEASE_1
+  org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-security-core ...
+                                      4.1.4.RELEASE_1 -> 4.2.2.RELEASE_1
+  org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-security-web ...
+                                      4.1.4.RELEASE_1 -> 4.2.2.RELEASE_1
   org.glassfish.hk2:osgi-resource-locator ........... 1.0.1 -> 2.5.0-b36
+  org.slf4j:jcl-over-slf4j ...................... 1.7.25 -> 1.8.0-alpha2
+  org.slf4j:jul-to-slf4j ........................ 1.7.25 -> 1.8.0-alpha2
+  org.slf4j:log4j-over-slf4j .................... 1.7.25 -> 1.8.0-alpha2
+  org.slf4j:osgi-over-slf4j ..................... 1.7.25 -> 1.8.0-alpha2
+  org.slf4j:slf4j-api ........................... 1.7.25 -> 1.8.0-alpha2
 
