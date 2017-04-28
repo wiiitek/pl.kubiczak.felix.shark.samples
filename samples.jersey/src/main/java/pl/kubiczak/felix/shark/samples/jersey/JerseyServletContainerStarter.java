@@ -1,6 +1,5 @@
 package pl.kubiczak.felix.shark.samples.jersey;
 
-import org.apache.felix.framework.util.MapToDictionary;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.glassfish.jersey.servlet.ServletProperties;
 import org.osgi.service.component.annotations.Activate;
@@ -13,8 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Dictionary;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Hashtable;
 
 import javax.servlet.ServletException;
 
@@ -69,8 +67,8 @@ public class JerseyServletContainerStarter {
   }
 
   private Dictionary populateServletContainerParams() {
-    Map<String, String> params = new HashMap<>();
-    params.put(ServletProperties.JAXRS_APPLICATION_CLASS, JerseyApplication.class.getName());
-    return new MapToDictionary(params);
+    Dictionary dict = new Hashtable<>();
+    dict.put(ServletProperties.JAXRS_APPLICATION_CLASS, JerseyApplication.class.getName());
+    return dict;
   }
 }
