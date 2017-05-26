@@ -5,7 +5,7 @@
   <parent>
     <artifactId>parent</artifactId>
     <groupId>pl.kubiczak.felix.shark</groupId>
-    <version>1.18</version>
+    <version>1.19</version>
   </parent>
 
   <artifactId>samples</artifactId>
@@ -54,7 +54,7 @@
       <dependency>
         <groupId>pl.kubiczak.felix.shark</groupId>
         <artifactId>dependencies</artifactId>
-        <version>1.20-SNAPSHOT</version>
+        <version>1.20</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
