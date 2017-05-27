@@ -4,9 +4,13 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.Principal;
 import java.util.Date;
 
 import javax.servlet.Servlet;
@@ -42,7 +46,7 @@ public class ServletImpl extends HttpServlet {
           "(" + HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "=" + CONTEXT_NAME + ")";
 
   private static final String RESPONSE_PATTERN =
-          "Date = '%1s'\nRequestURI = '%2s'\nPathInfo = '%3s'\nQueryString = '%4s'";
+          "User = '%1s'\nDate = '%2s'\nRequestURI = '%3s'\nPathInfo = '%4s'\nQueryString = '%5s'";
 
   private final transient Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -56,8 +60,11 @@ public class ServletImpl extends HttpServlet {
     res.setCharacterEncoding("UTF-8");
     res.setStatus(HttpServletResponse.SC_OK);
 
+    SecurityContext securityContext = SecurityContextHolder.getContext();
+    log.debug("spring security context: '{}'", securityContext);
     String dateString = String.format(DATE_PATTERN, new Date());
     String msg = String.format(RESPONSE_PATTERN,
+            retrieveSpringUserId(securityContext, req),
             dateString,
             req.getRequestURI(),
             req.getPathInfo(),
@@ -69,5 +76,22 @@ public class ServletImpl extends HttpServlet {
     } catch (IllegalStateException | IOException exception) {
       log.error("error while getting writer: {}", exception.getMessage(), exception);
     }
+  }
+
+  private String retrieveSpringUserId(SecurityContext securityContext, HttpServletRequest req) {
+    String user = null;
+
+    Authentication authentication = securityContext.getAuthentication();
+    if (authentication == null) {
+      log.warn("there is no authentication object for currently logged user");
+    } else {
+      user = authentication.getName();
+    }
+    // tries to get user from request
+    if (user == null) {
+      Principal principal = req.getUserPrincipal();
+      user = principal.getName();
+    }
+    return user;
   }
 }
