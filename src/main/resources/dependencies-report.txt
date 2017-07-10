@@ -1,5 +1,4 @@
 The following dependencies in Dependency Management have newer versions:
-  com.google.code.gson:gson ............................... 2.7 -> 2.8.0
   javax.mail:mail ................................... 1.4.7 -> 1.5.0-b01
   javax.validation:validation-api ............. 1.1.0.Final -> 2.0.0.CR2
   log4j:log4j ............................. 1.2.17 -> 1.2.17-atlassian-1
@@ -14,6 +13,4 @@ The following dependencies in Dependency Management have newer versions:
   org.slf4j:log4j-over-slf4j .................... 1.7.25 -> 1.8.0-alpha2
   org.slf4j:osgi-over-slf4j ..................... 1.7.25 -> 1.8.0-alpha2
   org.slf4j:slf4j-api ........................... 1.7.25 -> 1.8.0-alpha2
-  org.spockframework:spock-core ...
-                                   1.1-groovy-2.4-rc-4 -> 1.1-groovy-2.4
 
