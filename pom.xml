@@ -97,7 +97,10 @@
         <executions>
           <execution>
             <id>watch-versions-for-dependencies-versions</id>
-            <phase>validate</phase>
+            <!--
+              doing this in verify phase because validate is called twice for release profile
+            -->
+            <phase>verify</phase>
             <goals>
               <goal>display-dependency-updates</goal>
             </goals>
