@@ -18,4 +18,32 @@
     <module>samples.tests.functional</module>
     <module>samples.tests.integration</module>
   </modules>
+
+  <profiles>
+    <profile>
+      <id>deploy-samples-to-felix-framework</id>
+      <activation>
+        <property>
+          <name>env.SHARK_HOME</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>deploy-sample-bundles-to-felix</id>
+                <phase>none</phase>
+                <goals>
+                  <goal>copy-resources</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
