@@ -1,17 +1,31 @@
 The following dependencies in Dependency Management have newer versions:
   javax.mail:mail ................................... 1.4.7 -> 1.5.0-b01
-  javax.validation:validation-api ........... 1.1.0.Final -> 2.0.0.Final
   log4j:log4j ............................. 1.2.17 -> 1.2.17-atlassian-1
-  org.apache.httpcomponents:httpcore-osgi ............... 4.4.6 -> 4.4.7
-  org.glassfish.hk2:osgi-resource-locator ........... 1.0.1 -> 2.5.0-b42
-  org.glassfish.jersey.containers:jersey-container-servlet-core ...
-                                                        2.26-b03 -> 2.26
-  org.glassfish.jersey.core:jersey-client ............. 2.26-b03 -> 2.26
-  org.glassfish.jersey.core:jersey-common ............. 2.26-b03 -> 2.26
-  org.glassfish.jersey.core:jersey-server ............. 2.26-b03 -> 2.26
-  org.slf4j:jcl-over-slf4j ...................... 1.7.25 -> 1.8.0-alpha2
-  org.slf4j:jul-to-slf4j ........................ 1.7.25 -> 1.8.0-alpha2
-  org.slf4j:log4j-over-slf4j .................... 1.7.25 -> 1.8.0-alpha2
-  org.slf4j:osgi-over-slf4j ..................... 1.7.25 -> 1.8.0-alpha2
-  org.slf4j:slf4j-api ........................... 1.7.25 -> 1.8.0-alpha2
+  org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-aop ...
+                                     4.3.10.RELEASE_1 -> 5.0.2.RELEASE_1
+  org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-beans ...
+                                     4.3.10.RELEASE_1 -> 5.0.2.RELEASE_1
+  org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-context ...
+                                     4.3.10.RELEASE_1 -> 5.0.2.RELEASE_1
+  org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-context-support ...
+                                     4.3.10.RELEASE_1 -> 5.0.2.RELEASE_1
+  org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-core ...
+                                     4.3.10.RELEASE_1 -> 5.0.2.RELEASE_1
+  org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-expression ...
+                                     4.3.10.RELEASE_1 -> 5.0.2.RELEASE_1
+  org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-test ...
+                                     4.3.10.RELEASE_1 -> 5.0.2.RELEASE_1
+  org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-web ...
+                                     4.3.10.RELEASE_2 -> 5.0.2.RELEASE_1
+  org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-webmvc ...
+                                     4.3.10.RELEASE_1 -> 5.0.2.RELEASE_1
+  org.slf4j:jcl-over-slf4j ....................... 1.7.25 -> 1.8.0-beta0
+  org.slf4j:jul-to-slf4j ......................... 1.7.25 -> 1.8.0-beta0
+  org.slf4j:log4j-over-slf4j ..................... 1.7.25 -> 1.8.0-beta0
+  org.slf4j:osgi-over-slf4j ...................... 1.7.25 -> 1.8.0-beta0
+  org.slf4j:slf4j-api ............................ 1.7.25 -> 1.8.0-beta0
+
+No dependencies in pluginManagement of plugins have newer versions.
+
+No dependencies in Plugin Dependencies have newer versions.
 
