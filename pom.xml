@@ -22,7 +22,6 @@
     <module>samples.http</module>
 
     <module>samples.ioc</module>
-    <module>samples.jersey</module>
     <module>samples.logging</module>
     <module>samples.managedservices</module>
     <module>samples.tests</module>
