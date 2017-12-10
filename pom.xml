@@ -99,7 +99,7 @@
             <!--
               doing this in verify phase because validate is called twice for release profile
             -->
-            <phase>verify</phase>
+            <phase>validate</phase>
             <goals>
               <goal>display-dependency-updates</goal>
             </goals>
