@@ -9,6 +9,7 @@ import static org.ops4j.pax.exam.CoreOptions.maven;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.wrappedBundle;
 
+import javax.inject.Inject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
@@ -20,11 +21,8 @@ import org.ops4j.pax.exam.spi.reactors.ExamReactorStrategy;
 import org.ops4j.pax.exam.spi.reactors.PerClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import pl.kubiczak.felix.shark.samples.ioc.annotations.scr.Simple;
 import pl.kubiczak.felix.shark.samples.tests.integration.ioc.LoggingOptions;
-
-import javax.inject.Inject;
 
 @RunWith(PaxExam.class)
 @ExamReactorStrategy(PerClass.class)
@@ -58,19 +56,19 @@ public class ScrAnnotationsTest {
   public Option[] provideRequiredBundles() {
 
     MavenArtifactUrlReference awaitility = maven("com.jayway.awaitility", "awaitility")
-            .versionAsInProject();
+        .versionAsInProject();
     WrappedUrlProvisionOption awaitilityOption = wrappedBundle(awaitility);
 
     return new Option[]{
-            junitBundles(),
+        junitBundles(),
 
-            LoggingOptions.logbackBundlesAndConfiguration(),
-            Options.bundlesForApacheScr(), awaitilityOption,
+        LoggingOptions.logbackBundlesAndConfiguration(),
+        Options.bundlesForApacheScr(), awaitilityOption,
 
-            // bundles for tests
-            //mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").versionAsInProject(),
-            mavenBundle("pl.kubiczak.felix.shark", "samples.ioc.annotations.scr")
-                    .versionAsInProject()
+        // bundles for tests
+        //mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").versionAsInProject(),
+        mavenBundle("pl.kubiczak.felix.shark", "samples.ioc.annotations.scr")
+            .versionAsInProject()
     };
   }
 }

@@ -5,6 +5,8 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+import javax.servlet.Filter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -15,10 +17,6 @@ import org.springframework.security.web.FilterChainProxy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.util.List;
-
-import javax.servlet.Filter;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:OSGI-INF/blueprint/spring-context.xml")
@@ -32,14 +30,14 @@ public class SpringBeansTest {
   @Test
   public void springSecurityFilterChainShouldBeCreated() {
     FilterChainProxy securityFilterChain
-            = applicationContext.getBean("springSecurityFilterChain", FilterChainProxy.class);
+        = applicationContext.getBean("springSecurityFilterChain", FilterChainProxy.class);
     assertThat(securityFilterChain, is(notNullValue()));
   }
 
   @Test
   public void springSecurityFilterChainShouldContainFilters() {
     FilterChainProxy securityFilterChain
-            = applicationContext.getBean("springSecurityFilterChain", FilterChainProxy.class);
+        = applicationContext.getBean("springSecurityFilterChain", FilterChainProxy.class);
     List<SecurityFilterChain> filterChains = securityFilterChain.getFilterChains();
 
     boolean containsFilter = false;

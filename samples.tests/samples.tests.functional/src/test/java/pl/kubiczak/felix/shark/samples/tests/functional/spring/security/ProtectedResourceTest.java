@@ -5,13 +5,11 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.startsWith;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import org.apache.http.StatusLine;
-import org.junit.Test;
-
-import pl.kubiczak.felix.shark.samples.tests.functional.SimpleHttpRequest;
-
 import java.io.IOException;
 import java.util.Map;
+import org.apache.http.StatusLine;
+import org.junit.Test;
+import pl.kubiczak.felix.shark.samples.tests.functional.SimpleHttpRequest;
 
 public class ProtectedResourceTest {
 
@@ -22,10 +20,10 @@ public class ProtectedResourceTest {
   private static final String REDIRECT_HEADER_KEY = "Location";
 
   private static final String PROTECTED_URL =
-          "http://localhost:8080/samples.ioc.blueprint.spring.security/protected-resource/";
+      "http://localhost:8080/samples.ioc.blueprint.spring.security/protected-resource/";
 
   private static final String LOGIN_PAGE_URL =
-          "http://localhost:8080/samples.ioc.blueprint.spring.security/login/";
+      "http://localhost:8080/samples.ioc.blueprint.spring.security/login/";
 
   @Test
   public void shouldRedirect() throws IOException {

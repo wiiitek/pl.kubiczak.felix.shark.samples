@@ -1,10 +1,9 @@
 package pl.kubiczak.felix.shark.samples.logging.jul;
 
-import org.osgi.framework.BundleActivator;
-import org.osgi.framework.BundleContext;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
 
 public class Activator implements BundleActivator {
 

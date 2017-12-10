@@ -10,10 +10,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Component
-        (
-                service = ResourcesRegistration.class,
-                immediate = true
-        )
+    (
+        service = ResourcesRegistration.class,
+        immediate = true
+    )
 public class ResourcesRegistration {
 
   private static final String PATH = "/samples.http.whiteboard.context/resources";

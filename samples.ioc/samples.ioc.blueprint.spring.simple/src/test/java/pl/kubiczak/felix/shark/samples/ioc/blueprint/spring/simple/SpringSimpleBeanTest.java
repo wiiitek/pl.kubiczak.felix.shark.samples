@@ -21,7 +21,7 @@ public class SpringSimpleBeanTest {
   @Test
   public void springSimpleBeanShouldBeCreated() {
     SpringSimpleBean springSimpleBean = applicationContext.getBean("springSimpleBean",
-            SpringSimpleBean.class);
+        SpringSimpleBean.class);
     assertThat(springSimpleBean, is(notNullValue()));
 
     String string = springSimpleBean.toString();
@@ -31,7 +31,7 @@ public class SpringSimpleBeanTest {
   @Test
   public void anotherInstanceShouldAlsoBeCreated() {
     SpringSimpleBean springSimpleBean = applicationContext.getBean("another",
-            SpringSimpleBean.class);
+        SpringSimpleBean.class);
     assertThat(springSimpleBean, is(notNullValue()));
 
     String string = springSimpleBean.toString();

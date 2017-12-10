@@ -1,13 +1,11 @@
 package pl.kubiczak.felix.shark.samples.ioc.blueprint.simple;
 
-
+import java.util.Date;
+import java.util.concurrent.atomic.AtomicLong;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Date;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * Sample OSGi events handler.
@@ -15,7 +13,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class EventHandlerImpl implements EventHandler {
 
   public static final String TOPIC =
-          "pl/kubiczak/felix/shark/samples/ioc/blueprint/simple/EventHandlerImpl/Topic";
+      "pl/kubiczak/felix/shark/samples/ioc/blueprint/simple/EventHandlerImpl/Topic";
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
@@ -37,7 +35,7 @@ public class EventHandlerImpl implements EventHandler {
   public void handleEvent(Event event) {
     long counter = processedEvents.incrementAndGet();
     log.debug("[{}]: current time: '{}', handling event: '{}'",
-            counter, dateFormatter.getFormatted(new Date()), event.getTopic());
+        counter, dateFormatter.getFormatted(new Date()), event.getTopic());
   }
 
   public long processedEvents() {

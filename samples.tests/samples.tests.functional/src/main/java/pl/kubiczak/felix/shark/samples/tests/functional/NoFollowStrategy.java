@@ -11,13 +11,13 @@ class NoFollowStrategy implements RedirectStrategy {
 
   @Override
   public boolean isRedirected(HttpRequest request, HttpResponse response, HttpContext context)
-          throws ProtocolException {
+      throws ProtocolException {
     return false;
   }
 
   @Override
   public HttpUriRequest getRedirect(HttpRequest request, HttpResponse response, HttpContext context)
-          throws ProtocolException {
+      throws ProtocolException {
     return null;
   }
 }

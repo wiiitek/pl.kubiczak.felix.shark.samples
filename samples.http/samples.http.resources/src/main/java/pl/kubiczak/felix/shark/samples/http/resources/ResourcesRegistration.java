@@ -11,9 +11,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Component
-        (
-                immediate = true
-        )
+    (
+        immediate = true
+    )
 public class ResourcesRegistration {
 
   private static final String WEB_PATH = "/samples.http.resources";

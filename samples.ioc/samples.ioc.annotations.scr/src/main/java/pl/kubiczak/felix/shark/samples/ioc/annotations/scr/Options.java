@@ -1,5 +1,6 @@
 package pl.kubiczak.felix.shark.samples.ioc.annotations.scr;
 
+import java.util.Map;
 import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Deactivate;
@@ -9,26 +10,24 @@ import org.apache.felix.scr.annotations.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Map;
-
 @Component
-        (
-                immediate = true,
-                metatype = true
-        )
+    (
+        immediate = true,
+        metatype = true
+    )
 @Service(Options.class)
 public class Options {
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
   @Property
-          (
-                  label = "Name Label",
-                  options = {
-                          @PropertyOption(name = "james.bond", value = "James Bond"),
-                          @PropertyOption(name = "john.doe", value = "John Doe")
-                  }
-          )
+      (
+          label = "Name Label",
+          options = {
+              @PropertyOption(name = "james.bond", value = "James Bond"),
+              @PropertyOption(name = "john.doe", value = "John Doe")
+          }
+      )
   private String name;
 
   /**

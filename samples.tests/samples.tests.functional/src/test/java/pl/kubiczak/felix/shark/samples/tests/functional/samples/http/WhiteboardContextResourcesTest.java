@@ -7,20 +7,18 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.startsWith;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import org.apache.http.StatusLine;
-import org.junit.Test;
-
-import pl.kubiczak.felix.shark.samples.tests.functional.SimpleHttpRequest;
-
 import java.io.IOException;
 import java.util.Map;
+import org.apache.http.StatusLine;
+import org.junit.Test;
+import pl.kubiczak.felix.shark.samples.tests.functional.SimpleHttpRequest;
 
 public class WhiteboardContextResourcesTest {
 
   private static final Integer STATUS_OK = 200;
 
   private static final String TESTED_PAGE
-          = "http://localhost:8080/samples.http.whiteboard.context/resources/subpage/";
+      = "http://localhost:8080/samples.http.whiteboard.context/resources/subpage/";
 
   @Test
   public void shouldReturnCorrectCodeForWhiteboardResources() throws IOException {

@@ -36,7 +36,7 @@ public class UsernamePasswordAuthenticator {
   public Authentication authenticate(String username, String password) {
     Authentication authentication = null;
     Authentication usernamePasswordToken =
-            new UsernamePasswordAuthenticationToken(username, password);
+        new UsernamePasswordAuthenticationToken(username, password);
     try {
       authentication = authenticationManager.authenticate(usernamePasswordToken);
     } catch (AuthenticationException e) {

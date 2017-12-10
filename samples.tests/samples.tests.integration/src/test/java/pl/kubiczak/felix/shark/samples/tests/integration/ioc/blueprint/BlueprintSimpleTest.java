@@ -11,6 +11,10 @@ import static org.ops4j.pax.exam.CoreOptions.maven;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 import static org.ops4j.pax.exam.CoreOptions.wrappedBundle;
 
+import java.util.Collections;
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
+import javax.inject.Inject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
@@ -27,15 +31,8 @@ import org.osgi.service.event.EventConstants;
 import org.osgi.service.event.EventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import pl.kubiczak.felix.shark.samples.ioc.blueprint.simple.EventHandlerImpl;
 import pl.kubiczak.felix.shark.samples.tests.integration.ioc.LoggingOptions;
-
-import java.util.Collections;
-import java.util.concurrent.Callable;
-import java.util.concurrent.TimeUnit;
-
-import javax.inject.Inject;
 
 
 @RunWith(PaxExam.class)
@@ -96,19 +93,19 @@ public class BlueprintSimpleTest {
   public Option[] provideRequiredBundles() {
 
     MavenArtifactUrlReference awaitility = maven("com.jayway.awaitility", "awaitility")
-            .versionAsInProject();
+        .versionAsInProject();
     WrappedUrlProvisionOption awaitilityOption = wrappedBundle(awaitility);
 
     return new Option[]{
-            junitBundles(),
+        junitBundles(),
 
-            LoggingOptions.logbackBundlesAndConfiguration(),
-            Options.springAndGeminiBlueprint(), awaitilityOption,
+        LoggingOptions.logbackBundlesAndConfiguration(),
+        Options.springAndGeminiBlueprint(), awaitilityOption,
 
-            // bundles for tests
-            mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").versionAsInProject(),
-            mavenBundle("pl.kubiczak.felix.shark", "samples.ioc.blueprint.simple")
-                    .versionAsInProject()
+        // bundles for tests
+        mavenBundle("org.apache.felix", "org.apache.felix.eventadmin").versionAsInProject(),
+        mavenBundle("pl.kubiczak.felix.shark", "samples.ioc.blueprint.simple")
+            .versionAsInProject()
     };
   }
 }

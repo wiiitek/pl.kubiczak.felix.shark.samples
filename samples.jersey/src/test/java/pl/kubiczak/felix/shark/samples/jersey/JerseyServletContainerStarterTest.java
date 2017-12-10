@@ -7,15 +7,13 @@ import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import java.util.Dictionary;
+import javax.servlet.Servlet;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.junit.Before;
 import org.junit.Test;
 import org.osgi.service.http.HttpContext;
 import org.osgi.service.http.HttpService;
-
-import java.util.Dictionary;
-
-import javax.servlet.Servlet;
 
 public class JerseyServletContainerStarterTest {
 
@@ -33,7 +31,7 @@ public class JerseyServletContainerStarterTest {
     tested.httpService = mock(HttpService.class);
     tested.registerJerseyServletContainer();
     verify(tested.httpService).registerServlet(eq(EXPECTED_JERSEY_PATH), any(Servlet.class),
-            any(Dictionary.class), any(HttpContext.class));
+        any(Dictionary.class), any(HttpContext.class));
   }
 
   @Test
@@ -41,7 +39,7 @@ public class JerseyServletContainerStarterTest {
     tested.httpService = mock(HttpService.class);
     tested.registerJerseyServletContainer();
     verify(tested.httpService).registerServlet(any(String.class), any(ServletContainer.class),
-            any(Dictionary.class), any(HttpContext.class));
+        any(Dictionary.class), any(HttpContext.class));
   }
 
   @Test

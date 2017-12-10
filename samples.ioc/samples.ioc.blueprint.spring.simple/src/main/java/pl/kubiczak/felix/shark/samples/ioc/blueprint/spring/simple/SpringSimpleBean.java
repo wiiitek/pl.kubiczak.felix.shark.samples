@@ -1,8 +1,7 @@
 package pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.simple;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.Arrays;
+import org.apache.commons.lang3.StringUtils;
 
 public class SpringSimpleBean {
 
@@ -24,7 +23,7 @@ public class SpringSimpleBean {
     String referencedBeanPart = StringUtils.EMPTY;
     if (property != null) {
       referencedBeanPart =
-              StringUtils.join(Arrays.asList("[", property.toString(), "]"), null);
+          StringUtils.join(Arrays.asList("[", property.toString(), "]"), null);
     }
     return StringUtils.join(Arrays.asList(namePart, referencedBeanPart), null);
   }

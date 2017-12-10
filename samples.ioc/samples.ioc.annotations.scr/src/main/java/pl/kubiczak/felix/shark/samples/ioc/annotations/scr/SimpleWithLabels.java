@@ -1,5 +1,6 @@
 package pl.kubiczak.felix.shark.samples.ioc.annotations.scr;
 
+import java.util.Map;
 import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Deactivate;
@@ -8,16 +9,14 @@ import org.apache.felix.scr.annotations.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Map;
-
 @Component
-        (
-                immediate = true,
-                metatype = true,
-                name = "Component SimpleWithLabels Name",
-                label = "Component SimpleWithLabels Label",
-                description = "Component pl.kubiczak [...] SimpleWithLabels Description"
-        )
+    (
+        immediate = true,
+        metatype = true,
+        name = "Component SimpleWithLabels Name",
+        label = "Component SimpleWithLabels Label",
+        description = "Component pl.kubiczak [...] SimpleWithLabels Description"
+    )
 @Service(SimpleWithLabels.class)
 public class SimpleWithLabels {
 

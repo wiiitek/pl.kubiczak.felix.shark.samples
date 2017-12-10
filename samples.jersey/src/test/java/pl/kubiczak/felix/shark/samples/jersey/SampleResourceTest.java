@@ -7,12 +7,10 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.Response;
+import org.junit.Before;
+import org.junit.Test;
 
 public class SampleResourceTest {
 

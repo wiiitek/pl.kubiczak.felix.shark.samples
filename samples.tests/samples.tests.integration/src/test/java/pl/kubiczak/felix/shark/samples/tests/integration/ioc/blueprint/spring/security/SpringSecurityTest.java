@@ -7,6 +7,7 @@ import static org.junit.Assert.assertThat;
 import static org.ops4j.pax.exam.CoreOptions.junitBundles;
 import static org.ops4j.pax.exam.CoreOptions.mavenBundle;
 
+import javax.inject.Inject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Configuration;
@@ -18,12 +19,9 @@ import org.ops4j.pax.exam.util.Filter;
 import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
-
 import pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.security.UsernamePasswordAuthenticator;
 import pl.kubiczak.felix.shark.samples.tests.integration.ioc.LoggingOptions;
 import pl.kubiczak.felix.shark.samples.tests.integration.ioc.blueprint.Options;
-
-import javax.inject.Inject;
 
 @RunWith(PaxExam.class)
 @ExamReactorStrategy(PerClass.class)
@@ -31,7 +29,7 @@ public class SpringSecurityTest {
 
   @Inject
   @Filter("(" + HttpWhiteboardConstants.HTTP_WHITEBOARD_FILTER_PATTERN
-          + "=/samples.ioc.blueprint.spring.security/*)")
+      + "=/samples.ioc.blueprint.spring.security/*)")
   private javax.servlet.Filter springSecurityFilterChain;
 
   @Inject
@@ -68,15 +66,15 @@ public class SpringSecurityTest {
   @Configuration
   public Option[] provideRequiredBundles() {
     return new Option[]{
-            junitBundles(),
+        junitBundles(),
 
-            LoggingOptions.logbackBundlesAndConfiguration(),
-            Options.springAndGeminiBlueprint(),
-            Options.springSecurity(),
+        LoggingOptions.logbackBundlesAndConfiguration(),
+        Options.springAndGeminiBlueprint(),
+        Options.springSecurity(),
 
-            // bundles for tests
-            mavenBundle("pl.kubiczak.felix.shark",
-                    "samples.ioc.blueprint.spring.security").versionAsInProject()
+        // bundles for tests
+        mavenBundle("pl.kubiczak.felix.shark",
+            "samples.ioc.blueprint.spring.security").versionAsInProject()
     };
   }
 }

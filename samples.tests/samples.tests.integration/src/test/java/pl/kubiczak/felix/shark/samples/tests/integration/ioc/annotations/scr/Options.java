@@ -10,8 +10,8 @@ class Options {
   public static Option bundlesForApacheScr() {
 
     return new DefaultCompositeOption(
-            mavenBundle("org.apache.felix",
-                    "org.apache.felix.scr").versionAsInProject()
+        mavenBundle("org.apache.felix",
+            "org.apache.felix.scr").versionAsInProject()
     );
   }
 

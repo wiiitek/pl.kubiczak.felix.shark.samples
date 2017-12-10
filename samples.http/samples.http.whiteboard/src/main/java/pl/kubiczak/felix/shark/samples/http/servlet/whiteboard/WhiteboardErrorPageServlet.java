@@ -1,5 +1,13 @@
 package pl.kubiczak.felix.shark.samples.http.servlet.whiteboard;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import javax.servlet.Servlet;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -7,32 +15,22 @@ import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 // see also
 // http://www.slideshare.net/mfrancis/http-whiteboard-osgi-compendium-60-how-web-apps-should-have-been-r-auge
 @Component
-        (
-                service = Servlet.class,
-                property = {
-                        HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT + "="
-                                + WhiteboardContext.CONTEXT_FILTER,
-                        HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN + "="
-                                + WhiteboardErrorPageServlet.SERVLET_PATTERN,
-                        HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_ERROR_PAGE + "="
-                                + "[404,403]",
-                        Constants.SERVICE_RANKING + ":Integer="
-                                + "100",
-                }
-        )
+    (
+        service = Servlet.class,
+        property = {
+            HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT + "="
+                + WhiteboardContext.CONTEXT_FILTER,
+            HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN + "="
+                + WhiteboardErrorPageServlet.SERVLET_PATTERN,
+            HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_ERROR_PAGE + "="
+                + "[404,403]",
+            Constants.SERVICE_RANKING + ":Integer="
+                + "100",
+        }
+    )
 public class WhiteboardErrorPageServlet extends HttpServlet {
 
   static final String SERVLET_PATTERN = "/*";
@@ -51,7 +49,7 @@ public class WhiteboardErrorPageServlet extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse res)
-          throws ServletException, IOException {
+      throws ServletException, IOException {
 
     String requestedPath = null;
     try {

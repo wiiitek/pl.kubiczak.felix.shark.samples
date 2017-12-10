@@ -1,21 +1,20 @@
 package pl.kubiczak.felix.shark.samples.managedservices;
 
+import java.util.Dictionary;
+import java.util.Enumeration;
 import org.osgi.service.cm.ConfigurationException;
 import org.osgi.service.cm.ManagedService;
 import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Dictionary;
-import java.util.Enumeration;
-
 @Component
-        (
-                service = {
-                        Service.class,
-                        ManagedService.class
-                }
-        )
+    (
+        service = {
+            Service.class,
+            ManagedService.class
+        }
+    )
 public class Service implements ManagedService {
 
   private final Logger log = LoggerFactory.getLogger(getClass());

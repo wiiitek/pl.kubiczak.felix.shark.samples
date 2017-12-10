@@ -1,9 +1,8 @@
 package pl.kubiczak.felix.shark.samples.ioc.annotations.scr;
 
+import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Map;
 
 /**
  * XML file with metatype information is provided for this service.

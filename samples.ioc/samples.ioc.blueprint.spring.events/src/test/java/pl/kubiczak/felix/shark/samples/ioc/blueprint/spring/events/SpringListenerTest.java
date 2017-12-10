@@ -2,15 +2,14 @@ package pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.events;
 
 import static com.jayway.awaitility.Awaitility.await;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.util.concurrent.Callable;
-import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:OSGI-INF/blueprint/spring-context.xml")

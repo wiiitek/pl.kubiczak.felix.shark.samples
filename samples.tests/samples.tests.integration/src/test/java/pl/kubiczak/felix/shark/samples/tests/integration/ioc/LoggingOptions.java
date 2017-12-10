@@ -16,17 +16,17 @@ public class LoggingOptions {
    */
   public static CompositeOption logbackBundlesAndConfiguration() {
     return new DefaultCompositeOption(
-            // slf4j configuration for container
-            mavenBundle("org.slf4j", "slf4j-api").versionAsInProject(),
-            mavenBundle("org.slf4j", "jcl-over-slf4j").versionAsInProject(),
-            mavenBundle("ch.qos.logback", "logback-core").versionAsInProject(),
-            mavenBundle("ch.qos.logback", "logback-classic").versionAsInProject(),
-            // org.apache.commons.logging
-            //mavenBundle("org.slf4j", "jcl-over-slf4j").versionAsInProject(),
+        // slf4j configuration for container
+        mavenBundle("org.slf4j", "slf4j-api").versionAsInProject(),
+        mavenBundle("org.slf4j", "jcl-over-slf4j").versionAsInProject(),
+        mavenBundle("ch.qos.logback", "logback-core").versionAsInProject(),
+        mavenBundle("ch.qos.logback", "logback-classic").versionAsInProject(),
+        // org.apache.commons.logging
+        //mavenBundle("org.slf4j", "jcl-over-slf4j").versionAsInProject(),
 
-            systemProperty("logback.configurationFile")
-                    .value("file:" + PathUtils.getBaseDir()
-                            + "/src/test/resources/logback-for-osgi.xml")
+        systemProperty("logback.configurationFile")
+            .value("file:" + PathUtils.getBaseDir()
+                + "/src/test/resources/logback-for-osgi.xml")
     );
   }
 }

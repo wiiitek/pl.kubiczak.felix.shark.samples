@@ -1,5 +1,14 @@
 package pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.security;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.security.Principal;
+import java.util.Date;
+import javax.servlet.Servlet;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 import org.slf4j.Logger;
@@ -8,28 +17,17 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.security.Principal;
-import java.util.Date;
-
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 @Component
-        (
-                service = Servlet.class,
-                property = {
-                        HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT + "="
-                                + ServletImpl.CONTEXT_FILTER,
-                        HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN + "="
-                                + ServletImpl.SERVLET_PATTERN
-                }
+    (
+        service = Servlet.class,
+        property = {
+            HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT + "="
+                + ServletImpl.CONTEXT_FILTER,
+            HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN + "="
+                + ServletImpl.SERVLET_PATTERN
+        }
 
-        )
+    )
 public class ServletImpl extends HttpServlet {
 
   /**
@@ -43,16 +41,16 @@ public class ServletImpl extends HttpServlet {
   static final String SERVLET_PATTERN = "/samples.ioc.blueprint.spring.security/*";
 
   static final String CONTEXT_FILTER =
-          "(" + HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "=" + CONTEXT_NAME + ")";
+      "(" + HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "=" + CONTEXT_NAME + ")";
 
   private static final String RESPONSE_PATTERN =
-          "User = '%1s'\nDate = '%2s'\nRequestURI = '%3s'\nPathInfo = '%4s'\nQueryString = '%5s'";
+      "User = '%1s'\nDate = '%2s'\nRequestURI = '%3s'\nPathInfo = '%4s'\nQueryString = '%5s'";
 
   private final transient Logger log = LoggerFactory.getLogger(this.getClass());
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse res)
-          throws ServletException, IOException {
+      throws ServletException, IOException {
 
     log.debug("remote host: '{}'", req.getRemoteHost());
 
@@ -64,11 +62,11 @@ public class ServletImpl extends HttpServlet {
     log.debug("spring security context: '{}'", securityContext);
     String dateString = String.format(DATE_PATTERN, new Date());
     String msg = String.format(RESPONSE_PATTERN,
-            retrieveSpringUserId(securityContext, req),
-            dateString,
-            req.getRequestURI(),
-            req.getPathInfo(),
-            req.getQueryString());
+        retrieveSpringUserId(securityContext, req),
+        dateString,
+        req.getRequestURI(),
+        req.getPathInfo(),
+        req.getQueryString());
 
     try (PrintWriter out = res.getWriter()) {
       out.println(msg);

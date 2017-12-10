@@ -1,6 +1,5 @@
 package pl.kubiczak.felix.shark.samples.logging.log4j.old;
 
-
 import org.apache.log4j.Logger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

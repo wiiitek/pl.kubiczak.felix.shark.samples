@@ -3,12 +3,10 @@ package pl.kubiczak.felix.shark.samples.tests.functional.samples.jersey;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
+import java.io.IOException;
 import org.json.JSONObject;
 import org.junit.Test;
-
 import pl.kubiczak.felix.shark.samples.tests.functional.SimpleHttpRequest;
-
-import java.io.IOException;
 
 public class SampleResourceTest {
 

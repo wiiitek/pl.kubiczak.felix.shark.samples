@@ -1,5 +1,7 @@
 package pl.kubiczak.felix.shark.samples.security;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.felix.webconsole.WebConsoleSecurityProvider2;
 import org.apache.felix.webconsole.WebConsoleSecurityProvider3;
@@ -8,11 +10,7 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
-
 import pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.security.UsernamePasswordAuthenticator;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @Component
 public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
@@ -29,7 +27,7 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
   public void logout(HttpServletRequest httpServletRequest,
                      HttpServletResponse httpServletResponse) {
     WebConsoleAuthHelper webConsoleAuthHelper =
-            new WebConsoleAuthHelper(httpServletRequest, httpServletResponse);
+        new WebConsoleAuthHelper(httpServletRequest, httpServletResponse);
     if (webConsoleAuthHelper.isAuthenticated()) {
       webConsoleAuthHelper.doLogout();
     }
@@ -46,7 +44,7 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
     boolean authenticated = false;
 
     WebConsoleAuthHelper webConsoleAuthHelper =
-            new WebConsoleAuthHelper(httpServletRequest, httpServletResponse);
+        new WebConsoleAuthHelper(httpServletRequest, httpServletResponse);
     if (webConsoleAuthHelper.isAuthenticated()) {
       authenticated = true;
     } else {
@@ -54,7 +52,7 @@ public class SampleSecurityProvider implements WebConsoleSecurityProvider3 {
       Pair<String, String> credentials = decoder.retrieveDecodedCredentials();
 
       Authentication authentication =
-              authenticator.authenticate(credentials.getLeft(), credentials.getRight());
+          authenticator.authenticate(credentials.getLeft(), credentials.getRight());
 
       if (authentication != null) {
         String principal = authentication.getPrincipal().toString();

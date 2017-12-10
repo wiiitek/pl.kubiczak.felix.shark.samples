@@ -1,16 +1,14 @@
 package pl.kubiczak.felix.shark.samples.security;
 
+import java.io.IOException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.felix.webconsole.WebConsoleSecurityProvider2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
-
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 class WebConsoleAuthHelper {
 
@@ -18,7 +16,7 @@ class WebConsoleAuthHelper {
 
   // for 'charset' authentication parameter see https://tools.ietf.org/html/rfc7617#section-2.1
   private static final String RESPONSE_AUTHENTICATION_VALUE =
-          "Basic realm=\"Sample Security Provider for OSGi Management Console\", charset=\"UTF-8\"";
+      "Basic realm=\"Sample Security Provider for OSGi Management Console\", charset=\"UTF-8\"";
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 

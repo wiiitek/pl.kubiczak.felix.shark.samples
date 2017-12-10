@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
+import java.util.Locale;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.util.Locale;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:OSGI-INF/blueprint/spring-context.xml")
@@ -38,7 +37,7 @@ public class SpringBeanTest {
     Locale irrelevantLocale = new Locale("en");
     String[] irrelevantArgs = new String[]{"irrelevant", "arguments"};
     String retrievedMessage = messageSource.getMessage(
-            "irrelevant.key", irrelevantArgs, "Default message", irrelevantLocale);
+        "irrelevant.key", irrelevantArgs, "Default message", irrelevantLocale);
 
     assertThat(retrievedMessage, is("Default message"));
   }

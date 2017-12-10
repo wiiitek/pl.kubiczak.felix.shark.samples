@@ -2,7 +2,6 @@ package pl.kubiczak.felix.shark.samples.jersey;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.ws.rs.core.Application;
 
 public class JerseyApplication extends Application {

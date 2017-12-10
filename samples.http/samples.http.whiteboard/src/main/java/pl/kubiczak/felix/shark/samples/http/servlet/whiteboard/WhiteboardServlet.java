@@ -1,31 +1,29 @@
 package pl.kubiczak.felix.shark.samples.http.servlet.whiteboard;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Date;
+import javax.servlet.Servlet;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
-
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 @Component
-        (
-                service = Servlet.class,
-                property = {
-                        HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT + "="
-                                + WhiteboardContext.CONTEXT_FILTER,
-                        HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN + "="
-                                + WhiteboardServlet.SERVLET_PATTERN
-                }
-        )
+    (
+        service = Servlet.class,
+        property = {
+            HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT + "="
+                + WhiteboardContext.CONTEXT_FILTER,
+            HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN + "="
+                + WhiteboardServlet.SERVLET_PATTERN
+        }
+    )
 public class WhiteboardServlet extends HttpServlet {
 
   static final String SERVLET_PATTERN = "/servlet/*";
@@ -53,7 +51,7 @@ public class WhiteboardServlet extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse res)
-          throws ServletException, IOException {
+      throws ServletException, IOException {
 
     log.debug("remote host: '{}'", req.getRemoteHost());
 
@@ -62,7 +60,7 @@ public class WhiteboardServlet extends HttpServlet {
     res.setStatus(HttpServletResponse.SC_OK);
 
     String msg = String.format(responsePattern,
-            req.getRequestURI(), req.getPathInfo(), req.getQueryString());
+        req.getRequestURI(), req.getPathInfo(), req.getQueryString());
 
     try (PrintWriter out = res.getWriter()) {
       out.println(msg);

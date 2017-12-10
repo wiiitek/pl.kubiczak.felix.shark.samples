@@ -1,14 +1,12 @@
 package pl.kubiczak.felix.shark.samples.jersey;
 
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.empty;
 
-import org.junit.Test;
-
 import java.util.Set;
+import org.junit.Test;
 
 public class JerseyApplicationTest {
 

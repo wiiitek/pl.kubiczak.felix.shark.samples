@@ -5,6 +5,8 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.when;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.felix.webconsole.WebConsoleSecurityProvider2;
 import org.junit.Before;
@@ -12,9 +14,6 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.security.core.Authentication;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class WebConsoleAuthHelperTest {
 
@@ -38,7 +37,7 @@ public class WebConsoleAuthHelperTest {
   @Test
   public void isAuthenticated_shouldReturnFalseForNullAttributeValue() {
     when(httpServletRequest.getAttribute(eq(WebConsoleSecurityProvider2.USER_ATTRIBUTE)))
-            .thenReturn(null);
+        .thenReturn(null);
     boolean isAuthenticated = tested.isAuthenticated();
     assertFalse(isAuthenticated);
   }
@@ -46,7 +45,7 @@ public class WebConsoleAuthHelperTest {
   @Test
   public void isAuthenticated_shouldReturnFalseForEmptyAttributeValue() {
     when(httpServletRequest.getAttribute(eq(WebConsoleSecurityProvider2.USER_ATTRIBUTE)))
-            .thenReturn(StringUtils.EMPTY);
+        .thenReturn(StringUtils.EMPTY);
     boolean isAuthenticated = tested.isAuthenticated();
     assertFalse(isAuthenticated);
   }
@@ -54,7 +53,7 @@ public class WebConsoleAuthHelperTest {
   @Test
   public void isAuthenticated_shouldReturnTrueForAuthObject() {
     when(httpServletRequest.getAttribute(eq(WebConsoleSecurityProvider2.USER_ATTRIBUTE)))
-            .thenReturn(authentication);
+        .thenReturn(authentication);
     boolean isAuthenticated = tested.isAuthenticated();
     assertTrue(isAuthenticated);
   }
@@ -62,7 +61,7 @@ public class WebConsoleAuthHelperTest {
   @Test
   public void isAuthenticated_shouldReturnFalseForNonAuthObject() {
     when(httpServletRequest.getAttribute(eq(WebConsoleSecurityProvider2.USER_ATTRIBUTE)))
-            .thenReturn(new Object());
+        .thenReturn(new Object());
     boolean isAuthenticated = tested.isAuthenticated();
     assertFalse(isAuthenticated);
   }

@@ -1,5 +1,9 @@
 package pl.kubiczak.felix.shark.samples.http.whiteboard.context;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 import org.osgi.framework.Bundle;
 import org.osgi.service.component.ComponentContext;
@@ -13,30 +17,25 @@ import org.owasp.esapi.ESAPI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.Set;
-
 /**
  * See http://blog.osoco.de/2016/10/http-whiteboard-simply-simple-part-iii/
  */
 @Component(
-        service = {
-                ServletContextHelper.class,
-                SampleContext.class
-        },
-        scope = ServiceScope.BUNDLE,
-        property = {
-                HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "="
-                        + SampleContext.CONTEXT_NAME,
-                HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_PATH + "="
-                        + SampleContext.CONTEXT_PATH
-        })
+    service = {
+        ServletContextHelper.class,
+        SampleContext.class
+    },
+    scope = ServiceScope.BUNDLE,
+    property = {
+        HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "="
+            + SampleContext.CONTEXT_NAME,
+        HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_PATH + "="
+            + SampleContext.CONTEXT_PATH
+    })
 public class SampleContext extends ServletContextHelper implements HttpContext {
 
   static final String CONTEXT_NAME =
-          "pl.kubiczak.felix.shark.samples.http.whiteboard.context.SampleContext";
+      "pl.kubiczak.felix.shark.samples.http.whiteboard.context.SampleContext";
 
   static final String CONTEXT_PATH = "/samples.http.whiteboard.context/*";
 
