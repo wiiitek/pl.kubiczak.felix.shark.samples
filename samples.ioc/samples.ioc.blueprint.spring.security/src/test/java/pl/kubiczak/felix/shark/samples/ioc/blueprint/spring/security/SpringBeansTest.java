@@ -43,13 +43,11 @@ public class SpringBeansTest {
     List<SecurityFilterChain> filterChains = securityFilterChain.getFilterChains();
 
     boolean containsFilter = false;
-    if (log.isDebugEnabled()) {
-      for (SecurityFilterChain filterChain : filterChains) {
-        log.debug("logging filterChain...");
-        for (Filter filter : filterChain.getFilters()) {
-          log.debug("filter: '{}'", filter.getClass().getName());
-          containsFilter = true;
-        }
+    for (SecurityFilterChain filterChain : filterChains) {
+      log.debug("logging filterChain...");
+      for (Filter filter : filterChain.getFilters()) {
+        log.debug("filter: '{}'", filter.getClass().getName());
+        containsFilter = true;
       }
     }
 
