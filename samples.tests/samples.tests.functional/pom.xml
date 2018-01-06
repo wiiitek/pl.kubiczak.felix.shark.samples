@@ -79,4 +79,13 @@
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>run-its</id>
+      <properties>
+        <skip.functional.tests>false</skip.functional.tests>
+      </properties>
+    </profile>
+  </profiles>
 </project>

@@ -1,5 +1,4 @@
 The following dependencies in Dependency Management have newer versions:
-  javax.mail:mail ................................... 1.4.7 -> 1.5.0-b01
   log4j:log4j ............................. 1.2.17 -> 1.2.17-atlassian-1
   org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-aop ...
                                      4.3.10.RELEASE_1 -> 5.0.2.RELEASE_1
