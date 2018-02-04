@@ -1,4 +1,6 @@
 The following dependencies in Dependency Management have newer versions:
+  ch.qos.logback:logback-classic ................. 1.2.3 -> 1.3.0-alpha2
+  ch.qos.logback:logback-core .................... 1.2.3 -> 1.3.0-alpha2
   log4j:log4j ............................. 1.2.17 -> 1.2.17-atlassian-1
   org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-aop ...
                                      4.3.10.RELEASE_1 -> 5.0.2.RELEASE_1
@@ -18,11 +20,11 @@ The following dependencies in Dependency Management have newer versions:
                                      4.3.10.RELEASE_2 -> 5.0.2.RELEASE_1
   org.apache.servicemix.bundles:org.apache.servicemix.bundles.spring-webmvc ...
                                      4.3.10.RELEASE_1 -> 5.0.2.RELEASE_1
-  org.slf4j:jcl-over-slf4j ....................... 1.7.25 -> 1.8.0-beta0
-  org.slf4j:jul-to-slf4j ......................... 1.7.25 -> 1.8.0-beta0
-  org.slf4j:log4j-over-slf4j ..................... 1.7.25 -> 1.8.0-beta0
-  org.slf4j:osgi-over-slf4j ...................... 1.7.25 -> 1.8.0-beta0
-  org.slf4j:slf4j-api ............................ 1.7.25 -> 1.8.0-beta0
+  org.slf4j:jcl-over-slf4j ....................... 1.7.25 -> 1.8.0-beta1
+  org.slf4j:jul-to-slf4j ......................... 1.7.25 -> 1.8.0-beta1
+  org.slf4j:log4j-over-slf4j ..................... 1.7.25 -> 1.8.0-beta1
+  org.slf4j:osgi-over-slf4j ...................... 1.7.25 -> 1.8.0-beta1
+  org.slf4j:slf4j-api ............................ 1.7.25 -> 1.8.0-beta1
 
 No dependencies in pluginManagement of plugins have newer versions.
 
