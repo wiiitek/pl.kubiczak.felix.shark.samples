@@ -47,18 +47,6 @@
     <maven.repo.local>C:/maven-repository</maven.repo.local>
   </properties>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>pl.kubiczak.felix.shark</groupId>
-        <artifactId>dependencies</artifactId>
-        <version>1.26</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
   <repositories>
     <repository>
       <id>maven.kubiczak.pl</id>
