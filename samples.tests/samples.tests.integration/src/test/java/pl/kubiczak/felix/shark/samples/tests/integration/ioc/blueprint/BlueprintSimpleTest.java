@@ -72,7 +72,7 @@ public class BlueprintSimpleTest {
     log.debug("sending asynchronous event..");
     eventAdmin.postEvent(new Event(EventHandlerImpl.TOPIC, Collections.EMPTY_MAP));
 
-    await().atMost(10, TimeUnit.SECONDS).until(new Callable<Boolean>() {
+    await().atMost(20, TimeUnit.SECONDS).until(new Callable<Boolean>() {
       public Boolean call() throws Exception {
         long processedEvents = ((EventHandlerImpl) eventHandler).processedEvents();
         return processedEvents > before;
