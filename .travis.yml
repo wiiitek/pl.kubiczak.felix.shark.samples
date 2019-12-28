@@ -18,4 +18,4 @@ jobs:
   include:
     - stage: sonar
       jdk: openjdk11
-      script: mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+      script: mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dmaven.repo.local=$HOME/.m2/repository
