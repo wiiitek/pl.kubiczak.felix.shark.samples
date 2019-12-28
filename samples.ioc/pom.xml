@@ -3,8 +3,8 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>samples</artifactId>
     <groupId>pl.kubiczak.felix.shark</groupId>
+    <artifactId>samples</artifactId>
     <version>1.19-SNAPSHOT</version>
   </parent>
 
