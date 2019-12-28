@@ -47,6 +47,12 @@ public class Options {
         mavenBundle("org.apache.felix",
             "org.apache.felix.scr")
             .versionAsInProject(),
+        mavenBundle("org.osgi",
+            "org.osgi.util.promise")
+            .versionAsInProject(),
+        mavenBundle("org.osgi",
+            "org.osgi.util.function")
+            .versionAsInProject(),
         // HTTP Service
         mavenBundle("org.apache.felix",
             "org.apache.felix.http.servlet-api")
