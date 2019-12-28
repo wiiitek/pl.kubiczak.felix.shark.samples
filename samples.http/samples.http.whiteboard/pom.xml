@@ -5,7 +5,7 @@
   <parent>
     <groupId>pl.kubiczak.felix.shark</groupId>
     <artifactId>samples.http</artifactId>
-    <version>1.19-SNAPSHOT</version>
+    <version>1.19</version>
   </parent>
 
   <artifactId>samples.http.whiteboard</artifactId>
