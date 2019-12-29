@@ -58,8 +58,6 @@ public class WhiteboardErrorPageServlet extends HttpServlet {
       log.error("error while collecting the path from request", murle);
     }
     log.debug("page not found: '{}', redirecting to: '{}'", requestedPath, REDIRECT_TO_URL);
-
-    res.setHeader("Redirect-Type", "Page not found: " + requestedPath);
     try {
       res.sendRedirect(REDIRECT_TO_URL);
     } catch (IOException ioe) {

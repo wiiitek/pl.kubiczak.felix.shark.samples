@@ -23,7 +23,7 @@ public class ResourcesRegistration {
   private final Logger log = LoggerFactory.getLogger(getClass());
 
   @Reference(policy = ReferencePolicy.DYNAMIC)
-  private volatile HttpService httpService;
+  private HttpService httpService;
 
   /**
    * Registers resources within OSGI HTTP service.

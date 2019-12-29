@@ -17,17 +17,6 @@
     <maven.test.skip>true</maven.test.skip>
   </properties>
 
-  <dependencyManagement>
-    <dependencies>
-      <!-- overwrites scope as needed for tests -->
-      <!--<dependency>
-        <groupId>org.json</groupId>
-        <artifactId>json</artifactId>
-        <version>20160810</version>
-      </dependency>-->
-    </dependencies>
-  </dependencyManagement>
-
   <dependencies>
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
