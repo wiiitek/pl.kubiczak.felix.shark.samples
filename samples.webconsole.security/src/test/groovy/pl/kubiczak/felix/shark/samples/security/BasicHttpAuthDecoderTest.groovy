@@ -13,7 +13,7 @@ import static org.mockito.Mockito.when
 class BasicHttpAuthDecoderTest extends Specification {
 
     @Unroll
-    def "should decode '#username' and '#password' from #headerValue"() {
+    def "should decode '#headerValue' to '#username' and '#password'"() {
 
         given:
         HttpServletRequest mockHttpServletRequest = mock(HttpServletRequest.class)
@@ -46,8 +46,7 @@ class BasicHttpAuthDecoderTest extends Specification {
         "A"                                                                  | null                | null
         "Basic"                                                              | null                | null
         "Basic "                                                             | null                | null
-        // TODO: update code for incorrect base64 vallues
-        //"Basic 123"                                                          | null                | null
+        "Basic 123"                                                          | null                | null
         "Basic MDAwMDAwMDA="                                                 | null                | null
         "Adv   dXNlcm5hbWU6UEBzc3cwcmQ="                                     | null                | null
         "      dXNlcm5hbWU6UEBzc3cwcmQ="                                     | null                | null

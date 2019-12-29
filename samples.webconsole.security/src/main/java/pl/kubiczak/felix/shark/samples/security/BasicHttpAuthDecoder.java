@@ -1,6 +1,7 @@
 package pl.kubiczak.felix.shark.samples.security;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
@@ -12,8 +13,6 @@ import org.slf4j.LoggerFactory;
 class BasicHttpAuthDecoder {
 
   private static final String REQUEST_AUTHORIZATION_HEADER = "Authorization";
-
-  private static final String ENCODING = "UTF-8";
 
   private static final String BASIC_AUTH_PREFIX_UPPERCASE = "BASIC";
 
@@ -73,9 +72,10 @@ class BasicHttpAuthDecoder {
     String result = null;
     if (StringUtils.isNotBlank(encoded)) {
       try {
-        result = new String(Base64.decodeBase64(encoded), ENCODING);
-      } catch (UnsupportedEncodingException e) {
-        log.error("'{}' encoding is NOT supported", ENCODING, e);
+        byte[] bytes = Base64.decodeBase64(encoded);
+        result = new String(bytes, StandardCharsets.UTF_8);
+      } catch (IllegalArgumentException iae) {
+        log.error("Illegal base 64 input: '{}'. Error message: {}", encoded, iae.getMessage());
       }
     }
     return result;
