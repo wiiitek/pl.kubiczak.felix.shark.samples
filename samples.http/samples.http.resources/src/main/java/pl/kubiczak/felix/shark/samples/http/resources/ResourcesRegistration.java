@@ -22,24 +22,67 @@ public class ResourcesRegistration {
 
   private final Logger log = LoggerFactory.getLogger(getClass());
 
-  @Reference(policy = ReferencePolicy.DYNAMIC)
   private HttpService httpService;
 
   /**
-   * Registers resources within OSGI HTTP service.
+   * Bind http service into this component.
+   * 
+   * @param httpService dynamically provided HTTP service
+   */
+  @Reference(policy = ReferencePolicy.DYNAMIC)
+  public void bindHttpService(HttpService httpService) {
+    log.debug("Binding HTTP service: '{}'", httpService);
+    registerResources(httpService);
+    this.httpService = httpService;
+  }
+
+  /**
+   * Unbind http service into this component.
+   *
+   * @param httpService dynamically provided HTTP service
+   */
+  public void unbindHttpService(HttpService httpService) {
+    log.debug("Unbinding HTTP service: '{}'", httpService);
+    unregisterResources(this.httpService);
+    this.httpService = httpService;
+  }
+
+  /**
+   * Activation method for a component.
    */
   @Activate
   public void start() {
-    try {
-      httpService.registerResources(WEB_PATH, CONTENT, null);
-      log.debug("Resources registered");
-    } catch (NamespaceException ne) {
-      log.warn("Failed to register resources", ne);
+    if (httpService != null) {
+      log.info("Component activation: HTTP service is present");
+    } else {
+      log.info("Component activation: HTTP service not available");
     }
   }
 
+  /**
+   * Deactivation method for a component.
+   */
   @Deactivate
   public void stop() {
-    httpService.unregister(WEB_PATH);
+    log.info("Component deactivation. HTTP service: '{}'", httpService);
+    unregisterResources(this.httpService);
+  }
+
+  private void registerResources(HttpService httpService) {
+    if (httpService != null) {
+      try {
+        httpService.registerResources(WEB_PATH, CONTENT, null);
+        log.debug("Resources registered");
+      } catch (NamespaceException ne) {
+        log.warn("Failed to register resources", ne);
+      }
+    }
+  }
+
+  private void unregisterResources(HttpService httpService) {
+    if (httpService != null) {
+      httpService.unregister(WEB_PATH);
+      log.debug("Resources unregistered");
+    }
   }
 }
