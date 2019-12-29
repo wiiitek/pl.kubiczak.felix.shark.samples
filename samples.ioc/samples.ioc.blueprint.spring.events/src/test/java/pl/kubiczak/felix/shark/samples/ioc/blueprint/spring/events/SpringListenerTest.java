@@ -1,6 +1,8 @@
 package pl.kubiczak.felix.shark.samples.ioc.blueprint.spring.events;
 
 import static com.jayway.awaitility.Awaitility.await;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
@@ -25,13 +27,17 @@ public class SpringListenerTest {
 
     long before = listener.processedEvents();
     publisher.publishEvent();
-    // TODO: spring events are asynchronous, test should be refactored for that
-    await().atMost(5, TimeUnit.SECONDS).until(listenerHasReceivedEvent(before, listener));
+    await().atMost(5, TimeUnit.SECONDS).until(
+            listenerHasReceivedEvent(before, listener)
+    );
+    
+    long after = listener.processedEvents();
+    assertThat(after, is(before + 1));
   }
 
   private Callable<Boolean> listenerHasReceivedEvent(final long before, final Listener listener) {
     return new Callable<Boolean>() {
-      public Boolean call() throws Exception {
+      public Boolean call() {
         return listener.processedEvents() > before;
       }
     };

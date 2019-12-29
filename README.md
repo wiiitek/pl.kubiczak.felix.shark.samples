@@ -3,7 +3,7 @@ pl.kubiczak.felix.shark.samples
 ===============================
 
 [![Build Status](https://travis-ci.org/wiiitek/pl.kubiczak.felix.shark.samples.svg?branch=master)](https://travis-ci.org/wiiitek/pl.kubiczak.felix.shark.samples)
-[![sonarcloud.io](https://sonarcloud.io/api/badges/gate?key=pl.kubiczak.felix.shark:samples)](https://sonarcloud.io/dashboard?id=pl.kubiczak.felix.shark%3Asamples)
+[![sonarcloud.io](https://sonarcloud.io/api/project_badges/measure?project=wiiitek_pl.kubiczak.felix.shark.samples&metric=alert_status)](https://sonarcloud.io/dashboard?id=wiiitek_pl.kubiczak.felix.shark.samples)
 
 Code samples for Shark.
 
