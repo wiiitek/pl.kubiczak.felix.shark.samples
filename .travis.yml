@@ -10,7 +10,7 @@ addons:
   sonarcloud:
     organization: "wiiitek-github"
     token:
-      secure: qtf9EPQ1Aq6ci8aD7WAPFryjtO7KwR5pK91Bibl4/DRI/etoUW6lFjB9m5EI1rJA3sDjxvQc9L8cO66x4zZs/OzskinQezZZT0cXR3MGMvWppxfBbJ3TcZhX22FwmWUCkVao2OoFOGA2npAWD7hCXs4R1CpOGpUyB29OTDKfZJ/JEvC9tS12blpv7mHR+6QLGivEObUsVkqCQmPVLMzWDXBFmaGpYuJj+hcEOtO/WfWwrHLzH0Ifb27SDJS4t7sdK4bdBoAVTF8i/wf5FyA3OOFC3cNGD3JKsmmRsIoj/bXZvo1b2eb1hHHrWmiqydES/B3eSCnKDdJov9D1OzrmB3MXeFnBnvgBovfgXK3MSPWg1hb5nCA2gkzJ7lO8mEWr5x1YVJL+s7etjv4o3F+hRvB6m/sER6XfNQ2rXfZVqLHSq2tFkpFXJP0Sb9Uq7ZV7tsfblcNz3Uu12UZcRD7wheH63uWpKCRzu0nYX0zKWE1EOJ4WG/J/l+wz880Hs9XEJU0MgR0Atv1GME7to1g+0MPyL8GF4LXDpSgiXdxbAf50ZX5SeUS9K8U102mXdZdxPPz1D7rzkvGjXadg7j0TiLnvS0w9nlY0RX45XcwOZzS+sn11trT1tlXCahq3l1SX1PHq0Cr4/iEHOimOUmoxtOlh9NMYQ2OxNVWrT3JKoHo=
+      secure: 'kIEVqkkPToOM2unHC326AIwPuvoDVbgQzcmVTy3hihZSNfMqdCXPThgfuvfQogsjbkP3/YkpOr9P/EH17JiySSySUrK1HgHBOpi94Y55xfE5W3QYbcTNIa8f5wNkae+hDM4GmtmVu6MIdbqfTkrru1mFQRyM6MUmlL9B98bP8mbUCDRt50ly22TiLcTVe56QEr2pvwb7Iy1/ynkouzRjv436g1DWeCjDrmfwRHkUUWyMjfWhRornivp7DHBnZiMlHb/zXwfMvD0BdauFp+pZw2WleuNA444mQiJr38XV9/0xfCSlS8GHg6RKhMlQpK6leT26QL83cLWIc0qkvph6viGP7rKV4IYjCk6Ea9qjKptnaHnZ8a0+PtmvjooPodE05mNzbs7KmeiXayllLvrN20ZyeXQi7LQL4XwzZnlQJaI1wXr3+/rC/elr7s5I8AYbLGamPGNQt4A7qXQgpoP/R5AbkwUCrtwEQiQBrbIrXeB8S7U7VdR42A2TXO8R1p+8RrwhuUxC4p+5XHQ4SZ+KeUwhdsuicjQ0zgvOLlvB6/QyAy0ls3IWsLLpoBwmN4osyk6taEVR6jiL8uovjCXYQeUfZX5Vspi6Ptgt1HgYFavDjn8I6Gd5X6Nr216Omvc7kSn1TbZL0R0Y+zwsRGjdroNS4YomSglhbCQHVVVjx6M='
 
 # see
 # https://docs.travis-ci.com/user/build-stages#Build-Stages-and-Build-Matrix-Expansion
@@ -18,4 +18,6 @@ jobs:
   include:
     - stage: sonar
       jdk: openjdk11
-      script: mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dmaven.repo.local=$HOME/.m2/repository -Dsonar.projectKey=wiiitek_pl.kubiczak.felix.shark.samples
+      script:
+        - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package org.jacoco:jacoco-maven-plugin:report -Dmaven.repo.local=$HOME/.m2/repository
+        - mvn sonar:sonar -Dsonar.projectKey=pl.kubiczak:jade-to-filters-maven-plugin -Dsonar.projectKey=wiiitek_pl.kubiczak.felix.shark.samples
